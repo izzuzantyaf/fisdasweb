@@ -3,12 +3,12 @@
     justify-content: center;
     height: 100vh;
     background-color: #222EA2;
-    padding: 50px 15px 10px 15px;
+    padding: 80px 15px 10px 15px;
 }
 
 .hero .main-title {
     color: white;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
     text-align: center;
 }

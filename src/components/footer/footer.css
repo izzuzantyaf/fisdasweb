@@ -25,6 +25,7 @@
 }
 
 .footer .container .section2 {
+    margin-top: 15px;
     display: flex;
     flex-direction: column;
 }
