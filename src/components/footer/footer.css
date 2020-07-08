@@ -1,0 +1,84 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    background-color: #3D3D3D;
+    color: white;
+    padding: 30px 20px 5px 20px;
+}
+
+.footer .container {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer .container .section1 .title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.footer .container .section1 .socmed {
+    display: flex;
+    width: 125px;
+    justify-content: space-between;
+    font-size: 25px;
+    margin-top: 15px;
+}
+
+.footer .container .section2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer .container .section2 .find-us {
+    flex-grow: 1;
+}
+
+.footer .container .section2 .explore {
+    flex-grow: 2;
+}
+
+.footer .container .section2 .title {
+    font-size: 18px;
+    font-weight: medium;
+}
+
+.footer .container .section2 .find-us .address {
+    font-size: 18px;
+    font-weight: normal;
+    color: #1b1b1b;
+}
+
+.footer .container .section2 .explore .footer-menu-list {
+    font-size: 18px;
+    font-weight: normal;
+    color: #1b1b1b;
+}
+
+.footer .container .credits {
+    color: #7B7B7B;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* Extra small devices (portrait phones, less than 576px)
+No media query for `xs` since this is the default in Bootstrap */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .footer .container {
+        width: 80%;
+    }
+
+    .footer .container .section1 .title {
+        font-size: 25px;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {}

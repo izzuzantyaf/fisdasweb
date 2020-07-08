@@ -1,0 +1,48 @@
+.menu-card {
+    display: flex;
+    min-height: 100px;
+    width: 100%;
+    border-radius: 0.8em;
+    /* margin-top: 20px; */
+    background-color: white;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #222EA2;
+}
+
+.menu-card .icon {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    flex-grow: 1;
+    font-size: 58px;
+}
+
+.menu-card .menu-name {
+    /* border: 1px red solid; */
+    display: flex;
+    font-size: 20px;
+    font-weight: 700;
+    align-items: center;
+    flex-grow: 5;
+}
+
+
+/* Extra small devices (portrait phones, less than 576px)
+No media query for `xs` since this is the default in Bootstrap */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .menu-card {
+        width: 80%;
+        justify-self: center;
+    }
+}
