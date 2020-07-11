@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import './footer.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -10,7 +11,9 @@ class Footer extends React.Component {
 
     render() {
         const socmedList = socialMedia.map(socmed => <FontAwesomeIcon icon={socmed.icon} />)
-        const menuList = menuArr.map(menu => <p>{menu.name}</p>)
+        const menuList = menuArr.map(menu =>
+            <p><Link to={menu.link} style={{ textDecoration: 'none', color: '#1b1b1b' }}>{menu.name} </Link></p>)
+
         return (
             <footer className="footer">
                 <div className="container">

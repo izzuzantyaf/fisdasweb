@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.63eb3440.chunk.css",
-    "main.js": "/static/js/main.9f1e66b9.chunk.js",
-    "main.js.map": "/static/js/main.9f1e66b9.chunk.js.map",
+    "main.css": "/static/css/main.21b12709.chunk.css",
+    "main.js": "/static/js/main.116069f0.chunk.js",
+    "main.js.map": "/static/js/main.116069f0.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.82aefd60.js",
     "runtime-main.js.map": "/static/js/runtime-main.82aefd60.js.map",
-    "static/js/2.d8a2ffcd.chunk.js": "/static/js/2.d8a2ffcd.chunk.js",
-    "static/js/2.d8a2ffcd.chunk.js.map": "/static/js/2.d8a2ffcd.chunk.js.map",
+    "static/js/2.de9cd8d9.chunk.js": "/static/js/2.de9cd8d9.chunk.js",
+    "static/js/2.de9cd8d9.chunk.js.map": "/static/js/2.de9cd8d9.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.fdccae6e2728977b0be6477ad3f9bb64.js": "/precache-manifest.fdccae6e2728977b0be6477ad3f9bb64.js",
+    "precache-manifest.b2a3377bf33cb82b6448fd473b536cf4.js": "/precache-manifest.b2a3377bf33cb82b6448fd473b536cf4.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.63eb3440.chunk.css.map": "/static/css/main.63eb3440.chunk.css.map",
-    "static/js/2.d8a2ffcd.chunk.js.LICENSE.txt": "/static/js/2.d8a2ffcd.chunk.js.LICENSE.txt",
+    "static/css/main.21b12709.chunk.css.map": "/static/css/main.21b12709.chunk.css.map",
+    "static/js/2.de9cd8d9.chunk.js.LICENSE.txt": "/static/js/2.de9cd8d9.chunk.js.LICENSE.txt",
     "static/media/fisdas-logo-min.png": "/static/media/fisdas-logo-min.e2467230.png"
   },
   "entrypoints": [
     "static/js/runtime-main.82aefd60.js",
-    "static/js/2.d8a2ffcd.chunk.js",
-    "static/css/main.63eb3440.chunk.css",
-    "static/js/main.9f1e66b9.chunk.js"
+    "static/js/2.de9cd8d9.chunk.js",
+    "static/css/main.21b12709.chunk.css",
+    "static/js/main.116069f0.chunk.js"
   ]
 }

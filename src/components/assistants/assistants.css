@@ -1,0 +1,48 @@
+.assistants {
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px 50px 20px;
+    color: #222EA2;
+}
+
+.assistants .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.assistant-card {
+    background-color: white;
+    border-radius: 0.5em;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 10px 20px 10px 20px;
+    font-size: 12px;
+}
+
+.assistant-card .assistant-code {
+    font-weight: bold;
+}
+
+/* Extra small devices (portrait phones, less than 576px)
+No media query for `xs` since this is the default in Bootstrap */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .assistants .container {
+        width: 80%;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .assistant-card {
+        font-size: 16px;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {}

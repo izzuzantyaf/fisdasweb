@@ -1,145 +1,145 @@
-export const assistantsList = [{
-    kode: "AHD",
-    nama: "Ahdan Abdulfattah Rizqi"
+export const assistants = [{
+    code: "AHD",
+    name: "Ahdan Abdulfattah Rizqi"
 }, {
-    kode: "AMF",
-    nama: "Andi Muhammad Fachri Chaeruddi"
+    code: "AMF",
+    name: "Andi Muhammad Fachri Chaeruddi"
 }, {
-    kode: "LAW",
-    nama: "Andy Law Exaudy Simbolon"
+    code: "LAW",
+    name: "Andy Law Exaudy Simbolon"
 }, {
-    kode: "CRT",
-    nama: "Anis Ratna Sari"
+    code: "CRT",
+    name: "Anis Ratna Sari"
 }, {
-    kode: "CHO",
-    nama: "Anita Rosdina Nasution"
+    code: "CHO",
+    name: "Anita Rosdina Nasution"
 }, {
-    kode: "ITB",
-    nama: "Arsyad Dhiauddin"
+    code: "ITB",
+    name: "Arsyad Dhiauddin"
 }, {
-    kode: "VRN",
-    nama: "Averina Fidelia Aqiilah Dizaramadhani"
+    code: "VRN",
+    name: "Averina Fidelia Aqiilah Dizaramadhani"
 }, {
-    kode: "FIA",
-    nama: "Azizah Luthfiah"
+    code: "FIA",
+    name: "Azizah Luthfiah"
 }, {
-    kode: "BEW",
-    nama: "Bagas Wibisono"
+    code: "BEW",
+    name: "Bagas Wibisono"
 }, {
-    kode: "DVA",
-    nama: "Deva Aulia Putri Oktavia"
+    code: "DVA",
+    name: "Deva Aulia Putri Oktavia"
 }, {
-    kode: "ARA",
-    nama: "Dewi Iswaratika"
+    code: "ARA",
+    name: "Dewi Iswaratika"
 }, {
-    kode: "DAS",
-    nama: "Dhimas Chandra Bagaskara"
+    code: "DAS",
+    name: "Dhimas Chandra Bagaskara"
 }, {
-    kode: "DKZ",
-    nama: "Dyka Khairullah Zamhari"
+    code: "DKZ",
+    name: "Dyka Khairullah Zamhari"
 }, {
-    kode: "FAC",
-    nama: "Fandi Achmad"
+    code: "FAC",
+    name: "Fandi Achmad"
 }, {
-    kode: "DSY",
-    nama: "Faradisya Heris"
+    code: "DSY",
+    name: "Faradisya Heris"
 }, {
-    kode: "LIX",
-    nama: "Felix"
+    code: "LIX",
+    name: "Felix"
 }, {
-    kode: "NAD",
-    nama: "Fildza Nadhilah Nursalam"
+    code: "NAD",
+    name: "Fildza Nadhilah Nursalam"
 }, {
-    kode: "GGZ",
-    nama: "Gelar Gemilang Zulkarnain"
+    code: "GGZ",
+    name: "Gelar Gemilang Zulkarnain"
 }, {
-    kode: "HKR",
-    nama: "Hafizhah Khaerani"
+    code: "HKR",
+    name: "Hafizhah Khaerani"
 }, {
-    kode: "VIO",
-    nama: "Halvionita Puspitasari Dewi"
+    code: "VIO",
+    name: "Halvionita Puspitasari Dewi"
 }, {
-    kode: "LVN",
-    nama: "I Deo Kelvin Aprianta"
+    code: "LVN",
+    name: "I Deo Kelvin Aprianta"
 }, {
-    kode: "IFR",
-    nama: "Iftikar Fadhlirohman Soeroyo"
+    code: "IFR",
+    name: "Iftikar Fadhlirohman Soeroyo"
 }, {
-    kode: "RIO",
-    nama: "Ivan Satrio Pamungkas"
+    code: "RIO",
+    name: "Ivan Satrio Pamungkas"
 }, {
-    kode: "IZZ",
-    nama: "Izzu Zantya Fawwas"
+    code: "IZZ",
+    name: "Izzu Zantya Fawwas"
 }, {
-    kode: "JIH",
-    nama: "Jihan Salsabila"
+    code: "JIH",
+    name: "Jihan Salsabila"
 }, {
-    kode: "EMA",
-    nama: "Maria Emerald Nainggolan"
+    code: "EMA",
+    name: "Maria Emerald Nainggolan"
 }, {
-    kode: "MEL",
-    nama: "Melinda Saleha"
+    code: "MEL",
+    name: "Melinda Saleha"
 }, {
-    kode: "MPR",
-    nama: "Monalisa Pratiwi"
+    code: "MPR",
+    name: "Monalisa Pratiwi"
 }, {
-    kode: "MDS",
-    nama: "Muhammad Diponegoro St Ropawiro"
+    code: "MDS",
+    name: "Muhammad Diponegoro St Ropawiro"
 }, {
-    kode: "HAM",
-    nama: "Muhammad Ilham Firdaus"
+    code: "HAM",
+    name: "Muhammad Ilham Firdaus"
 }, {
-    kode: "MIA",
-    nama: "Namira Fasya Rahim"
+    code: "MIA",
+    name: "Namira Fasya Rahim"
 }, {
-    kode: "ABE",
-    nama: "Nathaniel Syalomta"
+    code: "ABE",
+    name: "Nathaniel Syalomta"
 }, {
-    kode: "NOV",
-    nama: "Novia Walrahmadani"
+    code: "NOV",
+    name: "Novia Walrahmadani"
 }, {
-    kode: "YDH",
-    nama: "Nur Yudha Kurnia Ramadhan"
+    code: "YDH",
+    name: "Nur Yudha Kurnia Ramadhan"
 }, {
-    kode: "PNY",
-    nama: "Pratiwi Novayanti"
+    code: "PNY",
+    name: "Pratiwi Novayanti"
 }, {
-    kode: "BLA",
-    nama: "Rahma Sabilla Ashar"
+    code: "BLA",
+    name: "Rahma Sabilla Ashar"
 }, {
-    kode: "RAF",
-    nama: "Raisa Afifah"
+    code: "RAF",
+    name: "Raisa Afifah"
 }, {
-    kode: "REY",
-    nama: "Rayhan Erdyarahman"
+    code: "REY",
+    name: "Rayhan Erdyarahman"
 }, {
-    kode: "NTA",
-    nama: "Rianta Athallah Dharmmesta"
+    code: "NTA",
+    name: "Rianta Athallah Dharmmesta"
 }, {
-    kode: "RCO",
-    nama: "Richardo Praystihan Sitepu"
+    code: "RCO",
+    name: "Richardo Praystihan Sitepu"
 }, {
-    kode: "AGV",
-    nama: "Ryan Vianatha"
+    code: "AGV",
+    name: "Ryan Vianatha"
 }, {
-    kode: "SRS",
-    nama: "Sang Ayu Ketut Devi Saraswati"
+    code: "SRS",
+    name: "Sang Ayu Ketut Devi Saraswati"
 }, {
-    kode: "DIN",
-    nama: "Sitti Amallia Suhandini"
+    code: "DIN",
+    name: "Sitti Amallia Suhandini"
 }, {
-    kode: "APA",
-    nama: "Syafiq Fatih Basalamah"
+    code: "APA",
+    name: "Syafiq Fatih Basalamah"
 }, {
-    kode: "CIP",
-    nama: "Syifa Rezki Fauziah"
+    code: "CIP",
+    name: "Syifa Rezki Fauziah"
 }, {
-    kode: "TMA",
-    nama: "Tamma Hasya Gemilang Indrajaya"
+    code: "TMA",
+    name: "Tamma Hasya Gemilang Indrajaya"
 }, {
-    kode: "AYA",
-    nama: "Umi Nihayah"
+    code: "AYA",
+    name: "Umi Nihayah"
 }, {
-    kode: "LOU",
-    nama: "Yonathan Verrel Lou Drie"
+    code: "LOU",
+    name: "Yonathan Verrel Lou Drie"
 }]
