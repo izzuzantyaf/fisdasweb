@@ -14,7 +14,7 @@
 .assistant-card {
     background-color: white;
     border-radius: 0.5em;
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
     padding: 10px 20px 10px 20px;
     font-size: 12px;
 }

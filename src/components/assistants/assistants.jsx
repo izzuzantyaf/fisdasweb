@@ -3,7 +3,7 @@ import './assistants.css'
 
 import { assistants } from '../../contents/assistants'
 
-function AssistantCard(props) {
+const AssistantCard = (props) => {
 
     return (
         <div className="assistant-card">
@@ -21,10 +21,6 @@ class Assistants extends React.Component {
             <section className="assistants">
                 <div className="container">
                     {assistantsList}
-                    {/* hello world */}
-                    {/* <AssistantCard />
-                    <AssistantCard />
-                    <AssistantCard /> */}
                 </div>
             </section>
         )
