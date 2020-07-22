@@ -14,10 +14,16 @@ class OtherVideoCard extends React.Component {
             videoId: props.video.videoId
         }
     }
+
     handleChange() {
         this.props.onCurrentPlayingChange(this.state.videoId)
         window.scrollTo(0, 0)
     }
+
+    componentDidMount() {
+        window.scrollTo(0, 0)
+    }
+
     render() {
         return (
             <div className="other-video-card" onClick={this.handleChange}>

@@ -2,20 +2,12 @@
     background-color: white;
     border-radius: 0.8em;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-    padding: 0px 20px 20px 20px;
+    padding: 20px 20px 20px 20px;
     color: #222EA2;
 }
 
 .handout-card .handout-info .title {
     font-weight: bold;
-}
-
-.handout-card .actions {
-    width: 70px;
-    display: flex;
-    justify-content: space-between;
-    align-content: flex-end;
-    font-size: 25px;
 }
 
 /* Extra small devices (portrait phones, less than 576px)
@@ -25,7 +17,11 @@ No media query for `xs` since this is the default in Bootstrap */
 @media (min-width: 576px) {}
 
 /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+    .handout-card .handout-info .title {
+        font-size: 1.2rem;
+    }
+}
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {}

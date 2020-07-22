@@ -15,6 +15,10 @@ const AssistantCard = (props) => {
 
 class Assistants extends React.Component {
 
+    componentDidMount() {
+        window.scrollTo(0, 0)
+    }
+
     render() {
         const assistantsList = assistants.map(assistant => <AssistantCard data={assistant} />)
         return (
