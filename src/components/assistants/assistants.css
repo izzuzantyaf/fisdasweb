@@ -11,6 +11,10 @@
     gap: 10px;
 }
 
+.assistants .title {
+    text-align: center;
+}
+
 .assistant-card {
     background-color: white;
     border-radius: 0.5em;
