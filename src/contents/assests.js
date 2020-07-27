@@ -5,17 +5,3 @@ export const images = {
         }
     }
 }
-
-export const socialMedia = [{
-        name: 'Instagram',
-        icon: ['fab', 'instagram']
-    },
-    {
-        name: 'Line',
-        icon: ['fab', 'line']
-    },
-    {
-        name: 'Website',
-        icon: 'globe'
-    },
-]

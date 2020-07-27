@@ -25,17 +25,7 @@
 }
 
 .footer .container .section2 {
-    margin-top: 15px;
-    display: flex;
-    flex-direction: column;
-}
-
-.footer .container .section2 .find-us {
-    flex-grow: 1;
-}
-
-.footer .container .section2 .explore {
-    flex-grow: 2;
+    margin-top: 30px;
 }
 
 .footer .container .section2 .title {
@@ -46,19 +36,24 @@
 .footer .container .section2 .find-us .address {
     font-size: 18px;
     font-weight: normal;
-    color: #1b1b1b;
+    color: #7a7a7a;
+}
+
+.footer .container .section2 .explore {
+    margin-top: 60px;
 }
 
 .footer .container .section2 .explore .footer-menu-list {
     font-size: 18px;
     font-weight: normal;
-    color: #1b1b1b;
+    color: #7a7a7a;
 }
 
 .footer .container .credits {
     color: #7B7B7B;
     font-size: 12px;
     text-align: center;
+    margin-top: 50px;
 }
 
 /* Extra small devices (portrait phones, less than 576px)
@@ -75,6 +70,10 @@ No media query for `xs` since this is the default in Bootstrap */
 
     .footer .container .section1 .title {
         font-size: 25px;
+    }
+
+    .footer .container .section2 .find-us {
+        width: 75%;
     }
 }
 
