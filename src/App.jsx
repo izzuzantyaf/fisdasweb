@@ -44,23 +44,19 @@ class App extends React.Component {
       <div>
         <Router>
           <Route path="/" render={() => (<Navbar />)} />
+
           <Switch>
             <Route exact path="/">
               <Hero />
               <Menu />
             </Route>
-            <Route path="/practicum-video" render={() => (
-              <PracticumVideo />
-            )} />
-            <Route path="/assistants" render={() => (
-              <Assistants />
-            )} />
-            <Route path="/handout" render={() => (
-              <Handouts />
-            )} />
+            <Route path="/practicum-video" render={() => (<PracticumVideo />)} />
+            <Route path="/assistants" render={() => (<Assistants />)} />
+            <Route path="/handout" render={() => (<Handouts />)} />
             <Route path="/404" render={() => (<NotFoundPage />)} />
             <Redirect to="/404" />
           </Switch>
+
           <Route path="/" render={() => (<Footer />)} />
         </Router>
       </div>

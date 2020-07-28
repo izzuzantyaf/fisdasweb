@@ -10,7 +10,7 @@ import { menu as menuArr } from '../../contents/menu'
 class Footer extends React.Component {
 
     render() {
-        const socmedList = socialMedia.map(socmed => <FontAwesomeIcon icon={socmed.icon} />)
+        const socmedList = socialMedia.map(socmed => <a href={socmed.link} target="_blank" rel="noopener norefferer" style={{ color: '#ffffff' }}> <FontAwesomeIcon icon={socmed.icon} /></a>)
         const menuList = menuArr.map(menu =>
             <p><Link to={menu.link} style={{ textDecoration: 'none', color: '#7a7a7a' }}>{menu.name} </Link></p>)
 

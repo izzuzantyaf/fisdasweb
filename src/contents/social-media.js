@@ -5,13 +5,14 @@ const socialMedia = [{
     },
     {
         name: 'Line',
-        icon: ['fab', 'line']
+        icon: ['fab', 'line'],
+        link: 'https://line.me/R/ti/p/@117kcqca'
     },
     {
-        name: 'Website',
-        icon: 'globe',
-        link: 'https://labfisdas.netlify.app'
-    },
+        name: 'Facebook',
+        icon: ['fab', 'facebook'],
+        link: 'https://www.facebook.com/groups/295536318321197/'
+    }
 ]
 
 export default socialMedia

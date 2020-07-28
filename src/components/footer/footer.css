@@ -18,10 +18,9 @@
 
 .footer .container .section1 .socmed {
     display: flex;
-    width: 125px;
-    justify-content: space-between;
     font-size: 25px;
     margin-top: 15px;
+    gap: 30px;
 }
 
 .footer .container .section2 {

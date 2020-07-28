@@ -24,7 +24,10 @@ class Assistants extends React.Component {
         return (
             <section className="assistants">
                 <div className="container">
-                    {assistantsList}
+                    <div className="title">Asisten Praktikum Laboratorium Fisika Dasar 2020/2021</div>
+                    <div className="assistants-list">
+                        {assistantsList}
+                    </div>
                 </div>
             </section>
         )
