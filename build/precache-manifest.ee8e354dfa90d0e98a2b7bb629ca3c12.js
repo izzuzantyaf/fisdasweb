@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "aa08cf5b426120c20df1b0ff28b4961e",
+    "revision": "680d081aaa5303fdc1e711a6b4cd6e19",
     "url": "/index.html"
   },
   {
-    "revision": "7fdad465b797a4870c21",
+    "revision": "43d1c2bcd9c71dd2b34b",
     "url": "/static/css/main.da6198c6.chunk.css"
   },
   {
@@ -16,15 +16,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/2.d16fa332.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7fdad465b797a4870c21",
-    "url": "/static/js/main.8ca3f6c5.chunk.js"
+    "revision": "43d1c2bcd9c71dd2b34b",
+    "url": "/static/js/main.266adf1a.chunk.js"
   },
   {
     "revision": "cfba3f5466aec1aa69a7",
     "url": "/static/js/runtime-main.82aefd60.js"
-  },
-  {
-    "revision": "e2467230d4b92f01047ecb15c52eed12",
-    "url": "/static/media/fisdas-logo-min.e2467230.png"
   }
 ]);

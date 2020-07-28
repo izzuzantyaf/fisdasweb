@@ -1,23 +1,22 @@
 {
   "files": {
     "main.css": "/static/css/main.da6198c6.chunk.css",
-    "main.js": "/static/js/main.8ca3f6c5.chunk.js",
-    "main.js.map": "/static/js/main.8ca3f6c5.chunk.js.map",
+    "main.js": "/static/js/main.266adf1a.chunk.js",
+    "main.js.map": "/static/js/main.266adf1a.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.82aefd60.js",
     "runtime-main.js.map": "/static/js/runtime-main.82aefd60.js.map",
     "static/js/2.d16fa332.chunk.js": "/static/js/2.d16fa332.chunk.js",
     "static/js/2.d16fa332.chunk.js.map": "/static/js/2.d16fa332.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.e3876d7690a8f97a2855894f0770840b.js": "/precache-manifest.e3876d7690a8f97a2855894f0770840b.js",
+    "precache-manifest.ee8e354dfa90d0e98a2b7bb629ca3c12.js": "/precache-manifest.ee8e354dfa90d0e98a2b7bb629ca3c12.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.da6198c6.chunk.css.map": "/static/css/main.da6198c6.chunk.css.map",
-    "static/js/2.d16fa332.chunk.js.LICENSE.txt": "/static/js/2.d16fa332.chunk.js.LICENSE.txt",
-    "static/media/fisdas-logo-min.png": "/static/media/fisdas-logo-min.e2467230.png"
+    "static/js/2.d16fa332.chunk.js.LICENSE.txt": "/static/js/2.d16fa332.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.82aefd60.js",
     "static/js/2.d16fa332.chunk.js",
     "static/css/main.da6198c6.chunk.css",
-    "static/js/main.8ca3f6c5.chunk.js"
+    "static/js/main.266adf1a.chunk.js"
   ]
 }
