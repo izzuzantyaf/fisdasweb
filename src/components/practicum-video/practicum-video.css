@@ -5,12 +5,6 @@
     padding-bottom: 50px;
 }
 
-.practicum-video .player {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-}
-
 .practicum-video .other-videos {
     display: grid;
     grid-template-columns: 1fr;
@@ -64,10 +58,6 @@ No media query for `xs` since this is the default in Bootstrap */
 
     .practicum-video .player {
         padding: 20px;
-    }
-
-    .practicum-video .other-videos {
-        padding-left: 40px;
     }
 }
 
