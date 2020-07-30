@@ -7,9 +7,23 @@ import { menu as menuArr } from '../../contents/menu'
 
 class Navbar extends React.Component {
 
+    componentDidMount() {
+        const navItems = Array.from(document.querySelectorAll('.navigation .nav-item'))
+        navItems.map(navItem => navItem.addEventListener('mouseenter', e => {
+            e.target.classList.add('nav-item-hover')
+        }))
+        navItems.map(navItem => navItem.addEventListener('mouseleave', e => {
+            e.target.classList.remove('nav-item-hover')
+        }))
+    }
+
     render() {
         const menuInNavbar = ['Modul', 'Jadwal', 'Video']
-        const menuList = menuArr.filter(menu => menuInNavbar.includes(menu.name)).map(menu => <Link to={menu.link} style={{ textDecoration: 'none', color: 'black' }}><span>{menu.name}</span></Link>)
+        const menuList = menuArr
+            .filter(menu => menuInNavbar.includes(menu.name))
+            .map(menu =>
+                <Link to={menu.link} style={{ textDecoration: 'none', color: 'black' }}><span className="nav-item">{menu.name}</span></Link>
+            )
         return (
             <section className="navbar">
                 <div className="container">
