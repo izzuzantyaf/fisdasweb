@@ -20,12 +20,15 @@
 
 .practicum-video .other-videos .other-video-card {
     display: flex;
-    color: #222EA2;
+    color: #222fa283;
     border-radius: 0.8em;
     background-color: white;
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     min-height: 75px;
     font-size: 20px;
+}
+
+.practicum-video .other-videos .other-video-card:hover {
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
 .practicum-video .other-videos .other-video-card .icon {

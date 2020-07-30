@@ -29,9 +29,13 @@
 .assistant-card {
     background-color: white;
     border-radius: 0.5em;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+    /* box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15); */
     padding: 10px 20px 10px 20px;
     font-size: 12px;
+}
+
+.assistant-card:hover {
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
 }
 
 .assistant-card .assistant-code {

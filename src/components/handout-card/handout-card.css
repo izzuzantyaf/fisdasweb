@@ -1,9 +1,12 @@
 .handout-card {
     background-color: white;
     border-radius: 0.8em;
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     padding: 20px 20px 20px 20px;
     color: #222EA2;
+}
+
+.handout-card:hover {
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
 .handout-card .handout-info .title {

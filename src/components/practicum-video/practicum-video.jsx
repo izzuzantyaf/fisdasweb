@@ -26,7 +26,7 @@ class OtherVideoCard extends React.Component {
 
     render() {
         return (
-            <div className="other-video-card" onClick={this.handleChange}>
+            <div className="other-video-card" style={this.state.videoId === this.props.currentPlayingVideoId ? { color: '#222ea2' } : {}} onClick={this.handleChange}>
                 <div className="icon"><FontAwesomeIcon icon="play" /></div>
                 <div className="video-name">{this.props.video.name}</div>
             </div>
@@ -51,7 +51,7 @@ class PracticumVideo extends React.Component {
 
     render() {
 
-        const otherVideoList = practicumModules.map(module => <Link style={{ textDecoration: 'none' }}> <OtherVideoCard onCurrentPlayingChange={this.changeCurrentPlaying} video={module} /></Link>)
+        const otherVideoList = practicumModules.map(module => <Link style={{ textDecoration: 'none' }}> <OtherVideoCard onCurrentPlayingChange={this.changeCurrentPlaying} currentPlayingVideoId={this.state.currentPlayingId} video={module} /></Link>)
 
         return (
             <section className="practicum-video">
