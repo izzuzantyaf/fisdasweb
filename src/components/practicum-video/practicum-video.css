@@ -1,18 +1,22 @@
 .practicum-video {
+    padding-bottom: 30px;
+}
+
+.practicum-video .container {
     display: grid;
     grid-template-areas: "player""other-videos";
     grid-template-rows: 0fr 1fr;
-    padding-bottom: 50px;
+    gap: 20px;
 }
 
-.practicum-video .other-videos {
+.practicum-video .container .other-videos {
     display: grid;
     grid-template-columns: 1fr;
-    row-gap: 20px;
-    padding: 20px;
+    gap: 20px;
+    padding: 0px 20px 0px 20px;
 }
 
-.practicum-video .other-videos .other-video-card {
+.practicum-video .container .other-videos .other-video-card {
     display: flex;
     color: #222fa283;
     border-radius: 0.8em;
@@ -22,12 +26,12 @@
     transition: all 0.2s linear;
 }
 
-.practicum-video .other-videos .other-video-card:hover {
+.practicum-video .container .other-videos .other-video-card:hover {
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
     transition: all 0.2s linear;
 }
 
-.practicum-video .other-videos .other-video-card .icon {
+.practicum-video .container .other-videos .other-video-card .icon {
     flex-grow: 1;
     display: flex;
     align-items: center;
@@ -35,7 +39,7 @@
     font-size: 36px;
 }
 
-.practicum-video .other-videos .other-video-card .video-name {
+.practicum-video .container .other-videos .other-video-card .video-name {
     flex-grow: 5;
     display: flex;
     align-items: center;
@@ -51,15 +55,19 @@ No media query for `xs` since this is the default in Bootstrap */
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+
     .practicum-video {
-        display: grid;
+        padding: 20px 20px 40px 20px;
+    }
+
+    .practicum-video .container {
         grid-template-areas: "player other-videos";
         grid-template-columns: 0.7fr 0.3fr;
         grid-template-rows: 1fr;
     }
 
-    .practicum-video .player {
-        padding: 20px;
+    .practicum-video .container .other-videos {
+        padding: 0px;
     }
 }
 

@@ -55,11 +55,13 @@ class PracticumVideo extends React.Component {
 
         return (
             <section className="practicum-video">
-                <div className="player">
-                    <VideoFrame videoId={this.state.currentPlayingId} />
-                </div>
-                <div className="other-videos">
-                    {otherVideoList}
+                <div className="container">
+                    <div className="player">
+                        <VideoFrame videoId={this.state.currentPlayingId} />
+                    </div>
+                    <div className="other-videos">
+                        {otherVideoList}
+                    </div>
                 </div>
             </section>
         )

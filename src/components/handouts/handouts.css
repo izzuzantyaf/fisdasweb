@@ -1,9 +1,24 @@
+.handouts {
+    padding: 20px 20px 40px 20px;
+}
+
 .handouts .container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.handouts .main-title {
+    font-weight: bolder;
+    font-size: 1.5rem;
+    color: rgb(114, 114, 114);
+    text-align: center;
+}
+
+.handouts .container .handouts-list {
     display: grid;
-    margin: auto;
     grid-template-columns: 1fr;
     gap: 30px;
-    padding: 40px 20px 40px 20px;
 }
 
 /* Extra small devices (portrait phones, less than 576px)
@@ -14,7 +29,16 @@ No media query for `xs` since this is the default in Bootstrap */
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+
     .handouts .container {
+        align-items: center;
+    }
+
+    .handouts .main-title {
+        font-size: 2.5rem;
+    }
+
+    .handouts .container .handouts-list {
         width: 80%;
         grid-template-columns: 1fr 1fr;
     }

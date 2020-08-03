@@ -16,7 +16,10 @@ class Handouts extends React.Component {
         return (
             <section className="handouts">
                 <div className="container">
-                    {handoutsList}
+                    <div className="main-title">Modul praktikum</div>
+                    <div className="handouts-list">
+                        {handoutsList}
+                    </div>
                 </div>
             </section>
         )
