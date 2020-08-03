@@ -19,10 +19,12 @@
     background-color: white;
     min-height: 75px;
     font-size: 20px;
+    transition: all 0.2s linear;
 }
 
 .practicum-video .other-videos .other-video-card:hover {
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s linear;
 }
 
 .practicum-video .other-videos .other-video-card .icon {
