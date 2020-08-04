@@ -9,6 +9,12 @@
     gap: 20px;
 }
 
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
 .practicum-video .container .other-videos {
     display: grid;
     grid-template-columns: 1fr;
@@ -64,6 +70,10 @@ No media query for `xs` since this is the default in Bootstrap */
         grid-template-areas: "player other-videos";
         grid-template-columns: 0.7fr 0.3fr;
         grid-template-rows: 1fr;
+    }
+
+    .practicum-video .container .player {
+        position: static;
     }
 
     .practicum-video .container .other-videos {

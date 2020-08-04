@@ -45,6 +45,25 @@ class PracticumVideo extends React.Component {
         }
     }
 
+    componentDidMount() {
+        const videoFrame = document.querySelector('.practicum-video .container .player')
+        const sticky = videoFrame.offsetTop
+        const otherVideoList = document.querySelector('.practicum-video .container .other-videos')
+        const container = document.querySelector('.practicum-video .container')
+        window.onscroll = () => {
+            if (window.pageYOffset >= sticky && window.innerWidth <= 768) {
+                console.log(window.pageYOffset, sticky, videoFrame.offsetHeight)
+                videoFrame.classList.add("sticky")
+                otherVideoList.style.marginTop = `${videoFrame.offsetHeight}px`
+                container.style.display = 'block'
+            } else {
+                videoFrame.classList.remove("sticky");
+                otherVideoList.style.marginTop = '0px'
+                container.style.display = 'grid'
+            }
+        }
+    }
+
     changeCurrentPlaying(videoId) {
         this.setState({ currentPlayingId: videoId })
     }
