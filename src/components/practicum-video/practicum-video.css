@@ -1,88 +1,93 @@
 .practicum-video {
-    padding-bottom: 30px;
+  padding-bottom: 30px;
+  display: grid;
+  grid-template-areas: "player" "other-videos";
+  grid-template-rows: 0fr 1fr;
+  gap: 20px;
 }
 
-.practicum-video .container {
-    display: grid;
-    grid-template-areas: "player""other-videos";
-    grid-template-rows: 0fr 1fr;
-    gap: 20px;
-}
+/* .practicum-video .container {
+  display: grid;
+  grid-template-areas: "player" "other-videos";
+  grid-template-rows: 0fr 1fr;
+  gap: 20px;
+} */
 
 .sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
-.practicum-video .container .other-videos {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 0px 20px 0px 20px;
+.practicum-video .other-videos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 0px 20px 0px 20px;
 }
 
-.practicum-video .container .other-videos .other-video-card {
-    display: flex;
-    color: #222fa283;
-    border-radius: 0.8em;
-    background-color: white;
-    min-height: 75px;
-    font-size: 20px;
-    transition: all 0.2s linear;
+.practicum-video .other-videos .other-video-card {
+  display: flex;
+  color: #222fa283;
+  border-radius: 0.8em;
+  background-color: white;
+  min-height: 75px;
+  font-size: 20px;
+  transition: all 0.2s linear;
 }
 
-.practicum-video .container .other-videos .other-video-card:hover {
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
-    transition: all 0.2s linear;
+.practicum-video .other-videos .other-video-card:hover {
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s linear;
 }
 
-.practicum-video .container .other-videos .other-video-card .icon {
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    padding-left: 20px;
-    font-size: 36px;
+.practicum-video .other-videos .other-video-card .icon {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  font-size: 36px;
 }
 
-.practicum-video .container .other-videos .other-video-card .video-name {
-    flex-grow: 5;
-    display: flex;
-    align-items: center;
-    font-weight: bold;
+.practicum-video .other-videos .other-video-card .video-name {
+  flex-grow: 5;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
 }
-
 
 /* Extra small devices (portrait phones, less than 576px)
 No media query for `xs` since this is the default in Bootstrap */
 
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {}
+@media (min-width: 576px) {
+}
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+  .practicum-video {
+    padding: 20px 20px 40px 20px;
+  }
 
-    .practicum-video {
-        padding: 20px 20px 40px 20px;
-    }
+  .practicum-video {
+    grid-template-areas: "player other-videos";
+    grid-template-columns: 0.7fr 0.3fr;
+    grid-template-rows: 1fr;
+  }
 
-    .practicum-video .container {
-        grid-template-areas: "player other-videos";
-        grid-template-columns: 0.7fr 0.3fr;
-        grid-template-rows: 1fr;
-    }
+  .practicum-video .player {
+    position: static;
+  }
 
-    .practicum-video .container .player {
-        position: static;
-    }
-
-    .practicum-video .container .other-videos {
-        padding: 0px;
-    }
+  .practicum-video .other-videos {
+    padding: 0px;
+  }
 }
 
 /* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {}
+@media (min-width: 992px) {
+}
 
 /* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+}
