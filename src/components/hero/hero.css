@@ -1,7 +1,7 @@
 .hero {
     display: flex;
     justify-content: center;
-    height: 100vh;
+    height: 100vmin;
     background-color: #222EA2;
     padding: 80px 15px 10px 15px;
 }

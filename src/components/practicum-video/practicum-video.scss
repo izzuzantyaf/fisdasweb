@@ -1,0 +1,116 @@
+.practicum-video {
+  padding-bottom: 30px;
+  display: grid;
+  grid-template-areas: "player" "sidebar";
+  grid-template-rows: 0fr 1fr;
+  gap: 20px;
+
+  .sidebar {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0px 20px 0px 20px;
+
+    .lang-switch{
+      display: flex;
+      background-color: white;
+      border-radius: 2em;
+      min-height: 40px;
+      font-weight: bold;
+      color: rgb(114, 114, 114);
+
+      .lang1{
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: inherit;
+        cursor: pointer;
+      }
+
+      .lang2{
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: inherit;
+        cursor: pointer;
+      }
+
+      .active{
+        background-color: #222EA2;
+        color: white;
+      }
+    }
+
+    .other-video-card {
+      display: flex;
+      color: #222fa283;
+      border-radius: 0.8em;
+      background-color: white;
+      min-height: 75px;
+      font-size: 14px;
+      transition: all 0.2s linear;
+
+      .icon {
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 36px;
+      }
+
+      .video-name {
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        padding-right: 20px;
+      }
+    }
+
+    .other-video-card:hover {
+      box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s linear;
+    }
+  }
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Extra small devices (portrait phones, less than 576px)
+No media query for `xs` since this is the default in Bootstrap */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .practicum-video {
+    padding: 20px 20px 40px 20px;
+    grid-template-areas: "player sidebar";
+    grid-template-columns: 0.7fr 0.3fr;
+    grid-template-rows: 1fr;
+
+    .player {
+      position: static;
+    }
+
+    .sidebar {
+      padding: 0px;
+    }
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}
