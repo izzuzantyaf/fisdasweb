@@ -1,5 +1,5 @@
 import React from 'react'
-import './hero.css'
+import './hero.scss'
 
 class Hero extends React.Component {
 

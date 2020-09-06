@@ -1,5 +1,5 @@
 import React from 'react'
-import './handout-card.css'
+import './handout-card.scss'
 
 class HandoutCard extends React.Component {
 

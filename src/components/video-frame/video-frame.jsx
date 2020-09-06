@@ -1,5 +1,5 @@
 import React from 'react'
-import './video-frame.css'
+import './video-frame.scss'
 
 class VideoFrame extends React.Component {
 
@@ -21,7 +21,7 @@ class VideoFrame extends React.Component {
     render() {
         const src = `https://www.youtube.com/embed/${this.props.videoId}`
         return (
-            <iframe className="practicum-video" title={this.props.videoId} width="100%" height={`${this.state.videoFrameHeight}px`} src={src} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true"></iframe>
+            <iframe className="practicum-video" title={this.props.videoId} width="100%" height={`${this.state.videoFrameHeight}px`} src={src} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true} ></iframe>
         )
     }
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import './assistants.css'
+import './assistants.scss'
 
 import { assistants } from '../../contents/assistants'
 

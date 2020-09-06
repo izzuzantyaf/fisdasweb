@@ -6,30 +6,27 @@
     background-color: white;
     color: #222EA2;
     transition: box-shadow 0.2s linear;
+
+    .icon {
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+        min-width: 100px;
+        font-size: 45px;
+    }
+
+    .menu-name {
+        display: flex;
+        font-size: 20px;
+        font-weight: 700;
+        align-items: center;
+    }
 }
 
 .menu-card:hover {
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15);
     transition: box-shadow 0.2s linear;
 }
-
-.menu-card .icon {
-    display: flex;
-    align-items: center;
-    padding-left: 20px;
-    flex-grow: 1;
-    font-size: 45px;
-}
-
-.menu-card .menu-name {
-    /* border: 1px red solid; */
-    display: flex;
-    font-size: 20px;
-    font-weight: 700;
-    align-items: center;
-    flex-grow: 5;
-}
-
 
 /* Extra small devices (portrait phones, less than 576px)
 No media query for `xs` since this is the default in Bootstrap */
@@ -45,7 +42,4 @@ No media query for `xs` since this is the default in Bootstrap */
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-    .menu-card {
-        justify-self: stretch;
-    }
 }

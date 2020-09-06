@@ -9,13 +9,10 @@ class OtherVideoCard extends React.Component {
   constructor(props) {
     super(props)
     this.handleChange = this.handleChange.bind(this)
-    this.state = {
-      videoId: props.video.videoId,
-    }
   }
 
   handleChange() {
-    this.props.onCurrentPlayingChange(this.state.videoId)
+    this.props.onCurrentPlayingChange(this.props.video.videoId)
   }
 
   componentDidMount() {
@@ -27,14 +24,13 @@ class OtherVideoCard extends React.Component {
       <div
         className="other-video-card"
         style={
-          this.state.videoId === this.props.currentPlayingVideoId
-            ? { color: "#222ea2" }
-            : {}
+          this.props.video.videoId === this.props.currentPlayingVideoId
+            ? { color: "#222ea2" } : {}
         }
         onClick={this.handleChange}
       >
         <div className="icon">
-          <FontAwesomeIcon icon="play" />
+          <FontAwesomeIcon icon={this.props.video.icon} />
         </div>
         <div className="video-name">{this.props.video.name}</div>
       </div>
@@ -46,24 +42,29 @@ class LangSwitch extends React.Component {
 
   constructor(props) {
     super(props)
-    this.handleChange = this.handleChange.bind(this)
+    this.handleIdLangChange = this.handleIdLangChange.bind(this)
+    this.handleEnLangChange = this.handleEnLangChange.bind(this)
     this.state = {
       whatActive: this.props.currentLang
     }
   }
 
-  handleChange() {
+  handleIdLangChange() {
+    if (this.state.whatActive === 'en') this.setState({ whatActive: 'id' })
+    this.props.onCurrentLangChange('id')
+  }
+
+  handleEnLangChange() {
     if (this.state.whatActive === 'id') this.setState({ whatActive: 'en' })
-    else this.setState({ whatActive: 'id' })
-    this.props.onCurrentLangChange(this.state.whatActive)
+    this.props.onCurrentLangChange('en')
   }
 
   render() {
     return (
       <div className="lang-switch">
         <div className="slider"></div>
-        <div className={`lang1 ${this.state.whatActive === 'id' ? 'active' : ''}`} onClick={this.handleChange}>Indonesia</div>
-        <div className={`lang2 ${this.state.whatActive === 'en' ? 'active' : ''}`} onClick={this.handleChange}>English</div>
+        <div className={`lang1 ${this.state.whatActive === 'id' ? 'active' : ''}`} onClick={this.handleIdLangChange}>Indonesia</div>
+        <div className={`lang2 ${this.state.whatActive === 'en' ? 'active' : ''}`} onClick={this.handleEnLangChange}>English</div>
       </div>
     )
   }
@@ -76,8 +77,8 @@ class PracticumVideo extends React.Component {
     this.changeCurrentPlaying = this.changeCurrentPlaying.bind(this)
     this.changeCurrentLang = this.changeCurrentLang.bind(this)
     this.state = {
-      activeLang: 'en',
-      currentPlayingId: practicumModules[0].videoId
+      activeLang: 'id',
+      currentPlayingId: practicumModules[0].videoId,
     }
   }
 
@@ -109,17 +110,16 @@ class PracticumVideo extends React.Component {
   }
 
   render() {
-
-    const otherVideoList = practicumModules
+    const filteredPracticumModules = practicumModules
       .filter(practicumModule => practicumModule.lang === this.state.activeLang)
-      .map(practicumModule => (
-        <div style={{ cursor: 'pointer' }}>
-          <OtherVideoCard
-            onCurrentPlayingChange={this.changeCurrentPlaying}
-            currentPlayingVideoId={this.state.currentPlayingId}
-            video={practicumModule}
-          />
-        </div>
+    const otherVideoList = filteredPracticumModules
+      .map((module, index) => (
+        <OtherVideoCard
+          key={index}
+          onCurrentPlayingChange={this.changeCurrentPlaying}
+          currentPlayingVideoId={this.state.currentPlayingId}
+          video={module}
+        />
       ))
 
     return (

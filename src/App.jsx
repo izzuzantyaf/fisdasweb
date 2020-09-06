@@ -30,6 +30,16 @@ import {
   faGlobe,
   faEye,
   faDownload,
+  faTasks,
+  faBalanceScale,
+  faSortNumericUpAlt,
+  faGripLinesVertical,
+  faCircleNotch,
+  faInfinity,
+  faSatelliteDish,
+  faWaveSquare,
+  faMagnet,
+  faBolt
 } from "@fortawesome/free-solid-svg-icons"
 
 library.add(
@@ -43,7 +53,17 @@ library.add(
   faSitemap,
   faGlobe,
   faEye,
-  faDownload
+  faDownload,
+  faTasks,
+  faBalanceScale,
+  faSortNumericUpAlt,
+  faGripLinesVertical,
+  faCircleNotch,
+  faInfinity,
+  faSatelliteDish,
+  faWaveSquare,
+  faMagnet,
+  faBolt
 )
 
 class App extends React.Component {

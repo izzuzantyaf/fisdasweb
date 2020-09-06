@@ -1,5 +1,5 @@
 import React from 'react'
-import './handouts.css'
+import './handouts.scss'
 
 import HandoutCard from '../handout-card/handout-card'
 
@@ -12,7 +12,7 @@ class Handouts extends React.Component {
     }
 
     render() {
-        const handoutsList = handouts.map(handout => <a href={handout.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}><HandoutCard data={handout} /></a>)
+        const handoutsList = handouts.map((handout, index) => <a key={index} href={handout.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}><HandoutCard data={handout} /></a>)
         return (
             <section className="handouts">
                 <div className="container">

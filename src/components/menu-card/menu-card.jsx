@@ -1,5 +1,5 @@
 import React from 'react'
-import './menu-card.css'
+import './menu-card.scss'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 

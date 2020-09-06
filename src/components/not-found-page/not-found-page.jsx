@@ -1,5 +1,5 @@
 import React from 'react'
-import './not-found-page.css'
+import './not-found-page.scss'
 
 class NotFoundPage extends React.Component {
 

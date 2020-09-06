@@ -4,17 +4,16 @@
     padding: 20px 20px 20px 20px;
     color: #222EA2;
     transition: all 0.2s linear;
+
+    .handout-info .title {
+        font-weight: bold;
+    }
 }
 
 .handout-card:hover {
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
     transition: all 0.2s linear;
 }
-
-.handout-card .handout-info .title {
-    font-weight: bold;
-}
-
 /* Extra small devices (portrait phones, less than 576px)
 No media query for `xs` since this is the default in Bootstrap */
 

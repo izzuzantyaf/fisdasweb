@@ -1,5 +1,5 @@
 import React from "react";
-import "./footer.css";
+import "./footer.scss";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -10,8 +10,9 @@ import { Link } from "react-router-dom";
 class Footer extends React.Component {
   render() {
 
-    const socmedList = socialMedia.map((socmed) => (
+    const socmedList = socialMedia.map((socmed, index) => (
       <a
+        key={index}
         href={socmed.link}
         target="_blank"
         rel="noopener noreferrer"
@@ -22,15 +23,14 @@ class Footer extends React.Component {
       </a>
     ));
 
-    const menuList = menuArr.map((menu) => (
-      <p>
-        <Link
-          to={menu.link}
-          style={{ textDecoration: "none", color: "#7a7a7a", cursor: "pointer" }}
-        >
-          {menu.name}
-        </Link>
-      </p>
+    const menuList = menuArr.map((menu, index) => (
+      <Link
+        key={index}
+        to={menu.link}
+        style={{ textDecoration: "none", color: "#7a7a7a", cursor: "pointer" }}
+      >
+        {menu.name}
+      </Link>
     ));
 
     return (

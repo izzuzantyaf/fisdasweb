@@ -1,0 +1,89 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    background-color: #242424;
+    color: white;
+    padding: 50px 20px 5px 20px;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+
+        .section1{
+            .title {
+                font-size: 22px;
+                font-weight: bold;
+            }
+
+            .socmed {
+                display: flex;
+                font-size: 25px;
+                margin-top: 15px;
+                gap: 30px;
+            }
+        }
+
+        .section2 {
+            margin-top: 30px;
+
+            .title {
+                font-size: 18px;
+                font-weight: medium;
+            }
+
+            .headquarter {
+                    .address {
+                    font-weight: normal;
+                    color: #7a7a7a;
+                }
+            }
+
+            .explore {
+                margin-top: 60px;
+
+                .footer-menu-list {
+                    font-weight: normal;
+                    color: #7a7a7a;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                }
+            }
+        }
+
+        .credits {
+            color: #7B7B7B;
+            font-size: 12px;
+            text-align: center;
+            margin-top: 50px;
+        }
+    }
+}
+
+/* Extra small devices (portrait phones, less than 576px)
+No media query for `xs` since this is the default in Bootstrap */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .footer .container {
+        width: 80%;
+
+        .section1 .title {
+            font-size: 25px;
+        }
+
+        .section2 .find-us {
+            width: 75%;
+        }
+    }
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {}

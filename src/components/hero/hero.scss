@@ -4,15 +4,14 @@
     height: 100vmin;
     background-color: #222EA2;
     padding: 80px 15px 10px 15px;
-}
 
-.hero .main-title {
-    color: white;
-    font-size: 25px;
-    font-weight: bold;
-    text-align: center;
+    .main-title {
+        color: white;
+        font-size: 25px;
+        font-weight: bold;
+        text-align: center;
+    }
 }
-
 
 /* Extra small devices (portrait phones, less than 576px)
 No media query for `xs` since this is the default in Bootstrap */

@@ -1,36 +1,37 @@
-.not-found {
-    min-height: 100vh;
+.menu {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-}
+    padding: 50px 20px 50px 20px;
 
-.not-found .error-message {
-    font-size: 1.5rem;
-    color: rgb(70, 70, 70);
-    text-align: center;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.not-found .error-message .main-message {
-    font-size: 2rem;
-    font-weight: bold;
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+        width: 100%;
+    }
 }
 
 /* Extra small devices (portrait phones, less than 576px)
 No media query for `xs` since this is the default in Bootstrap */
 
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {}
+@media (min-width: 576px) {
+    .menu .container {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px 20px;
+    }
+}
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {}
 
 /* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {}
+@media (min-width: 992px) {
+
+    .menu .container {
+        width: 80%;
+    }
+}
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {}
