@@ -36,7 +36,7 @@ class OtherVideoCard extends React.Component {
         <div className="icon">
           <FontAwesomeIcon icon="play" />
         </div>
-        <div className="video-name">{this.props.video.name + this.props.video.videoId}</div>
+        <div className="video-name">{this.props.video.name}</div>
       </div>
     )
   }
