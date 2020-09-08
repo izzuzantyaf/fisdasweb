@@ -39,7 +39,8 @@ import {
   faSatelliteDish,
   faWaveSquare,
   faMagnet,
-  faBolt
+  faBolt,
+  faChevronCircleUp
 } from "@fortawesome/free-solid-svg-icons"
 
 library.add(
@@ -63,7 +64,8 @@ library.add(
   faSatelliteDish,
   faWaveSquare,
   faMagnet,
-  faBolt
+  faBolt,
+  faChevronCircleUp
 )
 
 class App extends React.Component {

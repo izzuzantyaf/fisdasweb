@@ -8,6 +8,7 @@
     .container {
         display: flex;
         flex-direction: column;
+        gap: 40px;
 
         .section1{
             .title {
@@ -24,8 +25,6 @@
         }
 
         .section2 {
-            margin-top: 30px;
-
             .title {
                 font-size: 18px;
                 font-weight: medium;
@@ -38,9 +37,15 @@
                 }
             }
 
-            .explore {
-                margin-top: 60px;
+        }
 
+        .section3{
+            .title {
+                font-size: 18px;
+                font-weight: medium;
+            }
+
+            .explore {
                 .footer-menu-list {
                     font-weight: normal;
                     color: #7a7a7a;
@@ -51,11 +56,22 @@
             }
         }
 
+        .back-to-top-icon{
+            font-size: 30px;
+            align-self: center;
+            opacity: 0.5;
+            cursor: pointer;
+        }
+
+        .back-to-top-icon:hover{
+            opacity: 1;
+            transition: all 0.2s linear;
+        }
+
         .credits {
             color: #7B7B7B;
             font-size: 12px;
             text-align: center;
-            margin-top: 50px;
         }
     }
 }

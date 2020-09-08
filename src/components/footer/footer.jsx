@@ -17,8 +17,7 @@ class Footer extends React.Component {
         target="_blank"
         rel="noopener noreferrer"
         style={{ color: "#ffffff" }}
-        alt={socmed.name}
-      >
+        alt={socmed.name} >
         <FontAwesomeIcon icon={socmed.icon} />
       </a>
     ));
@@ -27,8 +26,7 @@ class Footer extends React.Component {
       <Link
         key={index}
         to={menu.link}
-        style={{ textDecoration: "none", color: "#7a7a7a", cursor: "pointer" }}
-      >
+        style={{ textDecoration: "none", color: "#7a7a7a", cursor: "pointer" }} >
         {menu.name}
       </Link>
     ));
@@ -36,6 +34,7 @@ class Footer extends React.Component {
     return (
       <footer className="footer">
         <div className="container">
+
           <div className="section1">
             <div className="title">
               Laboratorium Fisika Dasar<br></br>Telkom University
@@ -51,10 +50,17 @@ class Footer extends React.Component {
                 No.1, Sukapura, Kec. Dayeuhkolot, Bandung, Jawa Barat.
               </p>
             </div>
+          </div>
+
+          <div className="section3">
             <div className="explore">
               <p className="title">Explore</p>
               <div className="footer-menu-list">{menuList}</div>
             </div>
+          </div>
+
+          <div className="back-to-top-icon" onClick={() => { window.scrollTo(0, 0) }}>
+            <FontAwesomeIcon icon="chevron-circle-up" />
           </div>
 
           <div className="credits">All rights reserved.</div>
