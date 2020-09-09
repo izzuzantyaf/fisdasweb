@@ -37,7 +37,7 @@ class Footer extends React.Component {
 
           <div className="section1">
             <div className="title">
-              Laboratorium Fisika Dasar<br></br>Telkom University
+              Laboratorium Fisika Dasar<br></br>Universitas Telkom
             </div>
             <div className="socmed">{socmedList}</div>
           </div>

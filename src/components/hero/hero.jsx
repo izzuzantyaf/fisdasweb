@@ -10,7 +10,7 @@ class Hero extends React.Component {
     render() {
         return (
             <section className="hero">
-                <div className="main-title">Laboratorium Fisika Dasar <br></br> Telkom University</div>
+                <div className="main-title">Laboratorium Fisika Dasar <br></br> Universitas Telkom</div>
             </section>
         )
     }
