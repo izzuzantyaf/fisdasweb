@@ -1,6 +1,8 @@
 import React from 'react'
 import './not-found-page.scss'
 
+import image404 from '../../assets/img/404.png'
+
 class NotFoundPage extends React.Component {
 
     componentDidMount() {
@@ -11,8 +13,8 @@ class NotFoundPage extends React.Component {
         return (
             <section className="not-found">
                 <div className="error-message">
-                    <div className="main-message">404</div>
-                    <div>oops, page not found</div>
+                    <img className="img-404" src={image404} alt="404" />
+                    <div className="messages">Your lovely feature is under development.</div>
                 </div>
             </section>
         )
