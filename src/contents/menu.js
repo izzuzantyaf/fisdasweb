@@ -19,6 +19,11 @@ export const menu = [{
     link: '/practicum-video'
 },
 {
+    name: 'Cover Jurnal',
+    icon: 'file',
+    link: '/journal-cover'
+},
+{
     name: 'Asisten',
     icon: 'users',
     link: '/assistants'

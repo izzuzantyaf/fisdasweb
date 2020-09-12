@@ -11,6 +11,7 @@ import Navbar from "./components/navbar/navbar"
 import Hero from "./components/hero/hero"
 import Menu from "./components/menu/menu"
 import PracticumVideo from "./components/practicum-video/practicum-video"
+import JournalCover from "./components/journal-cover/journal-cover"
 import Assistants from "./components/assistants/assistants"
 import Handouts from "./components/handouts/handouts"
 import Organigram from "./components/organigram/organigram"
@@ -40,7 +41,8 @@ import {
   faWaveSquare,
   faMagnet,
   faBolt,
-  faChevronCircleUp
+  faChevronCircleUp,
+  faFile
 } from "@fortawesome/free-solid-svg-icons"
 
 library.add(
@@ -65,7 +67,8 @@ library.add(
   faWaveSquare,
   faMagnet,
   faBolt,
-  faChevronCircleUp
+  faChevronCircleUp,
+  faFile
 )
 
 class App extends React.Component {
@@ -80,10 +83,11 @@ class App extends React.Component {
               <Hero />
               <Menu />
             </Route>
-            <Route path="/practicum-video" render={() => <PracticumVideo />} />
             <Route path="/assistants" render={() => <Assistants />} />
             <Route path="/handout" render={() => <Handouts />} />
             <Route path="/organigram" render={() => <Organigram />} />
+            <Route path="/practicum-video" render={() => <PracticumVideo />} />
+            <Route path="/journal-cover" render={() => <JournalCover />} />
             <Route path="/404" render={() => <NotFoundPage />} />
             <Redirect to="/404" />
           </Switch>
