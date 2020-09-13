@@ -1,7 +1,7 @@
 import React from 'react'
 import './not-found-page.scss'
 
-import image404 from '../../assets/img/404.png'
+import image404 from '../../assets/img/404-min.png'
 
 class NotFoundPage extends React.Component {
 
