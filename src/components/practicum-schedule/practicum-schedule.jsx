@@ -87,7 +87,7 @@ class PracticumSchedule extends React.Component {
                     <div className="title">Jadwal Modul Praktikum Fisika Dasar 1</div>
                     <div className="table-title">Fakultas Teknik Elektro</div>
                     <div className="table-container">{this.createTable('fte')}</div>
-                    <div className="table-title">Fakultas Teknik Industri</div>
+                    <div className="table-title">Fakultas Rekayasa Industri</div>
                     <div className="table-container">{this.createTable('fri')}</div>
                 </div>
             </section>
