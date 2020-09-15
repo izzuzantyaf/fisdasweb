@@ -1,0 +1,95 @@
+/* Extra small devices (portrait phones, less than 576px)
+No media query for `xs` since this is the default in Bootstrap */
+
+.practicum-schedule{
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px 40px 20px;
+    color: rgb(114, 114, 114);
+
+    .container{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 30px;
+        
+        .title{
+            font-weight: bolder;
+            font-size: 1.5rem;
+            color: rgb(114, 114, 114);
+            align-self: center;
+            text-align: center;
+        }
+
+        .table-title{
+            font-weight: bold;
+        }
+        
+        .table-container{
+        overflow-x: scroll;
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
+        
+        .schedule-table{
+            text-align: center;
+
+                thead{
+                    background-color: #222EA2;
+                    color: white;
+                    th{
+                        padding: 5px 0 5px 0;
+                        min-width: 120px;
+                    }
+                }
+    
+                tbody{
+                    color: black;
+                    tr:nth-child(odd){
+                        background-color: #d4d4d4;
+                    }
+                    tr:nth-child(even){
+                        background-color: #ebebeb;
+                    }
+                }
+            }
+        }
+
+        // .table-container::-webkit-scrollbar {
+        //     display: none;
+        // }
+        
+        //   /* Hide scrollbar for IE, Edge and Firefox */
+        // .table-container {
+        //     -ms-overflow-style: none;  /* IE and Edge */
+        //     scrollbar-width: none;  /* Firefox */
+        // }
+        
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .practicum-schedule{
+        .container{
+            width: 80%;
+
+            .title{
+                font-size: 2.5rem;
+            }
+
+            .table-title{
+                font-weight: bold;
+                font-size: 1.5em;
+            }
+
+        }
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {}

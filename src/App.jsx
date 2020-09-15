@@ -10,10 +10,11 @@ import "./App.css"
 import Navbar from "./components/navbar/navbar"
 import Hero from "./components/hero/hero"
 import Menu from "./components/menu/menu"
+import Handouts from "./components/handouts/handouts"
 import PracticumVideo from "./components/practicum-video/practicum-video"
+import PracticumSchedule from "./components/practicum-schedule/practicum-schedule"
 import JournalCover from "./components/journal-cover/journal-cover"
 import Assistants from "./components/assistants/assistants"
-import Handouts from "./components/handouts/handouts"
 import Organigram from "./components/organigram/organigram"
 import Footer from "./components/footer/footer"
 import NotFoundPage from "./components/not-found-page/not-found-page"
@@ -88,6 +89,7 @@ class App extends React.Component {
             <Route path="/organigram" render={() => <Organigram />} />
             <Route path="/practicum-video" render={() => <PracticumVideo />} />
             <Route path="/journal-cover" render={() => <JournalCover />} />
+            <Route path="/practicum-schedule" render={() => <PracticumSchedule />} />
             <Route path="/404" render={() => <NotFoundPage />} />
             <Redirect to="/404" />
           </Switch>

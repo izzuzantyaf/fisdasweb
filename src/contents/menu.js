@@ -31,7 +31,7 @@ export const menu = [{
 {
     name: 'Jadwal',
     icon: 'calendar-minus',
-    link: '/schedule'
+    link: '/practicum-schedule'
 },
 {
     name: 'Organigram',
