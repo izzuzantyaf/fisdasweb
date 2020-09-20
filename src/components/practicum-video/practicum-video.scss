@@ -5,17 +5,40 @@
   grid-template-rows: 0fr 1fr;
   gap: 20px;
 
+  .player{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .video-title{
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: rgb(114, 114, 114);
+      display: none;
+    }
+
+    .subs-btn-1{
+      display: none;
+    }
+  }
+
   .sidebar {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 20px;
     padding: 0px 20px 0px 20px;
+
+    .video-title{
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: rgb(114, 114, 114);
+    }
 
     .lang-switch{
       display: flex;
       background-color: white;
       border-radius: 2em;
-      min-height: 40px;
+      height: 40px;
       font-weight: bold;
       color: rgb(114, 114, 114);
 
@@ -48,7 +71,7 @@
       color: #222fa283;
       border-radius: 0.8em;
       background-color: white;
-      min-height: 75px;
+      height: 75px;
       font-size: 14px;
       transition: all 0.2s linear;
       cursor: pointer;
@@ -104,10 +127,26 @@ No media query for `xs` since this is the default in Bootstrap */
 
     .player {
       position: static;
+
+      .video-title{
+        display: block;
+      }
+
+      .subs-btn-1{
+        display: block;
+      }
     }
 
     .sidebar {
       padding: 0px;
+
+      .video-title{
+        display: none;
+      }
+
+      .subs-btn-2{
+        display: none;
+      }
     }
   }
 }

@@ -4,7 +4,7 @@ No media query for `xs` since this is the default in Bootstrap */
 .practicum-schedule{
     display: flex;
     justify-content: center;
-    padding: 40px 20px 40px 20px;
+    padding: 20px 20px 40px 20px;
     color: rgb(114, 114, 114);
 
     .container{
@@ -21,48 +21,78 @@ No media query for `xs` since this is the default in Bootstrap */
             text-align: center;
         }
 
-        .table-title{
-            font-weight: bold;
+        .class-schedule{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 0.8em;
+            box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
+
+            .table-title{
+                font-weight: bold;
+                color: rgb(114, 114, 114);
+                font-size: 1.5em;
+                align-self: center;
+            }
+
+            .img-container{
+                img{
+                    width: 100%;
+                }
+            }
         }
         
-        .table-container{
-        overflow-x: scroll;
-        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
-        
-        .schedule-table{
-            text-align: center;
+        .handout-schedule{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 0.8em;
+            box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
 
-                thead{
-                    background-color: #222EA2;
-                    color: white;
-                    th{
-                        padding: 5px 0 5px 0;
-                        min-width: 120px;
+            .table-title{
+                font-weight: bold;
+                color: rgb(114, 114, 114);
+                font-size: 1.5em;
+                align-self: center;
+            }
+
+            .table-sub-title{
+                color: rgb(114, 114, 114);
+                font-size: 1.2em;
+            }
+        
+            .table-container{
+                overflow-x: scroll;
+                box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
+            
+                .schedule-table{
+                    text-align: center;
+        
+                    thead{
+                            background-color: #222EA2;
+                            color: white;
+                            th{
+                                padding: 5px 0 5px 0;
+                                min-width: 120px;
+                            }
                     }
-                }
-    
-                tbody{
-                    color: black;
-                    tr:nth-child(odd){
-                        background-color: #d4d4d4;
-                    }
-                    tr:nth-child(even){
-                        background-color: #ebebeb;
+            
+                    tbody{
+                            color: black;
+                            tr:nth-child(odd){
+                                background-color: #d4d4d4;
+                            }
+                            tr:nth-child(even){
+                                background-color: #ebebeb;
+                            }
                     }
                 }
             }
         }
-
-        // .table-container::-webkit-scrollbar {
-        //     display: none;
-        // }
-        
-        //   /* Hide scrollbar for IE, Edge and Firefox */
-        // .table-container {
-        //     -ms-overflow-style: none;  /* IE and Edge */
-        //     scrollbar-width: none;  /* Firefox */
-        // }
-        
     }
 }
 
@@ -81,12 +111,6 @@ No media query for `xs` since this is the default in Bootstrap */
             .title{
                 font-size: 2.5rem;
             }
-
-            .table-title{
-                font-weight: bold;
-                font-size: 1.5em;
-            }
-
         }
     }
 }

@@ -16,7 +16,7 @@ class Handouts extends React.Component {
         return (
             <section className="handouts">
                 <div className="container">
-                    <div className="main-title">Modul praktikum</div>
+                    <div className="main-title">Modul Praktikum</div>
                     <div className="handouts-list">
                         {handoutsList}
                     </div>

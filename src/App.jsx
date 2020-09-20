@@ -10,11 +10,13 @@ import "./App.css"
 import Navbar from "./components/navbar/navbar"
 import Hero from "./components/hero/hero"
 import Menu from "./components/menu/menu"
+import CodeOfConduct from "./components/code-of-conduct/code-of-conduct"
 import Handouts from "./components/handouts/handouts"
+import PreliminaryTest from "./components/preliminary-test/preliminary-test"
 import PracticumVideo from "./components/practicum-video/practicum-video"
-import PracticumSchedule from "./components/practicum-schedule/practicum-schedule"
 import JournalCover from "./components/journal-cover/journal-cover"
 import Assistants from "./components/assistants/assistants"
+import PracticumSchedule from "./components/practicum-schedule/practicum-schedule"
 import Organigram from "./components/organigram/organigram"
 import Footer from "./components/footer/footer"
 import NotFoundPage from "./components/not-found-page/not-found-page"
@@ -84,12 +86,14 @@ class App extends React.Component {
               <Hero />
               <Menu />
             </Route>
-            <Route path="/assistants" render={() => <Assistants />} />
+            <Route path="/code-of-conduct" render={() => <CodeOfConduct />} />
             <Route path="/handout" render={() => <Handouts />} />
-            <Route path="/organigram" render={() => <Organigram />} />
+            <Route path="/preliminary-test" render={() => <PreliminaryTest />} />
             <Route path="/practicum-video" render={() => <PracticumVideo />} />
             <Route path="/journal-cover" render={() => <JournalCover />} />
+            <Route path="/assistants" render={() => <Assistants />} />
             <Route path="/practicum-schedule" render={() => <PracticumSchedule />} />
+            <Route path="/organigram" render={() => <Organigram />} />
             <Route path="/404" render={() => <NotFoundPage />} />
             <Redirect to="/404" />
           </Switch>

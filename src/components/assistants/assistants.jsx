@@ -20,7 +20,7 @@ class Assistants extends React.Component {
     }
 
     render() {
-        const assistantsList = assistants.map(assistant => <AssistantCard data={assistant} />)
+        const assistantsList = assistants.map((assistant, index) => <AssistantCard key={index} data={assistant} />)
         return (
             <section className="assistants">
                 <div className="container">

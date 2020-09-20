@@ -12,7 +12,7 @@ class OtherVideoCard extends React.Component {
   }
 
   handleChange() {
-    this.props.onCurrentPlayingChange(this.props.video.videoId)
+    this.props.onCurrentPlayingChange(this.props.video.videoId, this.props.video.name)
   }
 
   componentDidMount() {
@@ -79,6 +79,7 @@ class PracticumVideo extends React.Component {
     this.state = {
       activeLang: 'id',
       currentPlayingId: practicumModules[0].videoId,
+      currentPlayingTitle: practicumModules[0].name,
     }
   }
 
@@ -105,8 +106,8 @@ class PracticumVideo extends React.Component {
     this.setState({ activeLang: lang })
   }
 
-  changeCurrentPlaying(videoId) {
-    this.setState({ currentPlayingId: videoId })
+  changeCurrentPlaying(videoId, title) {
+    this.setState({ currentPlayingId: videoId, currentPlayingTitle: title })
   }
 
   render() {
@@ -126,8 +127,20 @@ class PracticumVideo extends React.Component {
       <section className="practicum-video">
         <div className="player">
           <VideoFrame videoId={this.state.currentPlayingId} />
+          <div className="video-title">
+            {this.state.currentPlayingTitle}
+          </div>
+          <div className="subs-btn-1">
+            <div className="g-ytsubscribe" data-channelid="UCLA9oIMMOeYOL3Yrqb9T0yA" data-layout="full" data-count="default"></div>
+          </div>
         </div>
         <div className="sidebar">
+          <div className="video-title">
+            {this.state.currentPlayingTitle}
+          </div>
+          <div className="subs-btn-2">
+            <div className="g-ytsubscribe" data-channelid="UCLA9oIMMOeYOL3Yrqb9T0yA" data-layout="full" data-count="default"></div>
+          </div>
           <LangSwitch onCurrentLangChange={this.changeCurrentLang} currentLang={this.state.activeLang} />
           {otherVideoList}
         </div>

@@ -3,6 +3,7 @@ import './practicum-schedule.scss'
 
 import { practicumSchedule } from '../../contents/practicum-schedule'
 import { groups } from '../../contents/groups'
+import classSchedule from '../../assets/img/class-schedule.png'
 
 class HeaderCell extends React.Component {
 
@@ -84,11 +85,20 @@ class PracticumSchedule extends React.Component {
         return (
             <section className="practicum-schedule">
                 <div className="container">
-                    <div className="title">Jadwal Modul Praktikum Fisika Dasar 1</div>
-                    <div className="table-title">Fakultas Teknik Elektro</div>
-                    <div className="table-container">{this.createTable('fte')}</div>
-                    <div className="table-title">Fakultas Rekayasa Industri</div>
-                    <div className="table-container">{this.createTable('fri')}</div>
+                    <div className="title">Jadwal Modul Praktikum Fisika Dasar 1 Tahun Akademik 2020/2021</div>
+                    <div className="class-schedule">
+                        <div className="table-title">Jadwal kelas</div>
+                        <div className="img-container">
+                            <img src={classSchedule} alt="Jadwal kelas" />
+                        </div>
+                    </div>
+                    <div className="handout-schedule">
+                        <div className="table-title">Jadwal modul</div>
+                        <div className="table-sub-title">Fakultas Teknik Elektro</div>
+                        <div className="table-container">{this.createTable('fte')}</div>
+                        <div className="table-sub-title">Fakultas Rekayasa Industri</div>
+                        <div className="table-container">{this.createTable('fri')}</div>
+                    </div>
                 </div>
             </section>
         )
