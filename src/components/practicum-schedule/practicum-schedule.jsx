@@ -85,7 +85,7 @@ class PracticumSchedule extends React.Component {
         return (
             <section className="practicum-schedule">
                 <div className="container">
-                    <div className="title">Jadwal Modul Praktikum Fisika Dasar 1 Tahun Akademik 2020/2021</div>
+                    <div className="title">Jadwal Praktikum Fisika Dasar 1 Tahun Akademik 2020/2021</div>
                     <div className="class-schedule">
                         <div className="table-title">Jadwal kelas</div>
                         <div className="img-container">

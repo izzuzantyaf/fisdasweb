@@ -130,16 +130,10 @@ class PracticumVideo extends React.Component {
           <div className="video-title">
             {this.state.currentPlayingTitle}
           </div>
-          <div className="subs-btn-1">
-            <div className="g-ytsubscribe" data-channelid="UCLA9oIMMOeYOL3Yrqb9T0yA" data-layout="full" data-count="default"></div>
-          </div>
         </div>
         <div className="sidebar">
           <div className="video-title">
             {this.state.currentPlayingTitle}
-          </div>
-          <div className="subs-btn-2">
-            <div className="g-ytsubscribe" data-channelid="UCLA9oIMMOeYOL3Yrqb9T0yA" data-layout="full" data-count="default"></div>
           </div>
           <LangSwitch onCurrentLangChange={this.changeCurrentLang} currentLang={this.state.activeLang} />
           {otherVideoList}

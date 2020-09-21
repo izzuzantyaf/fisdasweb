@@ -4,10 +4,56 @@
     padding: 50px 20px 50px 20px;
 
     .container {
-        display: grid;
-        grid-template-columns: 1fr;
-        row-gap: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
         width: 100%;
+
+        .socmed-banner{
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            align-items: center;
+            min-height: 100px;
+            font-size: 2.5rem;
+            border-radius: 0.5em;
+            color: #222ea2;
+            transition: box-shadow 0.2s linear;
+
+            .title{
+                font-size: 1.5rem;
+                font-weight: bold;
+            }
+
+            .socmed-list{
+                display: flex;
+                justify-content: space-evenly;
+                width: 100%;
+    
+                a{
+                    color: #c0c0c0;
+                    transition: color 0.2s linear;
+                }
+                a:hover{
+                    color: #222ea2;
+                    transition: color 0.2s linear;
+                }
+            }
+        }
+
+        .socmed-banner:hover {
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15);
+            transition: box-shadow 0.2s linear;
+        }
+
+        .menu-list{
+            display: grid;
+            grid-template-columns: 1fr;
+            row-gap: 20px;
+        }
     }
 }
 
@@ -16,7 +62,7 @@ No media query for `xs` since this is the default in Bootstrap */
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-    .menu .container {
+    .menu .container .menu-list {
         grid-template-columns: 1fr 1fr;
         gap: 20px 20px;
     }
