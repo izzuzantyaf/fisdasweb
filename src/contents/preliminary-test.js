@@ -3,7 +3,7 @@ import { practicumModules } from './modules'
 const preliminaryTest = [
     {
         // gmb
-        link: ''
+        link: 'https://drive.google.com/drive/folders/1Yqrzk8VMoFJux-PJqKuh5znnyRjsi6VH?usp=sharing'
     },
     {
         // gjb

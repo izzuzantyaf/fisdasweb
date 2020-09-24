@@ -27,7 +27,7 @@ class PreliminaryTest extends React.Component {
 
     render() {
         const preliminaryTestList = preliminaryTest.map((pt, index) =>
-            <a style={pt.link === '' ? { opacity: 0.5 } : {}} key={index} href={pt.link}><PLCard preliminaryTest={pt} /></a>
+            <a style={pt.link === '' ? { opacity: 0.3 } : {}} key={index} href={pt.link}><PLCard preliminaryTest={pt} /></a>
         )
 
         return (
