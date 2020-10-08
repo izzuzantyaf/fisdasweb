@@ -7,7 +7,7 @@ const preliminaryTest = [
     },
     {
         // gjb
-        link: ''
+        link: 'https://drive.google.com/drive/folders/1pNfcusRFTMiIRLp54Sh2NAlnWTwp_6w3?usp=sharing'
     },
     {
         // sgh
