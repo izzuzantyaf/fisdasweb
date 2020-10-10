@@ -1,16 +1,81 @@
 .hero {
     display: flex;
     justify-content: center;
-    height: 100vmin;
+    height: 85vmin;
     background-color: #222EA2;
-    padding: 80px 15px 10px 15px;
+    padding: 20px;
 
-    .main-title {
-        color: white;
-        font-size: 25px;
-        font-weight: bold;
-        text-align: center;
+    .container{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: space-evenly;
+
+        .main-title {
+            color: white;
+            font-size: 25px;
+            font-weight: bold;
+            text-align: center;
+        }
+    
+        .fisdas-board{
+            // flex-grow: 1;
+            border-radius: 0.8em;
+            background-color: #303eb9;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+
+            .board-title{
+                text-align: center;
+                font-size: 1.2rem;
+                font-weight: bold;
+                color: #dbdbdb;
+            }
+
+            .content-container{
+                display: flex;
+                // flex-grow: 1;
+                justify-content: center;
+                // width: 100%;
+
+                .content-card{
+                    background-color: white;
+                    color: #222EA2;
+                    border-radius: 0.8em;
+                    padding: 10px;
+                    cursor: pointer;
+                    // width: 100%;
+
+                    .type{
+                        background-color: #22a237;
+                        border-radius: 0.5em;
+                        color: white;
+                        font-weight: bold;
+                        text-align: center;
+                    }
+
+                    .main-section{
+                        display: flex;
+                        align-items: center;
+                        gap: 20px;
+
+                        .icon{
+                            font-size: 72px;
+                        }
+                    
+                        .title{
+                            font-weight: bold;
+                            font-size: 1.2rem;
+                        }
+                    }
+                }
+            }
+        }
     }
+
 }
 
 /* Extra small devices (portrait phones, less than 576px)
@@ -21,21 +86,34 @@ No media query for `xs` since this is the default in Bootstrap */
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-    .hero .main-title {
+    .hero .container .main-title {
         font-size: 40px;
     }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-    .hero .main-title {
-        font-size: 45px;
-    }
+    .hero{
+        .container {
+            width: 90%;
+
+            .main-title {
+                font-size: 45px;
+            }
+
+            .fisdas-board{
+
+                .board-title{
+                    font-size: 1.8rem;
+                }
+            }
+        } 
+    } 
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-    .hero .main-title {
+    .hero .container .main-title {
         font-size: 50px;
     }
 }
