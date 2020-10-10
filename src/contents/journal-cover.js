@@ -11,7 +11,7 @@ const journalCover = [
     },
     {
         // gjb
-        link: 'https://drive.google.com/file/d/1ecxfJYE6i9Snf-uP5kr05X2oXaZTrPDM/view?usp=sharing'
+        link: 'https://drive.google.com/file/d/1l8mGnkIp1BXtuHOViYCwy_BKp5TVcORc/view?usp=sharing'
     },
     {
         // sgh
