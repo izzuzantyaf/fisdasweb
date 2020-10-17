@@ -14,6 +14,7 @@ import CodeOfConduct from "./components/code-of-conduct/code-of-conduct"
 import Handouts from "./components/handouts/handouts"
 import PreliminaryTest from "./components/preliminary-test/preliminary-test"
 import PracticumVideo from "./components/practicum-video/practicum-video"
+import Regression from "./components/regression/regression"
 import JournalCover from "./components/journal-cover/journal-cover"
 import Assistants from "./components/assistants/assistants"
 import PracticumSchedule from "./components/practicum-schedule/practicum-schedule"
@@ -45,7 +46,8 @@ import {
   faMagnet,
   faBolt,
   faChevronCircleUp,
-  faFile
+  faFile,
+  faChartLine
 } from "@fortawesome/free-solid-svg-icons"
 
 library.add(
@@ -71,7 +73,8 @@ library.add(
   faMagnet,
   faBolt,
   faChevronCircleUp,
-  faFile
+  faFile,
+  faChartLine
 )
 
 class App extends React.Component {
@@ -90,6 +93,7 @@ class App extends React.Component {
             <Route path="/handout" render={() => <Handouts />} />
             <Route path="/preliminary-test" render={() => <PreliminaryTest />} />
             <Route path="/practicum-video" render={() => <PracticumVideo />} />
+            <Route path="/regression" render={() => <Regression />} />
             <Route path="/journal-cover" render={() => <JournalCover />} />
             <Route path="/assistants" render={() => <Assistants />} />
             <Route path="/practicum-schedule" render={() => <PracticumSchedule />} />

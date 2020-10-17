@@ -19,6 +19,11 @@ export const menu = [{
     link: '/practicum-video'
 },
 {
+    name: 'Regresi Linear',
+    icon: 'chart-line',
+    link: '/regression'
+},
+{
     name: 'Cover Jurnal',
     icon: 'file',
     link: '/journal-cover'

@@ -1,17 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './template.scss'
 
-class Template extends React.Component {
+// level 0 component
+export default function Template() {
 
-    componentDidMount() {
+    useEffect(() => {
         window.scrollTo(0, 0)
-    }
+    })
 
-    render() {
-        return (
-            ""
-        )
-    }
+    return (
+        ""
+    )
 }
-
-export default Template

@@ -1,29 +1,53 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './handouts.scss'
-
-import HandoutCard from '../handout-card/handout-card'
 
 import { handouts } from '../../contents/handouts'
 
-class Handouts extends React.Component {
+// level 2 component
+function HandoutCard(props) {
 
-    componentDidMount() {
-        window.scrollTo(0, 0)
-    }
-
-    render() {
-        const handoutsList = handouts.map((handout, index) => <a key={index} href={handout.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}><HandoutCard data={handout} /></a>)
-        return (
-            <section className="handouts">
-                <div className="container">
-                    <div className="main-title">Modul Praktikum</div>
-                    <div className="handouts-list">
-                        {handoutsList}
-                    </div>
-                </div>
-            </section>
-        )
-    }
+    return (
+        <div className="handout-card">
+            <div className="handout-info">
+                <p className="title">{props.data.name} ({props.data.faculty})</p>
+                <p className="lang">{props.data.lang === 'id' ? 'Bahasa Indonesia' : 'English'}</p>
+            </div>
+        </div>
+    )
 }
 
-export default Handouts
+// level 1 component
+function HandoutList() {
+
+    const handoutsList = handouts.map((handout, index) => <a
+        key={index}
+        href={handout.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ textDecoration: 'none' }}>
+        <HandoutCard data={handout} />
+    </a>)
+
+    return (
+        <div className="handouts-list">
+            {handoutsList}
+        </div>
+    )
+}
+
+// level 0 component
+export default function Handouts() {
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    })
+
+    return (
+        <section className="handouts">
+            <div className="container">
+                <div className="main-title">Modul Praktikum</div>
+                <HandoutList />
+            </div>
+        </section>
+    )
+}

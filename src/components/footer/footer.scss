@@ -10,7 +10,7 @@
         flex-direction: column;
         gap: 40px;
 
-        .section1{
+        .identity{
             .title {
                 font-size: 22px;
                 font-weight: bold;
@@ -24,35 +24,29 @@
             }
         }
 
-        .section2 {
+        .headquarters {
             .title {
                 font-size: 18px;
                 font-weight: medium;
             }
 
-            .headquarter {
-                    .address {
-                    font-weight: normal;
-                    color: #7a7a7a;
-                }
+            .address {
+                color: #7a7a7a;
             }
-
         }
 
-        .section3{
+        .explore{
             .title {
                 font-size: 18px;
                 font-weight: medium;
             }
 
-            .explore {
-                .footer-menu-list {
-                    font-weight: normal;
-                    color: #7a7a7a;
-                    display: flex;
-                    flex-direction: column;
-                    gap: 20px;
-                }
+            .footer-menu-list {
+                color: #7a7a7a;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                font-weight: normal;
             }
         }
 
@@ -87,11 +81,11 @@ No media query for `xs` since this is the default in Bootstrap */
     .footer .container {
         width: 80%;
 
-        .section1 .title {
+        .identity .title {
             font-size: 25px;
         }
 
-        .section2 .find-us {
+        .headquarters .address {
             width: 75%;
         }
     }

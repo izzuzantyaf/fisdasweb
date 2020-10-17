@@ -1,7 +1,7 @@
 .hero {
     display: flex;
     justify-content: center;
-    height: 85vmin;
+    height: 100vmin;
     background-color: #222EA2;
     padding: 20px;
 
@@ -9,73 +9,15 @@
         width: 100%;
         display: flex;
         flex-direction: column;
-        gap: 20px;
-        justify-content: space-evenly;
 
         .main-title {
             color: white;
             font-size: 25px;
             font-weight: bold;
             text-align: center;
-        }
-    
-        .fisdas-board{
-            // flex-grow: 1;
-            border-radius: 0.8em;
-            background-color: #303eb9;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            padding: 20px;
-
-            .board-title{
-                text-align: center;
-                font-size: 1.2rem;
-                font-weight: bold;
-                color: #dbdbdb;
-            }
-
-            .content-container{
-                display: flex;
-                // flex-grow: 1;
-                justify-content: center;
-                // width: 100%;
-
-                .content-card{
-                    background-color: white;
-                    color: #222EA2;
-                    border-radius: 0.8em;
-                    padding: 10px;
-                    cursor: pointer;
-                    // width: 100%;
-
-                    .type{
-                        background-color: #22a237;
-                        border-radius: 0.5em;
-                        color: white;
-                        font-weight: bold;
-                        text-align: center;
-                    }
-
-                    .main-section{
-                        display: flex;
-                        align-items: center;
-                        gap: 20px;
-
-                        .icon{
-                            font-size: 72px;
-                        }
-                    
-                        .title{
-                            font-weight: bold;
-                            font-size: 1.2rem;
-                        }
-                    }
-                }
-            }
+            margin-top: 50px;
         }
     }
-
 }
 
 /* Extra small devices (portrait phones, less than 576px)

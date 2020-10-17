@@ -1,46 +1,55 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './preliminary-test.scss'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { processedPreliminaryTest as preliminaryTest } from '../../contents/preliminary-test'
+import { processedPreliminaryTest as preliminaryTests } from '../../contents/preliminary-test'
 
-class PLCard extends React.Component {
+// level 2 component
+function PreliminaryTestCard(props) {
 
-    render() {
-        return (
-            <div className="jc-card">
-                <div className="icon">
-                    <FontAwesomeIcon icon={this.props.preliminaryTest.icon} />
-                </div>
-                <div className="module-name">{this.props.preliminaryTest.module}</div>
+    return (
+        <div className="pt-card">
+            <div className="icon">
+                <FontAwesomeIcon icon={props.preliminaryTest.icon} />
             </div>
-        )
-    }
+            <div className="module-name">{props.preliminaryTest.module}</div>
+        </div>
+    )
 }
 
-class PreliminaryTest extends React.Component {
+// level 1 component
+function PreliminaryTestList() {
 
-    componentDidMount() {
+    const preliminaryTestList = preliminaryTests.map((preliminaryTest, index) =>
+        <a
+            style={preliminaryTest.link === '' ? { opacity: 0.3 } : {}}
+            key={index}
+            href={preliminaryTest.link}
+            target="_blank"
+            rel="noopener noreferrer"><PreliminaryTestCard preliminaryTest={preliminaryTest} />
+        </a>)
+
+    return (
+        <div className="pt-card-list">
+            {preliminaryTestList}
+        </div>
+    )
+}
+
+// level 0 component
+export default function PreliminaryTest() {
+
+    useEffect(() => {
         window.scrollTo(0, 0)
-    }
+    })
 
-    render() {
-        const preliminaryTestList = preliminaryTest.map((pt, index) =>
-            <a style={pt.link === '' ? { opacity: 0.3 } : {}} key={index} href={pt.link}><PLCard preliminaryTest={pt} /></a>
-        )
-
-        return (
-            <div className="journal-cover">
-                <div className="container">
-                    <div className="title">Tugas Pendahuluan</div>
-                    <div className="jc-card-list">
-                        {preliminaryTestList}
-                    </div>
-                </div>
+    return (
+        <section className="preliminary-test">
+            <div className="container">
+                <div className="title">Tugas Pendahuluan</div>
+                <PreliminaryTestList />
             </div>
-        )
-    }
+        </section>
+    )
 }
-
-export default PreliminaryTest

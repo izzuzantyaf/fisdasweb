@@ -1,28 +1,28 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './code-of-conduct.scss'
 
 import tatib1 from '../../assets/img/tatib 1-min.jpg'
 import tatib2 from '../../assets/img/tatib 2-min.jpg'
 import tatib3 from '../../assets/img/tatib 3-min.jpg'
 
-class CodeOfConduct extends React.Component {
+// level 0 component
+export default function CodeOfConduct() {
 
-    componentDidMount() {
+    useEffect(() => {
         window.scrollTo(0, 0)
-    }
+    })
 
-    render() {
-        return (
-            <section className="organigram">
-                <div className="container">
-                    <div className="title">Tata Tertib Praktikum Fisika Dasar 1 Tahun Akademik 2020/2021</div>
-                    <img className="tatib-1" src={tatib1} alt="tatib1" />
-                    <img className="tatib-2" src={tatib2} alt="tatib2" />
-                    <img className="tatib-3" src={tatib3} alt="tatib2" />
-                </div>
-            </section>
-        )
-    }
+    const tatibImgArr = [tatib1, tatib2, tatib3]
+    const tatibList = tatibImgArr.map((tatibImg, index) =>
+        <img key={index} className={`tatib-${index + 1}`} src={tatibImg} alt={`tatib${index + 1}`} />
+    )
+
+    return (
+        <section className="organigram">
+            <div className="container">
+                <div className="title">Tata Tertib Praktikum Fisika Dasar 1 Tahun Akademik 2020/2021</div>
+                {tatibList}
+            </div>
+        </section>
+    )
 }
-
-export default CodeOfConduct

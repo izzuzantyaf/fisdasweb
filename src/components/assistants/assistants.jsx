@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './assistants.scss'
 
 import { assistants } from '../../contents/assistants'
 
-const AssistantCard = (props) => {
+// level 2 component
+function AssistantCard(props) {
 
     return (
         <div className="assistant-card">
@@ -13,25 +14,32 @@ const AssistantCard = (props) => {
     )
 }
 
-class Assistants extends React.Component {
+// level 1 component
+function AssistantList() {
+    const assistantsList = assistants.map((assistant, index) =>
+        <AssistantCard key={index} data={assistant} />)
 
-    componentDidMount() {
-        window.scrollTo(0, 0)
-    }
-
-    render() {
-        const assistantsList = assistants.map((assistant, index) => <AssistantCard key={index} data={assistant} />)
-        return (
-            <section className="assistants">
-                <div className="container">
-                    <div className="title">Asisten Praktikum Laboratorium Fisika Dasar 2020/2021</div>
-                    <div className="assistants-list">
-                        {assistantsList}
-                    </div>
-                </div>
-            </section>
-        )
-    }
+    return (
+        <div className="assistants-list">
+            {assistantsList}
+        </div>
+    )
 }
 
-export default Assistants
+// level 0 component
+export default function Assistants() {
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    })
+
+
+    return (
+        <section className="assistants">
+            <div className="container">
+                <div className="title">Asisten Praktikum Laboratorium Fisika Dasar 2020/2021</div>
+                <AssistantList />
+            </div>
+        </section>
+    )
+}

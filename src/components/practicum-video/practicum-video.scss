@@ -10,14 +10,15 @@
     flex-direction: column;
     gap: 20px;
 
+    iframe.practicum-video {
+      margin: 0px;
+      padding: 0px;
+    }
+
     .video-title{
       font-size: 1.5rem;
       font-weight: bold;
       color: rgb(114, 114, 114);
-      display: none;
-    }
-
-    .subs-btn-1{
       display: none;
     }
   }

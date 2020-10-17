@@ -1,6 +1,6 @@
 /* Extra small devices (portrait phones, less than 576px)
 No media query for `xs` since this is the default in Bootstrap */
-.journal-cover{
+.preliminary-test{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,16 +20,17 @@ No media query for `xs` since this is the default in Bootstrap */
             text-align: center;
         }
 
-        .jc-card-list{
+        .pt-card-list{
             display: grid;
             grid-template-columns: 1fr;
             gap: 20px;
             
             a{
                 text-decoration: none;
+                color: #222ea2;
             }
 
-            .jc-card {
+            .pt-card {
                 display: flex;
                 border-radius: 0.8em;
                 background-color: white;
@@ -55,7 +56,7 @@ No media query for `xs` since this is the default in Bootstrap */
                     }
                 }
 
-            .jc-card:hover {
+            .pt-card:hover {
                 box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
                 transition: all 0.2s linear;
             }
@@ -73,7 +74,7 @@ No media query for `xs` since this is the default in Bootstrap */
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
     
-    .journal-cover{
+    .preliminary-test{
         .container {
             width: 80%;
             gap: 30px;
@@ -82,9 +83,9 @@ No media query for `xs` since this is the default in Bootstrap */
                 font-size: 2.5em;
             }
 
-            .jc-card-list{
+            .pt-card-list{
                 grid-template-columns: repeat(2, 1fr);
-                .jc-card {
+                .pt-card {
                     font-size: 16px;
                 }
             }
