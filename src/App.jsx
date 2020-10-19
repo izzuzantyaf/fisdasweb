@@ -77,36 +77,32 @@ library.add(
   faChartLine
 )
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <Router>
-          <Route path="/" render={() => <Navbar />} />
+export default function App() {
+  return (
+    <div>
+      <Router>
+        <Route path="/" render={() => <Navbar />} />
 
-          <Switch>
-            <Route exact path="/">
-              <Hero />
-              <Menu />
-            </Route>
-            <Route path="/code-of-conduct" render={() => <CodeOfConduct />} />
-            <Route path="/handout" render={() => <Handouts />} />
-            <Route path="/preliminary-test" render={() => <PreliminaryTest />} />
-            <Route path="/practicum-video" render={() => <PracticumVideo />} />
-            <Route path="/regression" render={() => <Regression />} />
-            <Route path="/journal-cover" render={() => <JournalCover />} />
-            <Route path="/assistants" render={() => <Assistants />} />
-            <Route path="/practicum-schedule" render={() => <PracticumSchedule />} />
-            <Route path="/organigram" render={() => <Organigram />} />
-            <Route path="/404" render={() => <NotFoundPage />} />
-            <Redirect to="/404" />
-          </Switch>
+        <Switch>
+          <Route exact path="/">
+            <Hero />
+            <Menu />
+          </Route>
+          <Route path="/code-of-conduct" render={() => <CodeOfConduct />} />
+          <Route path="/handout" render={() => <Handouts />} />
+          <Route path="/preliminary-test" render={() => <PreliminaryTest />} />
+          <Route path="/practicum-video" render={() => <PracticumVideo />} />
+          <Route path="/regression" render={() => <Regression />} />
+          <Route path="/journal-cover" render={() => <JournalCover />} />
+          <Route path="/assistants" render={() => <Assistants />} />
+          <Route path="/practicum-schedule" render={() => <PracticumSchedule />} />
+          <Route path="/organigram" render={() => <Organigram />} />
+          <Route path="/404" render={() => <NotFoundPage />} />
+          <Redirect to="/404" />
+        </Switch>
 
-          <Route path="/" render={() => <Footer />} />
-        </Router>
-      </div>
-    )
-  }
+        <Route path="/" render={() => <Footer />} />
+      </Router>
+    </div>
+  )
 }
-
-export default App
