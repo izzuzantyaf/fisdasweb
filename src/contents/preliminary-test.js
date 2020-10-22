@@ -11,11 +11,11 @@ const preliminaryTest = [
     },
     {
         // sgh
-        link: ''
+        link: 'https://drive.google.com/drive/folders/1V489AMrQ01WE1CwDDgf3SP7B0f0yozMv?usp=sharing'
     },
     {
         // pbl
-        link: ''
+        link: 'https://drive.google.com/drive/folders/1VOl7e8e6Mz9s5xZ2gJgkbCavigpk4-AF?usp=sharing'
     },
     {
         // glb
