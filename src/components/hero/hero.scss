@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     height: 100vmin;
+    max-height: 800px;
     background-color: #222EA2;
     padding: 20px;
 
@@ -42,20 +43,15 @@ No media query for `xs` since this is the default in Bootstrap */
             .main-title {
                 font-size: 45px;
             }
-
-            .fisdas-board{
-
-                .board-title{
-                    font-size: 1.8rem;
-                }
-            }
         } 
     } 
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-    .hero .container .main-title {
+    .hero {
+        .container .main-title {
         font-size: 50px;
+        }
     }
 }

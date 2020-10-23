@@ -27,26 +27,25 @@
         .headquarters {
             .title {
                 font-size: 18px;
-                font-weight: medium;
-            }
-
-            .address {
-                color: #7a7a7a;
+                font-weight: bold;
             }
         }
 
         .explore{
             .title {
                 font-size: 18px;
-                font-weight: medium;
+                font-weight: bold;
             }
 
             .footer-menu-list {
-                color: #7a7a7a;
                 display: flex;
                 flex-direction: column;
                 gap: 20px;
                 font-weight: normal;
+
+                a{
+                    color: inherit;
+                }
             }
         }
 

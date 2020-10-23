@@ -13,6 +13,7 @@ function Identity() {
   const socmedList = socialMedia.map((socmed, index) => (
     <a
       key={index}
+      className="socmed-icon"
       href={socmed.link}
       target="_blank"
       rel="noopener noreferrer"
@@ -20,7 +21,7 @@ function Identity() {
       alt={socmed.name} >
       <FontAwesomeIcon icon={socmed.icon} />
     </a>
-  ));
+  ))
 
   return (
     <div className="identity">
@@ -35,7 +36,7 @@ function Identity() {
 function Headquarters() {
 
   return (
-    <div className="headquarter">
+    <div className="headquarters">
       <p className="title">Our headquarters</p>
       <p className="address">
         Gedung P (Deli) lantai 3, Telkom University, Jl. Telekomunikasi
@@ -52,7 +53,7 @@ function Explore() {
     <Link
       key={index}
       to={menu.link}
-      style={{ textDecoration: "none", color: "#7a7a7a", cursor: "pointer" }} >
+      style={{ textDecoration: "none", cursor: "pointer" }} >
       {menu.name}
     </Link>
   ));
