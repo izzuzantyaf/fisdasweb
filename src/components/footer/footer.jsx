@@ -17,7 +17,7 @@ function Identity() {
       href={socmed.link}
       target="_blank"
       rel="noopener noreferrer"
-      style={{ color: "#ffffff" }}
+      // style={{ color: "#ffffff" }}
       alt={socmed.name} >
       <FontAwesomeIcon icon={socmed.icon} />
     </a>

@@ -12,6 +12,7 @@ export default function Hero() {
         <section className="hero">
             <div className="container">
                 <div className="main-title">Laboratorium Fisika Dasar <br></br> Universitas Telkom</div>
+                <div className="desc">The official website of<br />Tel-U Physics Laboratory</div>
             </div>
         </section>
     )
