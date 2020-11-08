@@ -1,1 +1,1 @@
-export const groups = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
+export default ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']

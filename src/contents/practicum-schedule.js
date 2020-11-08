@@ -1,4 +1,4 @@
-export const practicumSchedule = [
+export default [
     {
         faculty: 'fte',
         content: ['PAP', 'GMB', 'Presentasi', 'GJB', 'Presentasi', 'SGH', 'GLB', 'Presentasi', 'RGB', 'Presentasi'

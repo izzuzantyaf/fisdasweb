@@ -1,4 +1,4 @@
-export const handouts = [{
+export default [{
     name: 'Modul Praktikum Fisika Dasar 1',
     faculty: 'FTE',
     lang: 'id',

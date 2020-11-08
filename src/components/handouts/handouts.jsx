@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import './handouts.scss'
 
-import { handouts } from '../../contents/handouts'
+import handouts from '../../contents/handouts'
 
 // level 2 component
 function HandoutCard(props) {

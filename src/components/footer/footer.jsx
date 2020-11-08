@@ -4,7 +4,7 @@ import "./footer.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import socialMedia from "../../contents/social-media";
-import { menu as menuArr } from "../../contents/menu";
+import menuArr from "../../contents/menu";
 import { Link } from "react-router-dom";
 
 // level 1 components
@@ -17,7 +17,6 @@ function Identity() {
       href={socmed.link}
       target="_blank"
       rel="noopener noreferrer"
-      // style={{ color: "#ffffff" }}
       alt={socmed.name} >
       <FontAwesomeIcon icon={socmed.icon} />
     </a>

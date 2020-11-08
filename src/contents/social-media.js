@@ -1,4 +1,4 @@
-const socialMedia = [{
+export default [{
     name: 'Instagram',
     icon: ['fab', 'instagram'],
     link: 'https://instagram.com/labfisdas_telu'
@@ -25,4 +25,4 @@ const socialMedia = [{
 }
 ]
 
-export default socialMedia
+// export default socialMedia

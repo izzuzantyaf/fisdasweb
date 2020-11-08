@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import './practicum-schedule.scss'
 
-import { practicumSchedule } from '../../contents/practicum-schedule'
-import { groups } from '../../contents/groups'
+import practicumSchedule from '../../contents/practicum-schedule'
+import groups from '../../contents/groups'
 import classSchedule from '../../assets/img/class-schedule.png'
 
 // level 1 components

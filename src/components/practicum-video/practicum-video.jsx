@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import "./practicum-video.scss"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { practicumModules } from "../../contents/modules"
+import practicumModules from "../../contents/modules"
 
 // level 2 components
 function VideoFrame(props) {

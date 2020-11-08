@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './menu.scss'
 
-import { menu as menuArr } from '../../contents/menu'
+import menuArr from '../../contents/menu'
 import socialMedia from '../../contents/social-media'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 

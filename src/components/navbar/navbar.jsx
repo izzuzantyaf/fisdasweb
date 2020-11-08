@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './navbar.scss'
 
 import fisdasLogo from '../../assets/img/fisdas-logo-min.png'
-import { menu as menuArr } from '../../contents/menu'
+import menuArr from '../../contents/menu'
 
 // level 1 component
 function Logo() {

@@ -1,4 +1,4 @@
-export const menu = [{
+export default [{
     name: 'Tata tertib',
     icon: 'balance-scale',
     link: '/code-of-conduct'

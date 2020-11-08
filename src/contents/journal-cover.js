@@ -1,4 +1,4 @@
-import { practicumModules } from './modules'
+import practicumModules from './modules'
 
 const journalCover = [
     {

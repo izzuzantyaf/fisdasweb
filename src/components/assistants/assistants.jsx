@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import './assistants.scss'
 
-import { assistants } from '../../contents/assistants'
+import assistants from '../../contents/assistants'
 
 // level 2 component
 function AssistantCard(props) {

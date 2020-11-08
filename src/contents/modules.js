@@ -1,4 +1,4 @@
-export const practicumModules = [
+export default [
     {
         isActive: false,
         lang: 'id',
