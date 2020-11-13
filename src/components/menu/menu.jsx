@@ -37,9 +37,29 @@ function SocialMediaBanner() {
     )
 }
 
+function NewFeature() {
+
+    const newFeatureList = menuArr.filter(menu => menu.newFeature).map((newFeature, index) =>
+        <Link
+            key={index}
+            to={newFeature.link}
+            style={{ textDecoration: 'none' }}>
+            <MenuCard data={newFeature} />
+        </Link>)
+
+    return (
+        <div className="new-feature">
+            <div className="container">
+                <div className="title">New features</div>
+                <div className="new-menu-list">{newFeatureList}</div>
+            </div>
+        </div>
+    )
+}
+
 function MenuList() {
 
-    const menuList = menuArr.map((menu, index) =>
+    const menuList = menuArr.filter(menu => !menu.newFeature).map((menu, index) =>
         <Link
             key={index}
             to={menu.link}
@@ -61,6 +81,7 @@ export default function Menu() {
         <section className="menu">
             <div className="container">
                 <SocialMediaBanner />
+                <NewFeature />
                 <MenuList />
             </div>
         </section>

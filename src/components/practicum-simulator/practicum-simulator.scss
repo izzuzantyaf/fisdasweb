@@ -1,0 +1,98 @@
+/* Extra small devices (portrait phones, less than 576px)
+No media query for `xs` since this is the default in Bootstrap */
+.practicum-simulator{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 20px 50px 20px;
+    color: #222EA2;
+
+    .container{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+
+        .title{
+            font-weight: bolder;
+            font-size: 1.5rem;
+            color: rgb(114, 114, 114);
+            text-align: center;
+        }
+
+        .sw-card-list{
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            
+            a{
+                text-decoration: none;
+                color: #222ea2;
+            }
+
+            .sw-card {
+                display: flex;
+                border-radius: 0.8em;
+                background-color: white;
+                min-height: 75px;
+                font-size: 14px;
+                transition: all 0.2s linear;
+                
+                cursor: pointer;
+            
+                .icon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    min-width: 90px;
+                    font-size: 36px;
+                }
+            
+                .module-name {
+                    display: flex;
+                    align-items: center;
+                    font-weight: bold;
+                    padding-right: 20px;
+                    }
+                }
+
+            .sw-card:hover {
+                box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
+                transition: all 0.2s linear;
+            }
+        }
+    }
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    
+    .practicum-simulator{
+        .container {
+            width: 80%;
+            gap: 30px;
+            
+            .title{
+                font-size: 2.5em;
+            }
+
+            .sw-card-list{
+                grid-template-columns: repeat(2, 1fr);
+                .sw-card {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {}

@@ -15,6 +15,7 @@ import Handouts from "./components/handouts/handouts"
 import PreliminaryTest from "./components/preliminary-test/preliminary-test"
 import PracticumVideo from "./components/practicum-video/practicum-video"
 import Regression from "./components/regression/regression"
+import PracticumSimulator from "./components/practicum-simulator/practicum-simulator"
 import JournalCover from "./components/journal-cover/journal-cover"
 import Assistants from "./components/assistants/assistants"
 import PracticumSchedule from "./components/practicum-schedule/practicum-schedule"
@@ -47,7 +48,8 @@ import {
   faBolt,
   faChevronCircleUp,
   faFile,
-  faChartLine
+  faChartLine,
+  faCogs
 } from "@fortawesome/free-solid-svg-icons"
 
 library.add(
@@ -74,7 +76,8 @@ library.add(
   faBolt,
   faChevronCircleUp,
   faFile,
-  faChartLine
+  faChartLine,
+  faCogs
 )
 
 export default function App() {
@@ -93,6 +96,7 @@ export default function App() {
           <Route path="/preliminary-test" render={() => <PreliminaryTest />} />
           <Route path="/practicum-video" render={() => <PracticumVideo />} />
           <Route path="/regression" render={() => <Regression />} />
+          <Route path="/practicum-simulator" render={() => <PracticumSimulator />} />
           <Route path="/journal-cover" render={() => <JournalCover />} />
           <Route path="/assistants" render={() => <Assistants />} />
           <Route path="/practicum-schedule" render={() => <PracticumSchedule />} />

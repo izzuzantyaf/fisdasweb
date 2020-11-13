@@ -1,46 +1,61 @@
 export default [{
     name: 'Tata tertib',
     icon: 'balance-scale',
-    link: '/code-of-conduct'
+    link: '/code-of-conduct',
+    newFeature: false
 },
 {
     name: 'Modul',
     icon: 'book',
-    link: '/handout'
+    link: '/handout',
+    newFeature: false
 },
 {
     name: 'Tugas Pendahuluan',
     icon: 'tasks',
-    link: '/preliminary-test'
+    link: '/preliminary-test',
+    newFeature: false
 },
 {
     name: 'Video',
     icon: 'play',
-    link: '/practicum-video'
+    link: '/practicum-video',
+    newFeature: false
 },
 {
     name: 'Regresi Linear',
     icon: 'chart-line',
-    link: '/regression'
+    link: '/regression',
+    newFeature: true
+},
+{
+    name: 'Simulator Praktikum',
+    icon: 'cogs',
+    link: '/practicum-simulator',
+    newFeature: true
 },
 {
     name: 'Cover Jurnal',
     icon: 'file',
-    link: '/journal-cover'
+    link: '/journal-cover',
+    newFeature: false
 },
 {
     name: 'Asisten',
     icon: 'users',
-    link: '/assistants'
+    link: '/assistants',
+    newFeature: false
 },
 {
     name: 'Jadwal',
     icon: 'calendar-minus',
-    link: '/practicum-schedule'
+    link: '/practicum-schedule',
+    newFeature: false
 },
 {
     name: 'Organigram',
     icon: 'sitemap',
-    link: '/organigram'
+    link: '/organigram',
+    newFeature: false
 }
 ]
