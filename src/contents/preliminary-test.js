@@ -19,7 +19,7 @@ const preliminaryTest = [
     },
     {
         // glb
-        link: ''
+        link: 'https://drive.google.com/drive/folders/1fRo5BTsBQKbaGSZ5ci-UTv0TqxAG9G3H?usp=sharing'
     },
     {
         // rgb
