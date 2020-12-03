@@ -23,11 +23,11 @@ const preliminaryTest = [
     },
     {
         // rgb
-        link: ''
+        link: 'https://drive.google.com/drive/folders/19i3HFcSylMYNnHz3L5K6oi1vDndoH-de'
     },
     {
         // im
-        link: ''
+        link: 'https://drive.google.com/drive/folders/1UHS075cs8cNhXtqub2jlKBJrIaf65gHX'
     },
 ]
 
