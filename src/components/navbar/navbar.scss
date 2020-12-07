@@ -24,17 +24,45 @@
             flex-grow: 1;
             gap: 5%;
 
-            .nav-item {
-                padding: 5px 20px 5px 20px;
+            .hamburger-icon{
                 color: #222ea2;
-                border-radius: 0.7rem;
-                font-weight: bold;
-                transition: all 0.2s linear;
+                padding: 10px;
+                border-radius: 0.3em;
+                font-size: 1.5rem;
+                cursor: pointer;
             }
 
-            .nav-item:hover {
-                background-color:#222ea2;
-                color: #F2F2F2;
+            .hamburger-icon:hover{
+                background-color: #4a5cff1c;
+            }
+
+            .menu-list{
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                position: absolute;
+                top: 60px;
+                background-color: white;
+                box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15);
+                border-radius: 0.8em;
+                padding: 0px;
+                height: 0px;
+                overflow: hidden;
+
+                .menu-list-item{
+                    padding: 5px 10px 5px 10px;
+                    border-radius: 0.5em;
+                }
+
+                .menu-list-item:hover{
+                    background-color: rgb(214, 214, 214);
+                    transition: all 0.2s linear;
+                }
+            }
+
+            .menu-list.show{
+                height: auto;
+                padding: 10px;
                 transition: all 0.2s linear;
             }
         }

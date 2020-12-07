@@ -49,7 +49,8 @@ import {
   faChevronCircleUp,
   faFile,
   faChartLine,
-  faCogs
+  faCogs,
+  faBars
 } from "@fortawesome/free-solid-svg-icons"
 
 library.add(
@@ -77,7 +78,8 @@ library.add(
   faChevronCircleUp,
   faFile,
   faChartLine,
-  faCogs
+  faCogs,
+  faBars,
 )
 
 export default function App() {

@@ -4,6 +4,8 @@ import './navbar.scss'
 
 import fisdasLogo from '../../assets/img/fisdas-logo-min.png'
 import menuArr from '../../contents/menu'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useEffect } from 'react'
 
 // level 1 component
 function Logo() {
@@ -19,21 +21,43 @@ function Logo() {
 
 function Navigation() {
 
-    const menuInNavbar = ['Modul', 'Jadwal', 'Video']
     const menuList = menuArr
-        .filter(menu => menuInNavbar.includes(menu.name))
         .map((menu, index) =>
             <Link
                 key={index}
                 to={menu.link}
-                style={{ textDecoration: 'none', color: 'black' }}>
-                <span className="nav-item">{menu.name}</span>
+                style={{ textDecoration: 'none', color: 'black' }}
+                className="menu-list-item">
+                {menu.name}
             </Link>
         )
 
+    useEffect(() => {
+        const hamburgerIcon = document.querySelector(".hamburger-icon")
+        const dropdownMenu = document.querySelector(".menu-list")
+        hamburgerIcon.addEventListener('mouseenter', () => {
+            dropdownMenu.classList.add('show')
+        })
+        hamburgerIcon.addEventListener('click', () => {
+            if (!dropdownMenu.classList.contains('show'))
+                dropdownMenu.classList.add('show')
+            else dropdownMenu.classList.remove('show')
+        })
+        dropdownMenu.addEventListener('mouseleave', () => {
+            dropdownMenu.classList.remove('show')
+        })
+        return () => { }
+    }, [])
+
     return (
         <div className="navigation">
-            {menuList}
+            <FontAwesomeIcon
+                icon="bars"
+                className="hamburger-icon"
+            />
+            <div className="menu-list">
+                {menuList}
+            </div>
         </div>
     )
 }
