@@ -152,8 +152,6 @@ No media query for `xs` since this is the default in Bootstrap */
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
     .menu {
-        padding: 50px 0px 50px 0px;
-
         .container {
             .menu-list, .new-feature .container .new-menu-list {
                 grid-template-columns: 1fr 1fr;
@@ -169,8 +167,11 @@ No media query for `xs` since this is the default in Bootstrap */
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
 
-    .menu .container {
-        width: 80%;
+    .menu{
+        padding: 50px 0px 50px 0px;
+        .container {
+            width: 80%;
+        }
     }
 }
 
