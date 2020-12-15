@@ -39,9 +39,7 @@ function Navigation() {
             dropdownMenu.classList.add('show')
         })
         hamburgerIcon.addEventListener('click', () => {
-            if (!dropdownMenu.classList.contains('show'))
-                dropdownMenu.classList.add('show')
-            else dropdownMenu.classList.remove('show')
+            dropdownMenu.classList.toggle('show')
         })
         dropdownMenu.addEventListener('mouseleave', () => {
             dropdownMenu.classList.remove('show')
