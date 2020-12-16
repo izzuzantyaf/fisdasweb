@@ -10,6 +10,12 @@ function AssistantCard(props) {
         <div className="assistant-card">
             <div className="assitants-name">{props.data.name}</div>
             <div className="assistant-code">{props.data.code}</div>
+            <a
+                href={props.data.feedbackLink}
+                target="_blank"
+                rel="noopener noreferrer">
+                <div className="feedback-btn">Write me a feedback</div>
+            </a>
         </div>
     )
 }
