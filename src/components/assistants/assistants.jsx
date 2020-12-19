@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './assistants.scss'
 
 import assistants from '../../contents/assistants'
@@ -6,16 +6,21 @@ import assistants from '../../contents/assistants'
 // level 2 component
 function AssistantCard(props) {
 
+    const [feedbackTime, setfeedbackTime] = useState(true)
+
     return (
         <div className="assistant-card">
             <div className="assitants-name">{props.data.name}</div>
             <div className="assistant-code">{props.data.code}</div>
-            <a
-                href={props.data.feedbackLink}
-                target="_blank"
-                rel="noopener noreferrer">
-                <div className="feedback-btn">Write me a feedback</div>
-            </a>
+            {
+                feedbackTime ?
+                    <a
+                        href={props.data.feedbackLink}
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <div className="feedback-btn">Write me a feedback</div>
+                    </a> : ''
+            }
         </div>
     )
 }
