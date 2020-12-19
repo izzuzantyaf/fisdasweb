@@ -171,7 +171,7 @@ export default [{
 {
     "name": "Fandi Achmad",
     "code": "FAC",
-    "feedbackLink": "https://drive.google.com/drive/folders/1dFLBmyMdEkRornFwCmpaRmeqYfNm8QFf?usp=sharing",
+    "feedbackLink": "https://drive.google.com/drive/folders/1jjjj_Ev_n_pm5_wZRvYFK8gRi6zBSfvF?usp=sharing",
 },
 {
     "name": "Faradisya Heris",
