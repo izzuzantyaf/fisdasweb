@@ -6,7 +6,7 @@ import assistants from '../../contents/assistants'
 // level 2 component
 function AssistantCard(props) {
 
-    const [feedbackTime, setfeedbackTime] = useState(true)
+    const [feedbackTime] = useState(true)
 
     return (
         <div className="assistant-card">

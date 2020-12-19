@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './menu.scss'
 
@@ -77,11 +77,13 @@ function MenuList() {
 // level 0 component
 export default function Menu() {
 
+    const [ifAnyNewFeature] = useState(menuArr.map(menu => menu.newFeature).some(newFeature => newFeature))
+
     return (
         <section className="menu">
             <div className="container">
                 <SocialMediaBanner />
-                <NewFeature />
+                {ifAnyNewFeature ? <NewFeature /> : ''}
                 <MenuList />
             </div>
         </section>
