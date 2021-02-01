@@ -33,8 +33,9 @@ function AssistantList() {
     useEffect(() => {
         (async function () {
             const data = await axios
-                .get('http://labfisdas-telu-cms.herokuapp.com/api/assistant')
+                .get('https://labfisdas-telu-cms.herokuapp.com/api/assistant')
                 .then(response => response.data)
+                .catch(error => error.message)
             setAssistants(data)
         })()
     }, [])
