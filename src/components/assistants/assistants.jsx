@@ -8,14 +8,16 @@ function AssistantCard(props) {
 
     const [feedbackTime] = useState(false)
 
+    const { name, code, feedback_link } = props.data
+
     return (
         <div className="assistant-card">
-            <div className="assitants-name">{props.data.name}</div>
-            <div className="assistant-code">{props.data.code}</div>
+            <div className="assitants-name">{name}</div>
+            <div className="assistant-code">{code}</div>
             {
                 feedbackTime ?
                     <a
-                        href={props.data.feedback_link}
+                        href={feedback_link}
                         target="_blank"
                         rel="noopener noreferrer">
                         <div className="feedback-btn">Write me a feedback</div>
