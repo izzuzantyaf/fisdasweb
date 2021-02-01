@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import './assistants.scss'
 
-import assistants from '../../contents/assistants'
+const axios = require('axios')
 
 // level 2 component
 function AssistantCard(props) {
 
-    const [feedbackTime] = useState(true)
+    const [feedbackTime] = useState(false)
 
     return (
         <div className="assistant-card">
@@ -15,7 +15,7 @@ function AssistantCard(props) {
             {
                 feedbackTime ?
                     <a
-                        href={props.data.feedbackLink}
+                        href={props.data.feedback_link}
                         target="_blank"
                         rel="noopener noreferrer">
                         <div className="feedback-btn">Write me a feedback</div>
@@ -27,6 +27,18 @@ function AssistantCard(props) {
 
 // level 1 component
 function AssistantList() {
+
+    const [assistants, setAssistants] = useState([])
+
+    useEffect(() => {
+        (async function () {
+            const data = await axios
+                .get('http://labfisdas-telu-cms.herokuapp.com/api/assistant')
+                .then(response => response.data)
+            setAssistants(data)
+        })()
+    }, [])
+
     const assistantsList = assistants.map((assistant, index) =>
         <AssistantCard key={index} data={assistant} />)
 
@@ -43,7 +55,6 @@ export default function Assistants() {
     useEffect(() => {
         window.scrollTo(0, 0)
     })
-
 
     return (
         <section className="assistants">
