@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './journal-cover.scss'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { processedJournalCover as journalCovers } from '../../contents/journal-cover'
+const axios = require('axios')
 
 // level 2 component
 function JournalCoverCard(props) {
@@ -11,20 +11,32 @@ function JournalCoverCard(props) {
     return (
         <div className="jc-card">
             <div className="icon">
-                <FontAwesomeIcon icon={props.journalCover.icon} />
+                <FontAwesomeIcon icon={props.journalCover.reactjs_icon} />
             </div>
-            <div className="module-name">{props.journalCover.module}</div>
+            <div className="module-name">{props.journalCover.name}</div>
         </div>
     )
 }
 
 // level 1 component
 function JournalCoverList() {
+    const [journalCovers, setJournalCovers] = useState([])
+
+    useEffect(() => {
+        (async function () {
+            const data = await axios
+                .get('https://fisdascms.herokuapp.com/api/journal-cover')
+                .then(response => response.data)
+                .catch(error => error.message)
+            setJournalCovers(data)
+        })()
+    }, [])
 
     const journalCoverList = journalCovers.map((journalCover, index) =>
         <a
+            style={{ opacity: journalCover.journal_cover_link ? 1 : 0.3 }}
             key={index}
-            href={journalCover.link}
+            href={journalCover.journal_cover_link}
             target="_blank"
             rel="noopener noreferrer">
             <JournalCoverCard journalCover={journalCover} />

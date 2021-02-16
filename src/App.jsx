@@ -50,7 +50,10 @@ import {
   faFile,
   faChartLine,
   faCogs,
-  faBars
+  faBars,
+  faCalculator,
+  faPlug,
+  faDrawPolygon
 } from "@fortawesome/free-solid-svg-icons"
 
 library.add(
@@ -80,6 +83,9 @@ library.add(
   faChartLine,
   faCogs,
   faBars,
+  faCalculator,
+  faPlug,
+  faDrawPolygon,
 )
 
 export default function App() {

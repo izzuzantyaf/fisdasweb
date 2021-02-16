@@ -2,16 +2,18 @@ import React, { useEffect, useState } from "react"
 import "./practicum-video.scss"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import practicumModules from "../../contents/modules"
+
+const axios = require('axios')
 
 // level 2 components
 function VideoFrame(props) {
-
   const [videoFrameHeight, setVideoFrameHeight] = useState(0)
 
   useEffect(() => {
-    const videoFrame = document.querySelector(`iframe[title="${props.videoId}"]`)
+
+    const videoFrame = document.querySelector(`iframe.practicum-video`)
     setVideoFrameHeight(0.5625 * videoFrame.offsetWidth)
+    // setVideoFrameHeight(500)
 
     window.addEventListener('resize', () => {
       setVideoFrameHeight(0.5625 * videoFrame.offsetWidth)
@@ -22,9 +24,8 @@ function VideoFrame(props) {
     }
   }, [props.videoId])
 
-  const src = `https://www.youtube.com/embed/${props.videoId}`
   return (
-    <iframe className="practicum-video" title={props.videoId} width="100%" height={`${videoFrameHeight}px`} src={src} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true} ></iframe>
+    <iframe className="practicum-video" title={props.videoId} width="100%" height={`${videoFrameHeight}px`} src={`https://www.youtube.com/embed/${props.videoId}`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true} ></iframe>
   )
 }
 
@@ -32,7 +33,7 @@ function OtherVideoCard(props) {
 
   function handleChange() {
     props.onCurrentPlayingChange({
-      videoId: props.video.videoId,
+      videoId: props.video.video_id,
       videoTitle: props.video.name
     })
   }
@@ -41,13 +42,13 @@ function OtherVideoCard(props) {
     <div
       className="other-video-card"
       style={
-        props.video.videoId === props.currentPlayingVideoId
+        props.video.video_id === props.currentPlayingVideoId
           ? { color: "#222ea2" } : {}
       }
       onClick={handleChange}
     >
       <div className="icon">
-        <FontAwesomeIcon icon={props.video.icon} />
+        <FontAwesomeIcon icon={props.video.reactjs_icon} />
       </div>
       <div className="video-name">{props.video.name}</div>
     </div>
@@ -90,7 +91,21 @@ function VideoPlayer(props) {
 
 function Sidebar(props) {
 
-  const [activeLang, setActiveLang] = useState(practicumModules[0].lang)
+  const [practicumVideos, setPracticumVideos] = useState([])
+  const [activeLang, setActiveLang] = useState('id')
+
+  useEffect(() => {
+
+    (async function () {
+      const data = await axios
+        .get('https://fisdascms.herokuapp.com/api/practicum-video')
+        .then(response => response.data)
+        .catch(error => error.message)
+      setPracticumVideos(data)
+    })()
+
+  }, [])
+
 
   function changeCurrentLang(lang) {
     setActiveLang(lang)
@@ -100,16 +115,14 @@ function Sidebar(props) {
     props.onCurrentPlayingChange(changedData)
   }
 
-  const filteredPracticumModules = practicumModules
-    .filter(practicumModule => practicumModule.lang === activeLang)
-
-  const otherVideoList = filteredPracticumModules
-    .map((module, index) => (
+  const otherVideoList = practicumVideos
+    .filter(practicumVideo => practicumVideo.lang === activeLang)
+    .map((practicumVideo, index) => (
       <OtherVideoCard
         key={index}
         onCurrentPlayingChange={changeCurrentPlaying}
         currentPlayingVideoId={props.currentPlayingId}
-        video={module}
+        video={practicumVideo}
       />
     ))
 
@@ -127,14 +140,14 @@ function Sidebar(props) {
 }
 
 // level 0 component
-export default function PracticumVideo() {
+function PracticumVideo() {
 
-  const [currentPlayingId, setCurrentPlayingId] = useState(practicumModules[0].videoId)
-  const [currentPlayingTitle, setcurrentPlayingTitle] = useState(practicumModules[0].name)
+  const [currentPlayingId, setCurrentPlayingId] = useState()
+  const [currentPlayingTitle, setcurrentPlayingTitle] = useState()
 
   useEffect(() => {
     // make video frame sticky top when scrolling
-    videoFrameStickyOnScroll()
+    videoFrameStickyOnScroll();
   }, [])
 
   function videoFrameStickyOnScroll() {
@@ -174,3 +187,5 @@ export default function PracticumVideo() {
     </section>
   )
 }
+
+export default PracticumVideo

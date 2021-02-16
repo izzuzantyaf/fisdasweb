@@ -1,27 +1,33 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './code-of-conduct.scss'
 
-import tatib1 from '../../assets/img/tatib 1-min.jpg'
-import tatib2 from '../../assets/img/tatib 2-min.jpg'
-import tatib3 from '../../assets/img/tatib 3-min.jpg'
+const axios = require('axios')
 
 // level 0 component
 export default function CodeOfConduct() {
 
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    })
+    const [codeOfConducts, setcodeOfConducts] = useState([])
 
-    const tatibImgArr = [tatib1, tatib2, tatib3]
-    const tatibList = tatibImgArr.map((tatibImg, index) =>
-        <img key={index} className={`tatib-${index + 1}`} src={tatibImg} alt={`tatib${index + 1}`} />
+    useEffect(() => {
+        (async function () {
+            const data = await axios
+                .get('https://fisdascms.herokuapp.com/api/code-of-conduct')
+                .then(response => response.data)
+                .catch(error => error.message)
+            setcodeOfConducts(data)
+        })()
+        window.scrollTo(0, 0)
+    }, [])
+
+    const codeOfConductsList = codeOfConducts.map((codeOfConduct, index) =>
+        <img key={index} className={`tatib-${index + 1}`} src={codeOfConduct.image_url} alt={`tatib${index + 1}`} />
     )
 
     return (
         <section className="organigram">
             <div className="container">
                 <div className="title">Tata Tertib Praktikum Fisika Dasar 1 Tahun Akademik 2020/2021</div>
-                {tatibList}
+                {codeOfConductsList}
             </div>
         </section>
     )

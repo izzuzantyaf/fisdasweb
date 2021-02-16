@@ -28,7 +28,7 @@ function HandoutList() {
     useEffect(() => {
         (async function () {
             const data = await axios
-                .get('https://labfisdas-telu-cms.herokuapp.com/api/practicum-handout')
+                .get('https://fisdascms.herokuapp.com/api/practicum-handout')
                 .then(response => response.data)
                 .catch(error => error.message)
             setHandouts(data)
@@ -40,7 +40,7 @@ function HandoutList() {
         href={handout.file_url}
         target="_blank"
         rel="noopener noreferrer"
-        style={{ textDecoration: 'none' }}>
+        style={{ textDecoration: 'none', opacity: handout.file_url ? 1 : 0.3 }}>
         <HandoutCard data={handout} />
     </a>)
 
