@@ -102,6 +102,10 @@ function Sidebar(props) {
         .then(response => response.data)
         .catch(error => error.message)
       setPracticumVideos(data)
+      changeCurrentPlaying({
+        videoId: data[0].video_id,
+        videoTitle: data[0].name,
+      })
     })()
 
   }, [])
