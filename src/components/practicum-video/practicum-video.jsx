@@ -94,6 +94,14 @@ function Sidebar(props) {
   const [practicumVideos, setPracticumVideos] = useState([])
   const [activeLang, setActiveLang] = useState('id')
 
+  const changeCurrentPlaying = (changedData) => {
+    props.onCurrentPlayingChange(changedData)
+  }
+
+  function changeCurrentLang(lang) {
+    setActiveLang(lang)
+  }
+
   useEffect(() => {
 
     (async function () {
@@ -107,17 +115,7 @@ function Sidebar(props) {
         videoTitle: data[0].name,
       })
     })()
-
   }, [])
-
-
-  function changeCurrentLang(lang) {
-    setActiveLang(lang)
-  }
-
-  function changeCurrentPlaying(changedData) {
-    props.onCurrentPlayingChange(changedData)
-  }
 
   const otherVideoList = practicumVideos
     .filter(practicumVideo => practicumVideo.lang === activeLang)

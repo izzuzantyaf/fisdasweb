@@ -1,17 +1,28 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './practicum-schedule.scss'
 
-import practicumSchedule from '../../contents/practicum-schedule'
-import groups from '../../contents/groups'
-import classSchedule from '../../assets/img/class-schedule.png'
+const axios = require('axios')
 
 // level 1 components
 function ClassSchedule() {
+
+    const [classSchedule, setClassSchedule] = useState({})
+
+    useEffect(() => {
+        (async function () {
+            const data = await axios
+                .get('https://fisdascms.herokuapp.com/api/schedule')
+                .then(response => response.data.class_schedule)
+                .catch(error => error.message)
+            setClassSchedule(data)
+        })()
+    }, [])
+
     return (
         <div className="class-schedule">
             <div className="table-title">Jadwal kelas</div>
             <div className="img-container">
-                <img src={classSchedule} alt="Jadwal kelas" />
+                <img src={classSchedule.image_url} alt="Jadwal kelas" />
             </div>
         </div>
     )
@@ -19,60 +30,76 @@ function ClassSchedule() {
 
 function HandoutSchedule() {
 
-    function createTableHeader({ content }) {
-        const tableHeader = []
-        for (let i = 0; i <= content.length; i++)
-            tableHeader.push((<th key={i}>{i === 0 ? `Kelompok` : `Minggu ${i}`}</th>))
+    // function createTableHeader({ content }) {
+    //     const tableHeader = []
+    //     for (let i = 0; i <= content.length; i++)
+    //         tableHeader.push((<th key={i}>{i === 0 ? `Kelompok` : `Minggu ${i}`}</th>))
 
-        return (
-            <thead>
-                <tr>
-                    {tableHeader}
-                </tr>
-            </thead>
-        )
-    }
+    //     return (
+    //         <thead>
+    //             <tr>
+    //                 {tableHeader}
+    //             </tr>
+    //         </thead>
+    //     )
+    // }
 
-    function createTableBody(schedule) {
-        const tableRow = groups.map((group, index) => {
-            const row = []
-            for (let i = 0; i <= schedule.content.length; i++)
-                row.push((<td key={i}>{i === 0 ? group : schedule.content[i - 1]}</td>))
-            return (
-                <tr key={index}>
-                    {row}
-                </tr>
-            )
-        })
+    // function createTableBody(schedule) {
+    //     const tableRow = groups.map((group, index) => {
+    //         const row = []
+    //         for (let i = 0; i <= schedule.content.length; i++)
+    //             row.push((<td key={i}>{i === 0 ? group : schedule.content[i - 1]}</td>))
+    //         return (
+    //             <tr key={index}>
+    //                 {row}
+    //             </tr>
+    //         )
+    //     })
 
-        return (
-            <tbody>
-                {tableRow}
-            </tbody>
-        )
-    }
+    //     return (
+    //         <tbody>
+    //             {tableRow}
+    //         </tbody>
+    //     )
+    // }
 
-    function createTable(faculty) {
-        // filter schedule based on faculty
-        let filteredSchedule = practicumSchedule.filter(schedule => schedule.faculty === faculty)
-        filteredSchedule = filteredSchedule[0]
+    // function createTable(faculty) {
+    //     // filter schedule based on faculty
+    //     let filteredSchedule = practicumSchedule.filter(schedule => schedule.faculty === faculty)
+    //     filteredSchedule = filteredSchedule[0]
 
-        // create schedule table
-        return (
-            <table className="schedule-table">
-                {createTableHeader(filteredSchedule)}
-                {createTableBody(filteredSchedule)}
-            </table>
-        )
-    }
+    //     // create schedule table
+    //     return (
+    //         <table className="schedule-table">
+    //             {createTableHeader(filteredSchedule)}
+    //             {createTableBody(filteredSchedule)}
+    //         </table>
+    //     )
+    // }
+
+    const [moduleSchedules, setModuleSchedules] = useState([])
+
+    useEffect(() => {
+        (async function () {
+            const data = await axios
+                .get('https://fisdascms.herokuapp.com/api/schedule')
+                .then(response => response.data.module_schedule)
+                .catch(error => error.message)
+            setModuleSchedules(data)
+        })()
+    }, [])
 
     return (
         <div className="handout-schedule">
             <div className="table-title">Jadwal modul</div>
-            <div className="table-sub-title">Fakultas Teknik Elektro</div>
-            <div className="table-container">{createTable('fte')}</div>
-            <div className="table-sub-title">Fakultas Rekayasa Industri</div>
-            <div className="table-container">{createTable('fri')}</div>
+            {moduleSchedules.map((moduleSchedule, index) =>
+                <div key={index}>
+                    <div className="table-sub-title">{moduleSchedule.faculty}</div>
+                    <img src={moduleSchedule.image_url} alt="faculty schedule" />
+                </div>
+            )}
+            {/* <div className="table-container">{createTable('fte')}</div> */}
+            {/* <div className="table-container">{createTable('fri')}</div> */}
         </div>
     )
 }
