@@ -5,6 +5,7 @@ import './menu.scss'
 import menuArr from '../../contents/menu'
 import socialMedia from '../../contents/social-media'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import PosterTubes from '../../assets/img/tubes.jpg'
 
 // level 1 component
 function MenuCard(props) {
@@ -82,6 +83,7 @@ export default function Menu() {
     return (
         <section className="menu">
             <div className="container">
+                <img src={PosterTubes} alt="" className="poster-tubes" />
                 <SocialMediaBanner />
                 {ifAnyNewFeature ? <NewFeature /> : ''}
                 <MenuList />
