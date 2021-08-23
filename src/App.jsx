@@ -28,16 +28,16 @@ export default function App() {
     <div>
       <Router>
         <Switch>
-          <Route path="/" render={() => <Home />} />
+          <Route exact path="/" render={() => <Home />} />
           <Route path="/code-of-conduct" render={() => <CodeOfConduct />} />
           <Route path="/handout" render={() => <Handouts />} />
           <Route path="/preliminary-test" render={() => <PreliminaryTest />} />
           <Route path="/practicum-video" render={() => <PracticumVideo />} />
           <Route path="/regression" render={() => <Regression />} />
-          <Route path="/practicum-simulator" render={() => <PracticumSimulator />} />
+          <Route path="/simulator" render={() => <PracticumSimulator />} />
           <Route path="/journal-cover" render={() => <JournalCover />} />
-          <Route path="/assistants" render={() => <Assistants />} />
-          <Route path="/practicum-schedule" render={() => <PracticumSchedule />} />
+          <Route path="/assistant" render={() => <Assistants />} />
+          <Route path="/schedule" render={() => <PracticumSchedule />} />
           <Route path="/organigram" render={() => <Organigram />} />
           <Route path="/404" render={() => <NotFoundPage />} />
           <Redirect to="/404" />
