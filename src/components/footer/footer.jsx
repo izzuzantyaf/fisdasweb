@@ -1,33 +1,39 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./footer.scss";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import socialMedia from "../../contents/social-media";
+import { getData } from "../../lib/get-data";
 import menuArr from "../../contents/menu";
 import { Link } from "react-router-dom";
 
 // level 1 components
 function Identity() {
+  const [socialMedia, setSocialMedia] = useState([])
 
-  const socmedList = socialMedia.map((socmed, index) => (
-    <a
-      key={index}
-      className="socmed-icon"
-      href={socmed.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      alt={socmed.name} >
-      <FontAwesomeIcon icon={socmed.icon} />
-    </a>
-  ))
+  useEffect(() => {
+    (async function () {
+      const data = await getData('social-media')
+      setSocialMedia(data)
+    })()
+  }, [])
 
   return (
     <div className="identity">
       <p className="title">
         Laboratorium Fisika Dasar<br></br>Universitas Telkom
       </p>
-      <div className="socmed">{socmedList}</div>
+      <div className="socmed">{socialMedia.map(({ link, name, reactjs_icon }, index) => (
+        <a
+          key={index}
+          className="socmed-icon"
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          alt={name} >
+          <FontAwesomeIcon icon={reactjs_icon.split('-')} />
+        </a>
+      ))}</div>
     </div>
   )
 }

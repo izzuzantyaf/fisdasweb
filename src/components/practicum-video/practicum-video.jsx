@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react"
 import "./practicum-video.scss"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-
-const axios = require('axios')
+import { getData } from "../../lib/get-data"
 
 // level 2 components
 function VideoFrame(props) {
@@ -22,10 +21,10 @@ function VideoFrame(props) {
     return () => {
       window.removeEventListener('resize', () => { })
     }
-  }, [props.videoId])
+  }, [props.videoUrl])
 
   return (
-    <iframe className="practicum-video" title={props.videoId} width="100%" height={`${videoFrameHeight}px`} src={`https://www.youtube.com/embed/${props.videoId}`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true} ></iframe>
+    <iframe className="practicum-video" title={props.videoUrl} width="100%" height={`${videoFrameHeight}px`} src={props.videoUrl} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true} ></iframe>
   )
 }
 
@@ -33,7 +32,7 @@ function OtherVideoCard(props) {
 
   function handleChange() {
     props.onCurrentPlayingChange({
-      videoId: props.video.video_id,
+      videoUrl: props.video.video_embed_url,
       videoTitle: props.video.name
     })
   }
@@ -42,11 +41,10 @@ function OtherVideoCard(props) {
     <div
       className="other-video-card"
       style={
-        props.video.video_id === props.currentPlayingVideoId
+        props.video.video_embed_url === props.currentPlayingVideoUrl
           ? { color: "#222ea2" } : {}
       }
-      onClick={handleChange}
-    >
+      onClick={handleChange}>
       <div className="icon">
         <FontAwesomeIcon icon={props.video.reactjs_icon} />
       </div>
@@ -81,7 +79,7 @@ function LangSwitch(props) {
 function VideoPlayer(props) {
   return (
     <div className="player">
-      <VideoFrame videoId={props.currentPlayingId} />
+      <VideoFrame videoUrl={props.currentPlayingUrl} />
       <div className="video-title">
         {props.currentPlayingTitle}
       </div>
@@ -103,17 +101,9 @@ function Sidebar(props) {
   }
 
   useEffect(() => {
-
     (async function () {
-      const data = await axios
-        .get('https://fisdascms.herokuapp.com/api/practicum-video')
-        .then(response => response.data)
-        .catch(error => error.message)
+      const data = await getData('practicum-video')
       setPracticumVideos(data)
-      changeCurrentPlaying({
-        videoId: data[0].video_id,
-        videoTitle: data[0].name,
-      })
     })()
   }, [])
 
@@ -123,7 +113,7 @@ function Sidebar(props) {
       <OtherVideoCard
         key={index}
         onCurrentPlayingChange={changeCurrentPlaying}
-        currentPlayingVideoId={props.currentPlayingId}
+        currentPlayingVideoUrl={props.currentPlayingUrl}
         video={practicumVideo}
       />
     ))
@@ -144,8 +134,8 @@ function Sidebar(props) {
 // level 0 component
 function PracticumVideo() {
 
-  const [currentPlayingId, setCurrentPlayingId] = useState()
-  const [currentPlayingTitle, setcurrentPlayingTitle] = useState()
+  const [currentPlayingUrl, setCurrentPlayingUrl] = useState(null)
+  const [currentPlayingTitle, setcurrentPlayingTitle] = useState(null)
 
   useEffect(() => {
     // make video frame sticky top when scrolling
@@ -170,20 +160,20 @@ function PracticumVideo() {
     }
   }
 
-  function changeCurrentPlaying({ videoId, videoTitle }) {
-    setCurrentPlayingId(videoId)
+  function changeCurrentPlaying({ videoUrl, videoTitle }) {
+    setCurrentPlayingUrl(videoUrl)
     setcurrentPlayingTitle(videoTitle)
   }
 
   return (
     <section className="practicum-video">
       <VideoPlayer
-        currentPlayingId={currentPlayingId}
+        currentPlayingUrl={currentPlayingUrl}
         currentPlayingTitle={currentPlayingTitle}
       />
       <Sidebar
         onCurrentPlayingChange={changeCurrentPlaying}
-        currentPlayingId={currentPlayingId}
+        currentPlayingUrl={currentPlayingUrl}
         currentPlayingTitle={currentPlayingTitle}
       />
     </section>
