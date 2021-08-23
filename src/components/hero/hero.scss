@@ -1,11 +1,9 @@
 .hero {
     display: flex;
-    // flex-direction: column;
     justify-content: center;
-    // align-items: center;
     gap: 20px;
-    min-height: 100vmin;
-    // max-height: 1000px;
+    height: 100vmin;
+    max-height: 1080px;
     padding: 20px;
 
     .container{
@@ -54,7 +52,6 @@ No media query for `xs` since this is the default in Bootstrap */
 @media (min-width: 992px) {
     .hero{
         flex-direction: row;
-        // min-height: 0;
         align-items: stretch;
 
         .container {
@@ -70,8 +67,12 @@ No media query for `xs` since this is the default in Bootstrap */
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
     .hero {
-        .container .main-title {
-        font-size: 50px;
+        height: 50vmin;
+        .container{ 
+            padding: 70px 20px 40px 20px;
+            .main-title {
+                font-size: 50px;
+            }
         }
     }
 }

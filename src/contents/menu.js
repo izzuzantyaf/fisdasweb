@@ -31,7 +31,7 @@ const menus = [{
 {
     name: 'Simulator Praktikum',
     icon: 'cogs',
-    link: '/practicum-simulator',
+    link: '/simulator',
     newFeature: false
 },
 {
@@ -43,13 +43,13 @@ const menus = [{
 {
     name: 'Asisten',
     icon: 'users',
-    link: '/assistants',
+    link: '/assistant',
     newFeature: false
 },
 {
     name: 'Jadwal',
     icon: 'calendar-minus',
-    link: '/practicum-schedule',
+    link: '/schedule',
     newFeature: false
 },
 {
