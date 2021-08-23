@@ -1,27 +1,19 @@
 import React from "react"
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-} from "react-router-dom"
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom"
 import "./App.css"
 
-import Navbar from "./components/navbar/navbar"
-import Hero from "./components/hero/hero"
-import Menu from "./components/menu/menu"
-import CodeOfConduct from "./components/code-of-conduct/code-of-conduct"
-import Handouts from "./components/handouts/handouts"
-import PreliminaryTest from "./components/preliminary-test/preliminary-test"
-import PracticumVideo from "./components/practicum-video/practicum-video"
-import Regression from "./components/regression/regression"
-import PracticumSimulator from "./components/practicum-simulator/practicum-simulator"
-import JournalCover from "./components/journal-cover/journal-cover"
-import Assistants from "./components/assistants/assistants"
-import PracticumSchedule from "./components/practicum-schedule/practicum-schedule"
-import Organigram from "./components/organigram/organigram"
-import Footer from "./components/footer/footer"
-import NotFoundPage from "./components/not-found-page/not-found-page"
+import Home from "./pages/home"
+import CodeOfConduct from "./pages/code-of-conduct/code-of-conduct"
+import Handouts from "./pages/handouts/handouts"
+import PreliminaryTest from "./pages/preliminary-test/preliminary-test"
+import PracticumVideo from "./pages/practicum-video/practicum-video"
+import Regression from "./pages/regression/regression"
+import PracticumSimulator from "./pages/practicum-simulator/practicum-simulator"
+import JournalCover from "./pages/journal-cover/journal-cover"
+import Assistants from "./pages/assistants/assistants"
+import PracticumSchedule from "./pages/practicum-schedule/practicum-schedule"
+import Organigram from "./pages/organigram/organigram"
+import NotFoundPage from "./pages/not-found-page/not-found-page"
 
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { faFacebook, faTwitter, faInstagram, faLine, faDiscord, faTiktok, faLinkedin, faTelegramPlane, faYoutube } from "@fortawesome/free-brands-svg-icons"
@@ -35,15 +27,8 @@ export default function App() {
   return (
     <div>
       <Router>
-        {/* <Route path="/404" render={() => <NotFoundPage />} />
-        <Redirect to="/404" /> */}
-        <Route path="/" render={() => <Navbar />} />
-
         <Switch>
-          <Route exact path="/">
-            <Hero />
-            <Menu />
-          </Route>
+          <Route path="/" render={() => <Home />} />
           <Route path="/code-of-conduct" render={() => <CodeOfConduct />} />
           <Route path="/handout" render={() => <Handouts />} />
           <Route path="/preliminary-test" render={() => <PreliminaryTest />} />
@@ -57,8 +42,6 @@ export default function App() {
           <Route path="/404" render={() => <NotFoundPage />} />
           <Redirect to="/404" />
         </Switch>
-
-        <Route path="/" render={() => <Footer />} />
       </Router>
     </div>
   )
