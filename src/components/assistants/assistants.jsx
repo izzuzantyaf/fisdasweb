@@ -1,69 +1,47 @@
 import React, { useEffect, useState } from 'react'
 import './assistants.scss'
-
-const axios = require('axios')
+import { getData } from '../../lib/get-data'
 
 // level 2 component
 function AssistantCard(props) {
-
     const [feedbackTime] = useState(false)
-
     const { name, code, feedback_link } = props.data
 
     return (
         <div className="assistant-card">
             <div className="assitants-name">{name}</div>
             <div className="assistant-code">{code}</div>
-            {
-                feedbackTime ?
-                    <a
-                        href={feedback_link}
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        <div className="feedback-btn">Write me a feedback</div>
-                    </a> : ''
-            }
-        </div>
-    )
-}
-
-// level 1 component
-function AssistantList() {
-
-    const [assistants, setAssistants] = useState([])
-
-    useEffect(() => {
-        (async function () {
-            const data = await axios
-                .get('https://fisdascms.herokuapp.com/api/assistant')
-                .then(response => response.data)
-                .catch(error => error.message)
-            setAssistants(data)
-        })()
-    }, [])
-
-    const assistantsList = assistants.map((assistant, index) =>
-        <AssistantCard key={index} data={assistant} />)
-
-    return (
-        <div className="assistants-list">
-            {assistantsList}
+            {feedbackTime ?
+                <a
+                    href={feedback_link}
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <div className="feedback-btn">Write me a feedback</div>
+                </a> : ''}
         </div>
     )
 }
 
 // level 0 component
 export default function Assistants() {
+    const [assistants, setAssistants] = useState([])
 
     useEffect(() => {
+        (async function () {
+            const data = await getData('assistant')
+            setAssistants(data)
+        })()
         window.scrollTo(0, 0)
-    })
+    }, [])
 
     return (
         <section className="assistants">
             <div className="container">
-                <div className="title">Asisten Praktikum Laboratorium Fisika Dasar 2020/2021</div>
-                <AssistantList />
+                <div className="title">Asisten Praktikum</div>
+                <div className="assistants-list">
+                    {assistants.map((assistant, index) =>
+                        <AssistantCard key={index} data={assistant} />)}
+                </div>
             </div>
         </section>
     )

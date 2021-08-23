@@ -1,33 +1,27 @@
 import React, { useEffect, useState } from 'react'
 import './code-of-conduct.scss'
-
-const axios = require('axios')
+import { getData } from '../../lib/get-data'
 
 // level 0 component
 export default function CodeOfConduct() {
 
-    const [codeOfConducts, setcodeOfConducts] = useState([])
+    const [codeOfConduct, setcodeOfConduct] = useState({})
 
     useEffect(() => {
         (async function () {
-            const data = await axios
-                .get('https://fisdascms.herokuapp.com/api/code-of-conduct')
-                .then(response => response.data)
-                .catch(error => error.message)
-            setcodeOfConducts(data)
+            const data = await getData('code-of-conduct')
+            setcodeOfConduct(data)
         })()
         window.scrollTo(0, 0)
     }, [])
 
-    const codeOfConductsList = codeOfConducts.map((codeOfConduct, index) =>
-        <img key={index} className={`tatib-${index + 1}`} src={codeOfConduct.image_url} alt={`tatib${index + 1}`} />
-    )
-
     return (
         <section className="organigram">
             <div className="container">
-                <div className="title">Tata Tertib Praktikum Fisika Dasar 1 Tahun Akademik 2020/2021</div>
-                {codeOfConductsList}
+                <div className="title">
+                    Tata Tertib Praktikum Fisika Dasar Universitas Telkom
+                </div>
+                <iframe title="code-of-conduct" src={codeOfConduct?.prepared_url} frameBorder="0" width="67%" height="720px" style={{ margin: "auto" }}></iframe>
             </div>
         </section>
     )

@@ -24,77 +24,20 @@ import Footer from "./components/footer/footer"
 import NotFoundPage from "./components/not-found-page/not-found-page"
 
 import { library } from "@fortawesome/fontawesome-svg-core"
-import { fab } from "@fortawesome/free-brands-svg-icons"
+import { faFacebook, faTwitter, faInstagram, faLine, faDiscord, faTiktok, faLinkedin, faTelegramPlane, faYoutube } from "@fortawesome/free-brands-svg-icons"
 import {
-  faCoffee,
-  faListOl,
-  faBook,
-  faPlay,
-  faUsers,
-  faCalendarMinus,
-  faSitemap,
-  faGlobe,
-  faEye,
-  faDownload,
-  faTasks,
-  faBalanceScale,
-  faSortNumericUpAlt,
-  faGripLinesVertical,
-  faCircleNotch,
-  faInfinity,
-  faSatelliteDish,
-  faWaveSquare,
-  faMagnet,
-  faBolt,
-  faChevronCircleUp,
-  faFile,
-  faChartLine,
-  faCogs,
-  faBars,
-  faCalculator,
-  faPlug,
-  faDrawPolygon
+  faCoffee, faListOl, faBook, faPlay, faUsers, faCalendarMinus, faSitemap, faGlobe, faEye, faDownload, faTasks, faBalanceScale, faSortNumericUpAlt, faGripLinesVertical, faCircleNotch, faInfinity, faSatelliteDish, faWaveSquare, faMagnet, faBolt, faChevronCircleUp, faFile, faChartLine, faCogs, faBars, faCalculator, faPlug, faDrawPolygon, faParachuteBox
 } from "@fortawesome/free-solid-svg-icons"
 
-library.add(
-  fab,
-  faCoffee,
-  faListOl,
-  faBook,
-  faPlay,
-  faUsers,
-  faCalendarMinus,
-  faSitemap,
-  faGlobe,
-  faEye,
-  faDownload,
-  faTasks,
-  faBalanceScale,
-  faSortNumericUpAlt,
-  faGripLinesVertical,
-  faCircleNotch,
-  faInfinity,
-  faSatelliteDish,
-  faWaveSquare,
-  faMagnet,
-  faBolt,
-  faChevronCircleUp,
-  faFile,
-  faChartLine,
-  faCogs,
-  faBars,
-  faCalculator,
-  faPlug,
-  faDrawPolygon,
-)
+library.add(faFacebook, faTwitter, faInstagram, faLine, faDiscord, faTiktok, faLinkedin, faTelegramPlane, faYoutube, faCoffee, faListOl, faBook, faPlay, faUsers, faCalendarMinus, faSitemap, faGlobe, faEye, faDownload, faTasks, faBalanceScale, faSortNumericUpAlt, faGripLinesVertical, faCircleNotch, faInfinity, faSatelliteDish, faWaveSquare, faMagnet, faBolt, faChevronCircleUp, faFile, faChartLine, faCogs, faBars, faCalculator, faPlug, faDrawPolygon, faParachuteBox)
 
 export default function App() {
   return (
     <div>
       <Router>
-        <Route path="/404" render={() => <NotFoundPage />} />
-        <Redirect to="/404" />
-        {/* <Route path="/" render={() => <Navbar />} />
+        {/* <Route path="/404" render={() => <NotFoundPage />} />
+        <Redirect to="/404" /> */}
+        <Route path="/" render={() => <Navbar />} />
 
         <Switch>
           <Route exact path="/">
@@ -115,7 +58,7 @@ export default function App() {
           <Redirect to="/404" />
         </Switch>
 
-        <Route path="/" render={() => <Footer />} /> */}
+        <Route path="/" render={() => <Footer />} />
       </Router>
     </div>
   )

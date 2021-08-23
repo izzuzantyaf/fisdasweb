@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './menu.scss'
 
 import menuArr from '../../contents/menu'
-import socialMedia from '../../contents/social-media'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import PosterTubes from '../../assets/img/tubes.jpg'
+import { getData } from '../../lib/get-data'
 
 // level 1 component
 function MenuCard(props) {
@@ -20,39 +19,46 @@ function MenuCard(props) {
 
 // level 0 component
 function SocialMediaBanner() {
+    const [socialMedia, setSocialMedia] = useState([])
 
-    const socmedList = socialMedia.map((socmed, index) =>
-        <a
-            key={index}
-            href={socmed.link}
-            target="_blank"
-            rel="noopener noreferrer">
-            <FontAwesomeIcon icon={socmed.icon} />
-        </a>)
+    useEffect(() => {
+        (async function () {
+            const data = await getData('social-media')
+            setSocialMedia(data)
+        })()
+    }, [])
 
     return (
         <div className="socmed-banner">
             <div className="title">Keep in touch with us</div>
-            <div className="socmed-list">{socmedList}</div>
+            <div className="socmed-list">{socialMedia.map(({ link, reactjs_icon }, index) =>
+                <a
+                    key={index}
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={reactjs_icon.split('-')} />
+                </a>)}
+            </div>
         </div>
     )
 }
 
 function NewFeature() {
 
-    const newFeatureList = menuArr.filter(menu => menu.newFeature).map((newFeature, index) =>
-        <Link
-            key={index}
-            to={newFeature.link}
-            style={{ textDecoration: 'none' }}>
-            <MenuCard data={newFeature} />
-        </Link>)
-
     return (
         <div className="new-feature">
             <div className="container">
                 <div className="title">New features</div>
-                <div className="new-menu-list">{newFeatureList}</div>
+                <div className="new-menu-list">{menuArr.filter(menu => menu.newFeature)
+                    .map((newFeature, index) =>
+                        <Link
+                            key={index}
+                            to={newFeature.link}
+                            style={{ textDecoration: 'none' }}>
+                            <MenuCard data={newFeature} />
+                        </Link>)}
+                </div>
             </div>
         </div>
     )
@@ -60,17 +66,17 @@ function NewFeature() {
 
 function MenuList() {
 
-    const menuList = menuArr.filter(menu => !menu.newFeature).map((menu, index) =>
-        <Link
-            key={index}
-            to={menu.link}
-            style={{ textDecoration: 'none' }}>
-            <MenuCard data={menu} />
-        </Link>)
-
     return (
         <div className="menu-list">
-            {menuList}
+            {menuArr
+                .filter(menu => !menu.newFeature)
+                .map((menu, index) =>
+                    <Link
+                        key={index}
+                        to={menu.link}
+                        style={{ textDecoration: 'none' }}>
+                        <MenuCard data={menu} />
+                    </Link>)}
         </div>
     )
 }
@@ -83,7 +89,6 @@ export default function Menu() {
     return (
         <section className="menu">
             <div className="container">
-                <img src={PosterTubes} alt="" className="poster-tubes" />
                 <SocialMediaBanner />
                 {ifAnyNewFeature ? <NewFeature /> : ''}
                 <MenuList />
