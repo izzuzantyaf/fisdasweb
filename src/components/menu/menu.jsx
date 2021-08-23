@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './menu.scss'
 
 import menuArr from '../../contents/menu'
 import socialMedia from '../../contents/social-media'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import PosterTubes from '../../assets/img/tubes.jpg'
 
 // level 1 component
 function MenuCard(props) {
@@ -77,11 +78,14 @@ function MenuList() {
 // level 0 component
 export default function Menu() {
 
+    const [ifAnyNewFeature] = useState(menuArr.map(menu => menu.newFeature).some(newFeature => newFeature))
+
     return (
         <section className="menu">
             <div className="container">
+                <img src={PosterTubes} alt="" className="poster-tubes" />
                 <SocialMediaBanner />
-                <NewFeature />
+                {ifAnyNewFeature ? <NewFeature /> : ''}
                 <MenuList />
             </div>
         </section>

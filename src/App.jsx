@@ -50,7 +50,10 @@ import {
   faFile,
   faChartLine,
   faCogs,
-  faBars
+  faBars,
+  faCalculator,
+  faPlug,
+  faDrawPolygon
 } from "@fortawesome/free-solid-svg-icons"
 
 library.add(
@@ -80,13 +83,18 @@ library.add(
   faChartLine,
   faCogs,
   faBars,
+  faCalculator,
+  faPlug,
+  faDrawPolygon,
 )
 
 export default function App() {
   return (
     <div>
       <Router>
-        <Route path="/" render={() => <Navbar />} />
+        <Route path="/404" render={() => <NotFoundPage />} />
+        <Redirect to="/404" />
+        {/* <Route path="/" render={() => <Navbar />} />
 
         <Switch>
           <Route exact path="/">
@@ -107,7 +115,7 @@ export default function App() {
           <Redirect to="/404" />
         </Switch>
 
-        <Route path="/" render={() => <Footer />} />
+        <Route path="/" render={() => <Footer />} /> */}
       </Router>
     </div>
   )

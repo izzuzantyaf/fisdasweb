@@ -9,6 +9,11 @@
         gap: 50px;
         width: 100%;
 
+        .poster-tubes{
+            // max-width: 720px;
+            border-radius: 0.8em;
+        }
+
         .socmed-banner{
             background-color: rgba(255, 255, 255, 0.5);
             display: flex;
@@ -162,7 +167,12 @@ No media query for `xs` since this is the default in Bootstrap */
 }
 
 /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+    .poster-tubes{
+        max-width: 720px;
+        align-self: center;
+    }
+}
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {

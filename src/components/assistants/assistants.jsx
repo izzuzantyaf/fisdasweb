@@ -1,27 +1,47 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './assistants.scss'
 
-import assistants from '../../contents/assistants'
+const axios = require('axios')
 
 // level 2 component
 function AssistantCard(props) {
 
+    const [feedbackTime] = useState(false)
+
+    const { name, code, feedback_link } = props.data
+
     return (
         <div className="assistant-card">
-            <div className="assitants-name">{props.data.name}</div>
-            <div className="assistant-code">{props.data.code}</div>
-            <a
-                href={props.data.feedbackLink}
-                target="_blank"
-                rel="noopener noreferrer">
-                <div className="feedback-btn">Write me a feedback</div>
-            </a>
+            <div className="assitants-name">{name}</div>
+            <div className="assistant-code">{code}</div>
+            {
+                feedbackTime ?
+                    <a
+                        href={feedback_link}
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <div className="feedback-btn">Write me a feedback</div>
+                    </a> : ''
+            }
         </div>
     )
 }
 
 // level 1 component
 function AssistantList() {
+
+    const [assistants, setAssistants] = useState([])
+
+    useEffect(() => {
+        (async function () {
+            const data = await axios
+                .get('https://fisdascms.herokuapp.com/api/assistant')
+                .then(response => response.data)
+                .catch(error => error.message)
+            setAssistants(data)
+        })()
+    }, [])
+
     const assistantsList = assistants.map((assistant, index) =>
         <AssistantCard key={index} data={assistant} />)
 
@@ -38,7 +58,6 @@ export default function Assistants() {
     useEffect(() => {
         window.scrollTo(0, 0)
     })
-
 
     return (
         <section className="assistants">

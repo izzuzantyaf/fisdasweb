@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './preliminary-test.scss'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { processedPreliminaryTest as preliminaryTests } from '../../contents/preliminary-test'
+const axios = require('axios')
 
 // level 2 component
 function PreliminaryTestCard(props) {
@@ -11,9 +11,9 @@ function PreliminaryTestCard(props) {
     return (
         <div className="pt-card">
             <div className="icon">
-                <FontAwesomeIcon icon={props.preliminaryTest.icon} />
+                <FontAwesomeIcon icon={props.preliminaryTest.reactjs_icon} />
             </div>
-            <div className="module-name">{props.preliminaryTest.module}</div>
+            <div className="module-name">{props.preliminaryTest.name}</div>
         </div>
     )
 }
@@ -21,11 +21,23 @@ function PreliminaryTestCard(props) {
 // level 1 component
 function PreliminaryTestList() {
 
+    const [preliminaryTests, setPreliminaryTests] = useState([])
+
+    useEffect(() => {
+        (async function () {
+            const data = await axios
+                .get('https://fisdascms.herokuapp.com/api/preliminary-test')
+                .then(response => response.data)
+                .catch(error => error.message)
+            setPreliminaryTests(data)
+        })()
+    }, [])
+
     const preliminaryTestList = preliminaryTests.map((preliminaryTest, index) =>
         <a
-            style={preliminaryTest.link === '' ? { opacity: 0.3 } : {}}
+            style={preliminaryTest.preliminary_test_link ? {} : { opacity: 0.3 }}
             key={index}
-            href={preliminaryTest.link}
+            href={preliminaryTest.preliminary_test_link}
             target="_blank"
             rel="noopener noreferrer"><PreliminaryTestCard preliminaryTest={preliminaryTest} />
         </a>)
@@ -41,7 +53,7 @@ function PreliminaryTestList() {
 export default function PreliminaryTest() {
 
     useEffect(() => {
-        window.scrollTo(0, 0)
+        window.scrollTo(0, 0);
     })
 
     return (

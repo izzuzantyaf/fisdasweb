@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './practicum-simulator.scss'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import simulatorWebsites from '../../contents/simulator-web'
+const axios = require('axios')
 
 // level 2 component
 function PracticumSimulatorCard(props) {
@@ -11,9 +11,9 @@ function PracticumSimulatorCard(props) {
     return (
         <div className="sw-card">
             <div className="icon">
-                <FontAwesomeIcon icon={props.simulatorWebsite.icon} />
+                <FontAwesomeIcon icon={props.practicumSimulator.reactjs_icon} />
             </div>
-            <div className="module-name">{props.simulatorWebsite.module}</div>
+            <div className="module-name">{props.practicumSimulator.name}</div>
         </div>
     )
 }
@@ -21,13 +21,25 @@ function PracticumSimulatorCard(props) {
 // level 1 component
 function PracticumSimulatorList() {
 
-    const simulatorWebsiteList = simulatorWebsites.map((simulatorWebsite, index) =>
+    const [practicumSimulators, setPracticumSimulators] = useState([])
+
+    useEffect(() => {
+        (async function () {
+            const data = await axios
+                .get('https://fisdascms.herokuapp.com/api/practicum-simulator')
+                .then(response => response.data)
+                .catch(error => error.message)
+            setPracticumSimulators(data)
+        })()
+    }, [])
+
+    const simulatorWebsiteList = practicumSimulators.map((practicumSimulator, index) =>
         <a
-            style={simulatorWebsite.link === '' ? { opacity: 0.3 } : {}}
+            style={practicumSimulator.simulator_link ? {} : { opacity: 0.3 }}
             key={index}
-            href={simulatorWebsite.link}
+            href={practicumSimulator.simulator_link}
             target="_blank"
-            rel="noopener noreferrer"><PracticumSimulatorCard simulatorWebsite={simulatorWebsite} />
+            rel="noopener noreferrer"><PracticumSimulatorCard practicumSimulator={practicumSimulator} />
         </a>)
 
     return (

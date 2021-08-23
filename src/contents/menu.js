@@ -26,13 +26,13 @@ export default [{
     name: 'Regresi Linear',
     icon: 'chart-line',
     link: '/regression',
-    newFeature: true
+    newFeature: false
 },
 {
     name: 'Simulator Praktikum',
     icon: 'cogs',
     link: '/practicum-simulator',
-    newFeature: true
+    newFeature: false
 },
 {
     name: 'Cover Jurnal',
