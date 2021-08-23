@@ -20,6 +20,7 @@ import { faFacebook, faTwitter, faInstagram, faLine, faDiscord, faTiktok, faLink
 import {
   faCoffee, faListOl, faBook, faPlay, faUsers, faCalendarMinus, faSitemap, faGlobe, faEye, faDownload, faTasks, faBalanceScale, faSortNumericUpAlt, faGripLinesVertical, faCircleNotch, faInfinity, faSatelliteDish, faWaveSquare, faMagnet, faBolt, faChevronCircleUp, faFile, faChartLine, faCogs, faBars, faCalculator, faPlug, faDrawPolygon, faParachuteBox
 } from "@fortawesome/free-solid-svg-icons"
+import AppLayout from "./layouts/app"
 
 library.add(faFacebook, faTwitter, faInstagram, faLine, faDiscord, faTiktok, faLinkedin, faTelegramPlane, faYoutube, faCoffee, faListOl, faBook, faPlay, faUsers, faCalendarMinus, faSitemap, faGlobe, faEye, faDownload, faTasks, faBalanceScale, faSortNumericUpAlt, faGripLinesVertical, faCircleNotch, faInfinity, faSatelliteDish, faWaveSquare, faMagnet, faBolt, faChevronCircleUp, faFile, faChartLine, faCogs, faBars, faCalculator, faPlug, faDrawPolygon, faParachuteBox)
 
@@ -29,16 +30,16 @@ export default function App() {
       <Router>
         <Switch>
           <Route exact path="/" render={() => <Home />} />
-          <Route path="/code-of-conduct" render={() => <CodeOfConduct />} />
-          <Route path="/handout" render={() => <Handouts />} />
-          <Route path="/preliminary-test" render={() => <PreliminaryTest />} />
-          <Route path="/practicum-video" render={() => <PracticumVideo />} />
-          <Route path="/regression" render={() => <Regression />} />
-          <Route path="/simulator" render={() => <PracticumSimulator />} />
-          <Route path="/journal-cover" render={() => <JournalCover />} />
-          <Route path="/assistant" render={() => <Assistants />} />
-          <Route path="/schedule" render={() => <PracticumSchedule />} />
-          <Route path="/organigram" render={() => <Organigram />} />
+          <Route path="/code-of-conduct" render={() => <AppLayout content={<CodeOfConduct />} />} />
+          <Route path="/handout" render={() => <AppLayout content={<Handouts />} />} />
+          <Route path="/preliminary-test" render={() => <AppLayout content={<PreliminaryTest />} />} />
+          <Route path="/practicum-video" render={() => <AppLayout content={<PracticumVideo />} />} />
+          <Route path="/regression" render={() => <AppLayout content={<Regression />} />} />
+          <Route path="/simulator" render={() => <AppLayout content={<PracticumSimulator />} />} />
+          <Route path="/journal-cover" render={() => <AppLayout content={<JournalCover />} />} />
+          <Route path="/assistant" render={() => <AppLayout content={<Assistants />} />} />
+          <Route path="/schedule" render={() => <AppLayout content={<PracticumSchedule />} />} />
+          <Route path="/organigram" render={() => <AppLayout content={<Organigram />} />} />
           <Route path="/404" render={() => <NotFoundPage />} />
           <Redirect to="/404" />
         </Switch>
