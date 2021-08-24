@@ -68,8 +68,8 @@ function DropDownMenu() {
 export default function Navbar() {
 
     return (
-        <section className="navbar bg-white top-0">
-            <div className="container relative flex items-center mx-auto justify-between p-4">
+        <section className="navbar bg-white">
+            <div className="container relative flex items-center mx-auto justify-between p-4 max-w-screen-lg">
                 <Logo />
                 <DropDownMenu />
             </div>
