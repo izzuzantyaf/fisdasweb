@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import './code-of-conduct.scss'
+import DocumentFrame from '../../components/document-frame'
+import ContentLayout from '../../layouts/content'
 import { getData } from '../../lib/get-data'
 
 // level 0 component
@@ -15,14 +16,11 @@ export default function CodeOfConduct() {
         window.scrollTo(0, 0)
     }, [])
 
-    return (
-        <section className="organigram">
-            <div className="container">
-                <div className="title">
-                    Tata Tertib Praktikum Fisika Dasar Universitas Telkom
-                </div>
-                <iframe title="code-of-conduct" src={codeOfConduct?.prepared_url} frameBorder="0" width="67%" height="720px" style={{ margin: "auto" }}></iframe>
-            </div>
-        </section>
-    )
+    return <ContentLayout data={{
+        title: 'Tata Tertib Praktikum',
+        Content: <DocumentFrame data={{
+            title: 'Code of Conduct',
+            url: codeOfConduct?.prepared_url,
+        }} />
+    }} />
 }

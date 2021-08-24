@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './handouts.scss'
+import ContentLayout from '../../layouts/content'
 import { getData } from '../../lib/get-data'
 
 // level 2 component
@@ -12,9 +12,9 @@ function HandoutCard(props) {
             target="_blank"
             rel="noopener noreferrer"
             style={{ textDecoration: 'none', opacity: file_url ? 1 : 0.3 }}>
-            <div className="handout-card">
-                <div className="handout-info">
-                    <p className="title">{lang === 'id' ? 'Modul Praktikum Fisika Dasar' : 'Physics Lab Works Handout'} ({faculty})</p>
+            <div className="handout-card bg-white rounded-xl p-4 hover:shadow-lg transition-shadow duration-300">
+                <div className="handout-info text-blue-800">
+                    <p className="title font-bold">{lang === 'id' ? 'Modul Praktikum Fisika Dasar' : 'Physics Lab Works Handout'} ({faculty})</p>
                     <p className="lang">{lang === 'id' ? 'Bahasa Indonesia' : 'English'}</p>
                 </div>
             </div>
@@ -23,7 +23,7 @@ function HandoutCard(props) {
 }
 
 // level 0 component
-export default function Handouts() {
+export default function Handout() {
 
     const [handouts, setHandouts] = useState([])
 
@@ -35,15 +35,11 @@ export default function Handouts() {
         window.scrollTo(0, 0)
     }, [])
 
-    return (
-        <section className="handouts">
-            <div className="container">
-                <div className="main-title">Modul Praktikum</div>
-                <div className="handouts-list">
-                    {handouts.map((handout, index) =>
-                        <HandoutCard key={index} data={handout} />)}
-                </div>
+    return <ContentLayout data={{
+        title: 'Modul Praktikum',
+        Content:
+            <div className="handouts-list grid grid-cols-1 md:grid-cols-2 gap-6">
+                {handouts.map((handout, index) => <HandoutCard key={index} data={handout} />)}
             </div>
-        </section>
-    )
+    }} />
 }

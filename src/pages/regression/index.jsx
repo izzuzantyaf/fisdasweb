@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
-import './regression.scss'
 
 // level 0 component
 export default function Template() {

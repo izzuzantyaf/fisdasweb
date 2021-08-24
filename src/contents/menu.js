@@ -1,5 +1,5 @@
 const menus = [{
-    name: 'Tata tertib',
+    name: 'Tata Tertib',
     icon: 'balance-scale',
     link: '/code-of-conduct',
     newFeature: false

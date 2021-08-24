@@ -3,13 +3,13 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-d
 
 import Home from "./pages/home"
 import CodeOfConduct from "./pages/code-of-conduct"
-import Handouts from "./pages/handouts"
+import Handout from "./pages/handout"
 import PreliminaryTest from "./pages/preliminary-test"
 import PracticumVideo from "./pages/practicum-video"
 import Regression from "./pages/regression"
 import PracticumSimulator from "./pages/practicum-simulator"
 import JournalCover from "./pages/journal-cover"
-import Assistants from "./pages/assistants"
+import Assistant from "./pages/assistant"
 import PracticumSchedule from "./pages/practicum-schedule"
 import Organigram from "./pages/organigram"
 import NotFoundPage from "./pages/not-found-page"
@@ -30,13 +30,13 @@ export default function App() {
         <Switch>
           <Route exact path="/" render={() => <Home />} />
           <Route path="/code-of-conduct" render={() => <AppLayout content={<CodeOfConduct />} />} />
-          <Route path="/handout" render={() => <AppLayout content={<Handouts />} />} />
+          <Route path="/handout" render={() => <AppLayout content={<Handout />} />} />
           <Route path="/preliminary-test" render={() => <AppLayout content={<PreliminaryTest />} />} />
           <Route path="/practicum-video" render={() => <AppLayout content={<PracticumVideo />} />} />
           <Route path="/regression" render={() => <AppLayout content={<Regression />} />} />
           <Route path="/simulator" render={() => <AppLayout content={<PracticumSimulator />} />} />
           <Route path="/journal-cover" render={() => <AppLayout content={<JournalCover />} />} />
-          <Route path="/assistant" render={() => <AppLayout content={<Assistants />} />} />
+          <Route path="/assistant" render={() => <AppLayout content={<Assistant />} />} />
           <Route path="/schedule" render={() => <AppLayout content={<PracticumSchedule />} />} />
           <Route path="/organigram" render={() => <AppLayout content={<Organigram />} />} />
           <Route path="/404" render={() => <NotFoundPage />} />

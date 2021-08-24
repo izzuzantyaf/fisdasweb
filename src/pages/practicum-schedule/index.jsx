@@ -1,63 +1,40 @@
 import React, { useEffect, useState } from 'react'
+import ContentLayout from '../../layouts/content'
+import DocumentFrame from '../../components/document-frame'
 import { getData } from '../../lib/get-data'
-import './practicum-schedule.scss'
 
-// level 1 components
-function ClassSchedule() {
+// level 0 component
+export default function PracticumSchedule() {
 
     const [classSchedule, setClassSchedule] = useState({})
-
-    useEffect(() => {
-        (async function () {
-            const data = await getData('schedule')
-            setClassSchedule(data?.class_schedule)
-        })()
-    }, [])
-
-    return (
-        <div className="class-schedule">
-            <div className="table-title">Jadwal kelas</div>
-            <div className="img-container">
-                <iframe title="class_schedule" src={classSchedule?.prepared_url} frameBorder="0" width="67%" height="720px" style={{ margin: "auto" }}></iframe>
-            </div>
-        </div>
-    )
-}
-
-function HandoutSchedule() {
-
     const [moduleSchedules, setModuleSchedules] = useState([])
 
     useEffect(() => {
         (async function () {
             const data = await getData('schedule')
+            setClassSchedule(data?.class_schedule)
+        })();
+        (async function () {
+            const data = await getData('schedule')
             setModuleSchedules(data?.module_schedules)
         })()
+        window.scrollTo(0, 0)
     }, [])
 
-    return (
-        <div className="handout-schedule">
-            <div className="table-title">Jadwal modul</div>
-            {moduleSchedules.map((moduleSchedule, index) =>
-                <div key={index}>
-                    <div className="table-sub-title">{moduleSchedule.faculty}</div>
-                    <iframe title="class_schedule" src={moduleSchedule?.prepared_url} frameBorder="0" width="67%" height="720px" style={{ margin: "auto" }}></iframe>
-                </div>
-            )}
-        </div>
-    )
-}
-
-// level 0 component
-export default function PracticumSchedule() {
-
-    return (
-        <section className="practicum-schedule">
-            <div className="container">
-                <div className="title">Jadwal Praktikum Fisika Dasar 1 Tahun Akademik 2020/2021</div>
-                <ClassSchedule />
-                <HandoutSchedule />
+    return <ContentLayout data={{
+        title: 'Jadwal Praktikum',
+        Content:
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <DocumentFrame data={{
+                    title: 'Jadwal kelas',
+                    url: classSchedule?.prepared_url,
+                }} />
+                {moduleSchedules.map(({ prepared_url }, index) =>
+                    <DocumentFrame key={index} data={{
+                        title: 'Jadwal modul',
+                        url: prepared_url,
+                    }} />
+                )}
             </div>
-        </section>
-    )
+    }} />
 }

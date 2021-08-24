@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getData } from '../../lib/get-data'
-import './organigram.scss'
+import ContentLayout from '../../layouts/content'
+import DocumentFrame from '../../components/document-frame'
 
 // level 0 component
 export default function Organigram() {
@@ -15,12 +16,11 @@ export default function Organigram() {
         window.scrollTo(0, 0)
     }, [])
 
-    return (
-        <section className="organigram">
-            <div className="container">
-                <div className="title">Organigram Asisten Laboratorium Fisika Dasar 2020/2021</div>
-                <iframe title="organigram" src={organigram?.prepared_url} frameBorder="0" width="67%" height="720px" style={{ margin: "auto" }}></iframe>
-            </div>
-        </section>
-    )
+    return <ContentLayout data={{
+        title: 'Organigram',
+        Content: <DocumentFrame data={{
+            title: 'Organigram',
+            url: organigram?.prepared_url,
+        }} />
+    }} />
 }

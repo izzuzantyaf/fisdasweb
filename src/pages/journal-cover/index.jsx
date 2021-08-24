@@ -1,21 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import './journal-cover.scss'
+import ContentLayout from '../../layouts/content'
+import ModuleList from '../../layouts/module-list'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { getData } from '../../lib/get-data'
-
-// level 2 component
-function JournalCoverCard(props) {
-
-    return (
-        <div className="jc-card">
-            <div className="icon">
-                <FontAwesomeIcon icon={props.data.reactjs_icon} />
-            </div>
-            <div className="module-name">{props.data.name}</div>
-        </div>
-    )
-}
 
 // level 0 component
 export default function JournalCover() {
@@ -30,22 +17,15 @@ export default function JournalCover() {
         window.scrollTo(0, 0)
     }, [])
 
-    return (
-        <div className="journal-cover">
-            <div className="container">
-                <div className="title">Cover Jurnal Praktikum</div>
-                <div className="jc-card-list">
-                    {journalCovers.map((journalCover, index) =>
-                        <a
-                            style={{ opacity: journalCover.journal_cover_link ? 1 : 0.3 }}
-                            key={index}
-                            href={journalCover.journal_cover_link}
-                            target="_blank"
-                            rel="noopener noreferrer">
-                            <JournalCoverCard data={journalCover} />
-                        </a>)}
-                </div>
-            </div>
-        </div>
-    )
+    return <ContentLayout data={{
+        title: 'Cover Jurnal',
+        Content: <ModuleList list={journalCovers.map(
+            ({ name, reactjs_icon, journal_cover_link }) => {
+                return {
+                    title: name,
+                    iconName: reactjs_icon,
+                    link: journal_cover_link,
+                }
+            })} />
+    }} />
 }
