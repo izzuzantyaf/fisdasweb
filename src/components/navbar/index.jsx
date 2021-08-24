@@ -45,19 +45,21 @@ function DropDownMenu() {
 
     return (
         <div className="navigation">
-            <div className="dropdown-overlay inset-0 bg-black bg-opacity-30">
-                <div className="dropdown absolute top-14 right-4 hidden flex-col bg-white rounded-xl px-2 py-3 border">
-                    {menuArr.map((menu, index) =>
-                        <Link
-                            key={index}
-                            to={menu.link}
-                            className="dropdown-item rounded-lg hover:bg-gray-100 p-2">
-                            {menu.name}
-                        </Link>
-                    )}
+            <div className="dropdown-overlay inset-0 z-10 bg-black bg-opacity-30">
+                <div className="container relative mx-auto max-w-screen-lg">
+                    <div className="dropdown absolute top-14 right-0 hidden flex-col bg-white rounded-xl px-2 py-3 border">
+                        {menuArr.map((menu, index) =>
+                            <Link
+                                key={index}
+                                to={menu.link}
+                                className="dropdown-item rounded-lg hover:bg-gray-100 p-2">
+                                {menu.name}
+                            </Link>
+                        )}
+                    </div>
                 </div>
             </div>
-            <div className="hamburger-icon cursor-pointer rounded-md text-blue-600 text-lg hover:bg-blue-100 px-2 py-1">
+            <div className="hamburger-icon cursor-pointer rounded-md text-blue-800 text-lg hover:bg-blue-100 px-2 py-1">
                 <FontAwesomeIcon icon="bars" />
             </div>
         </div>
@@ -69,7 +71,7 @@ export default function Navbar() {
 
     return (
         <section className="navbar bg-white">
-            <div className="container relative flex items-center mx-auto justify-between p-4 max-w-screen-lg">
+            <div className="container flex items-center mx-auto justify-between p-4 max-w-screen-lg">
                 <Logo />
                 <DropDownMenu />
             </div>

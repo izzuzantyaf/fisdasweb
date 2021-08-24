@@ -1,21 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import './preliminary-test.scss'
+import ContentLayout from '../../layouts/content'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { getData } from '../../lib/get-data'
-
-// level 2 component
-function PreliminaryTestCard(props) {
-
-    return (
-        <div className="pt-card">
-            <div className="icon">
-                <FontAwesomeIcon icon={props.data.reactjs_icon} />
-            </div>
-            <div className="module-name">{props.data.name}</div>
-        </div>
-    )
-}
+import ModuleList from '../../layouts/module-list'
 
 // level 0 component
 export default function PreliminaryTest() {
@@ -30,22 +17,15 @@ export default function PreliminaryTest() {
         window.scrollTo(0, 0);
     }, [])
 
-    return (
-        <section className="preliminary-test">
-            <div className="container">
-                <div className="title">Tugas Pendahuluan</div>
-                <div className="pt-card-list">
-                    {preliminaryTests.map((preliminaryTest, index) =>
-                        <a
-                            style={preliminaryTest.preliminary_test_link ? {} : { opacity: 0.3 }}
-                            key={index}
-                            href={preliminaryTest.preliminary_test_link}
-                            target="_blank"
-                            rel="noopener noreferrer">
-                            <PreliminaryTestCard data={preliminaryTest} />
-                        </a>)}
-                </div>
-            </div>
-        </section>
-    )
+    return <ContentLayout data={{
+        title: 'Tugas Pendahuluan',
+        Content: <ModuleList list={preliminaryTests.map(
+            ({ name, reactjs_icon, preliminary_test_link }) => {
+                return {
+                    title: name,
+                    iconName: reactjs_icon,
+                    link: preliminary_test_link,
+                }
+            })} />
+    }} />
 }

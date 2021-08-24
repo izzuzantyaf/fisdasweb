@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-d
 
 import Home from "./pages/home"
 import CodeOfConduct from "./pages/code-of-conduct"
-import Handouts from "./pages/handouts"
+import Handout from "./pages/handout"
 import PreliminaryTest from "./pages/preliminary-test"
 import PracticumVideo from "./pages/practicum-video"
 import Regression from "./pages/regression"
@@ -30,7 +30,7 @@ export default function App() {
         <Switch>
           <Route exact path="/" render={() => <Home />} />
           <Route path="/code-of-conduct" render={() => <AppLayout content={<CodeOfConduct />} />} />
-          <Route path="/handout" render={() => <AppLayout content={<Handouts />} />} />
+          <Route path="/handout" render={() => <AppLayout content={<Handout />} />} />
           <Route path="/preliminary-test" render={() => <AppLayout content={<PreliminaryTest />} />} />
           <Route path="/practicum-video" render={() => <AppLayout content={<PracticumVideo />} />} />
           <Route path="/regression" render={() => <AppLayout content={<Regression />} />} />
