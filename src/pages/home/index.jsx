@@ -12,7 +12,7 @@ function MenuCard(props) {
       <div className="icon text-3xl w-16 flex-shrink-0">
         <FontAwesomeIcon icon={props.data.icon} />
       </div>
-      <div className="menu-name">{props.data.name}</div>
+      <div className="menu-name font-medium">{props.data.name}</div>
     </div>
   )
 }

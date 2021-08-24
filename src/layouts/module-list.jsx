@@ -8,10 +8,10 @@ export default function ModuleList(props) {
       {modules.map(({ link, iconName, title }, index) =>
         <a key={index} href={link} target="_blank" rel="noopener noreferrer">
           <div className="module-card p-4 pl-6 text-blue-800 bg-white rounded-xl flex items-center hover:shadow-lg transition-shadow duration-300 cursor-pointer" style={link ? {} : { opacity: 0.3 }}>
-            <div className="icon text-4xl w-16 flex-shrink-0">
+            <div className="icon text-3xl w-16 flex-shrink-0">
               <FontAwesomeIcon icon={iconName} />
             </div>
-            <div className="title">{title}</div>
+            <div className="title font-medium">{title}</div>
           </div>
         </a>)}
     </div>

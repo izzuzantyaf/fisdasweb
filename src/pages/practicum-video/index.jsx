@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-import "./practicum-video.scss"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { getData } from "../../lib/get-data"
@@ -12,7 +11,6 @@ function VideoFrame(props) {
 
     const videoFrame = document.querySelector(`iframe.practicum-video`)
     setVideoFrameHeight(0.5625 * videoFrame.offsetWidth)
-    // setVideoFrameHeight(500)
 
     window.addEventListener('resize', () => {
       setVideoFrameHeight(0.5625 * videoFrame.offsetWidth)
@@ -24,7 +22,7 @@ function VideoFrame(props) {
   }, [props.videoUrl])
 
   return (
-    <iframe className="practicum-video" title={props.videoUrl} width="100%" height={`${videoFrameHeight}px`} src={props.videoUrl} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true} ></iframe>
+    <iframe className="practicum-video bg-gray-200 rounded-xl" title={props.videoUrl} width="100%" height={`${videoFrameHeight}px`} src={props.videoUrl} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true}></iframe>
   )
 }
 
@@ -39,16 +37,12 @@ function OtherVideoCard(props) {
 
   return (
     <div
-      className="other-video-card"
-      style={
-        props.video.video_embed_url === props.currentPlayingVideoUrl
-          ? { color: "#222ea2" } : {}
-      }
+      className={`other-video-card p-4 pl-6 text-blue-800 rounded-xl flex items-center hover:shadow-lg transition-shadow duration-300 cursor-pointer ${props.video.video_embed_url === props.currentPlayingVideoUrl ? 'bg-blue-100' : 'bg-white'}`}
       onClick={handleChange}>
-      <div className="icon">
+      <div className="icon text-3xl w-16 flex-shrink-0">
         <FontAwesomeIcon icon={props.video.reactjs_icon} />
       </div>
-      <div className="video-name">{props.video.name}</div>
+      <div className="video-name font-medium">{props.video.name}</div>
     </div>
   )
 }
@@ -68,9 +62,9 @@ function LangSwitch(props) {
   }
 
   return (
-    <div className="lang-switch">
-      <div className={`lang1 ${whatActive === 'id' ? 'active' : ''}`} onClick={switchToId}>Indonesia</div>
-      <div className={`lang2 ${whatActive === 'en' ? 'active' : ''}`} onClick={switchToEn}>English</div>
+    <div className="lang-switch flex rounded-full bg-white">
+      <div className={`lang1 rounded-full p-2 cursor-pointer w-1/2 text-center font-medium ${whatActive === 'id' ? 'bg-blue-800 text-white' : ''}`} onClick={switchToId}>Indonesia</div>
+      <div className={`lang2 rounded-full p-2 cursor-pointer w-1/2 text-center font-medium ${whatActive === 'en' ? 'bg-blue-800 text-white' : ''}`} onClick={switchToEn}>English</div>
     </div>
   )
 }
@@ -78,9 +72,9 @@ function LangSwitch(props) {
 // level 1 components
 function VideoPlayer(props) {
   return (
-    <div className="player">
+    <div className="player lg:col-span-2 flex flex-col gap-6">
       <VideoFrame videoUrl={props.currentPlayingUrl} />
-      <div className="video-title">
+      <div className="video-title hidden lg:block text-2xl font-bold">
         {props.currentPlayingTitle}
       </div>
     </div>
@@ -107,26 +101,24 @@ function Sidebar(props) {
     })()
   }, [])
 
-  const otherVideoList = practicumVideos
-    .filter(practicumVideo => practicumVideo.lang === activeLang)
-    .map((practicumVideo, index) => (
-      <OtherVideoCard
-        key={index}
-        onCurrentPlayingChange={changeCurrentPlaying}
-        currentPlayingVideoUrl={props.currentPlayingUrl}
-        video={practicumVideo}
-      />
-    ))
-
   return (
-    <div className="sidebar">
-      <div className="video-title">
+    <div className="sidebar flex flex-col gap-6">
+      <div className="video-title lg:hidden text-2xl font-bold">
         {props.currentPlayingTitle}
       </div>
       <LangSwitch
         onCurrentLangChange={changeCurrentLang}
         currentLang={activeLang} />
-      {otherVideoList}
+      {practicumVideos
+        .filter(practicumVideo => practicumVideo.lang === activeLang)
+        .map((practicumVideo, index) => (
+          <OtherVideoCard
+            key={index}
+            onCurrentPlayingChange={changeCurrentPlaying}
+            currentPlayingVideoUrl={props.currentPlayingUrl}
+            video={practicumVideo}
+          />
+        ))}
     </div>
   )
 }
@@ -146,16 +138,13 @@ function PracticumVideo() {
     const videoFrame = document.querySelector(".practicum-video .player")
     const sticky = videoFrame.offsetTop
     const otherVideoList = document.querySelector(".practicum-video .sidebar")
-    const container = document.querySelector(".practicum-video")
     window.onscroll = () => {
       if (window.pageYOffset >= sticky && window.innerWidth <= 768) {
-        videoFrame.classList.add("sticky")
+        videoFrame.classList.add('fixed', 'top-6', 'right-6', 'left-6')
         otherVideoList.style.marginTop = `${videoFrame.offsetHeight}px`
-        container.style.display = "block"
       } else {
-        videoFrame.classList.remove("sticky")
+        videoFrame.classList.remove('fixed', 'top-6', 'right-6', 'left-6')
         otherVideoList.style.marginTop = "0px"
-        container.style.display = "grid"
       }
     }
   }
@@ -166,16 +155,18 @@ function PracticumVideo() {
   }
 
   return (
-    <section className="practicum-video">
-      <VideoPlayer
-        currentPlayingUrl={currentPlayingUrl}
-        currentPlayingTitle={currentPlayingTitle}
-      />
-      <Sidebar
-        onCurrentPlayingChange={changeCurrentPlaying}
-        currentPlayingUrl={currentPlayingUrl}
-        currentPlayingTitle={currentPlayingTitle}
-      />
+    <section className="practicum-video p-6 pb-12">
+      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <VideoPlayer
+          currentPlayingUrl={currentPlayingUrl}
+          currentPlayingTitle={currentPlayingTitle}
+        />
+        <Sidebar
+          onCurrentPlayingChange={changeCurrentPlaying}
+          currentPlayingUrl={currentPlayingUrl}
+          currentPlayingTitle={currentPlayingTitle}
+        />
+      </div>
     </section>
   )
 }

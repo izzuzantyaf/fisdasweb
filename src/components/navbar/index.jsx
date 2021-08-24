@@ -25,19 +25,16 @@ function DropDownMenu() {
         const dropdownMenu = document.querySelector(".dropdown")
         const dropDownOverlay = document.querySelector(".dropdown-overlay")
         hamburgerIcon.addEventListener('click', () => {
-            if (dropdownMenu.classList.contains('hidden')) {
-                dropdownMenu.classList.replace('hidden', 'flex')
-                dropDownOverlay.classList.add('fixed')
+            if (dropDownOverlay.classList.contains('hidden')) {
+                dropDownOverlay.classList.replace('hidden', 'fixed')
             }
             else {
-                dropdownMenu.classList.replace('flex', 'hidden')
-                dropDownOverlay.classList.remove('fixed')
+                dropDownOverlay.classList.replace('fixed', 'hidden')
             }
         })
         dropDownOverlay.addEventListener('click', (e) => {
             if (e.target !== dropdownMenu) {
-                dropdownMenu.classList.replace('flex', 'hidden')
-                dropDownOverlay.classList.remove('fixed')
+                dropDownOverlay.classList.replace('fixed', 'hidden')
             }
         })
         return () => { }
@@ -45,9 +42,9 @@ function DropDownMenu() {
 
     return (
         <div className="navigation">
-            <div className="dropdown-overlay inset-0 z-10 bg-black bg-opacity-30">
+            <div className="dropdown-overlay hidden px-6 inset-0 z-10 bg-black bg-opacity-30">
                 <div className="container relative mx-auto max-w-screen-lg">
-                    <div className="dropdown absolute top-14 right-0 hidden flex-col bg-white rounded-xl px-2 py-3 border">
+                    <div className="dropdown absolute top-14 right-0 flex flex-col bg-white rounded-xl px-2 py-3 border">
                         {menuArr.map((menu, index) =>
                             <Link
                                 key={index}

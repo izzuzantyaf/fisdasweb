@@ -18,7 +18,7 @@ export default function PracticumSimulator() {
     }, [])
 
     return <ContentLayout data={{
-        title: 'Cover Jurnal',
+        title: 'Simulator Praktikum',
         Content: <ModuleList list={practicumSimulators.map(
             ({ name, reactjs_icon, simulator_link }) => {
                 return {
