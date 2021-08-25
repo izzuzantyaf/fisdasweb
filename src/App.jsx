@@ -1,6 +1,8 @@
 import React from "react"
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom"
 
+import AppLayout from "./layouts/app"
+
 import Home from "./pages/home"
 import CodeOfConduct from "./pages/code-of-conduct"
 import Handout from "./pages/handout"
@@ -19,7 +21,6 @@ import { faFacebook, faTwitter, faInstagram, faLine, faDiscord, faTiktok, faLink
 import {
   faCoffee, faListOl, faBook, faPlay, faUsers, faCalendarMinus, faSitemap, faGlobe, faEye, faDownload, faTasks, faBalanceScale, faSortNumericUpAlt, faGripLinesVertical, faCircleNotch, faInfinity, faSatelliteDish, faWaveSquare, faMagnet, faBolt, faChevronCircleUp, faFile, faChartLine, faCogs, faBars, faCalculator, faPlug, faDrawPolygon, faParachuteBox
 } from "@fortawesome/free-solid-svg-icons"
-import AppLayout from "./layouts/app"
 
 library.add(faFacebook, faTwitter, faInstagram, faLine, faDiscord, faTiktok, faLinkedin, faTelegramPlane, faYoutube, faCoffee, faListOl, faBook, faPlay, faUsers, faCalendarMinus, faSitemap, faGlobe, faEye, faDownload, faTasks, faBalanceScale, faSortNumericUpAlt, faGripLinesVertical, faCircleNotch, faInfinity, faSatelliteDish, faWaveSquare, faMagnet, faBolt, faChevronCircleUp, faFile, faChartLine, faCogs, faBars, faCalculator, faPlug, faDrawPolygon, faParachuteBox)
 
