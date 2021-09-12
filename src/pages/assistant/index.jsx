@@ -13,14 +13,12 @@ function AssistantCard(props) {
             <div className="assitants-name flex-grow">{name}</div>
             {
                 line_id ?
-                    <a href={`https://line.me/R/ti/p/${line_id}`} target="_blank" rel="noopener noreferrer" className="border border-green-500 text-green-500 p-2 rounded-lg text-xs">
-                        <div className="flex gap-2 items-center">
-                            <FontAwesomeIcon icon={['fab', 'line']} className="text-2xl" />
-                            Contact me
-                        </div>
-                    </a>
+                    <div className="flex gap-2 items-center text-xs font-bold">
+                        <FontAwesomeIcon icon={['fab', 'line']} className="text-2xl text-green-500" />
+                        {line_id}
+                    </div>
                     :
-                    <div className="flex gap-2 items-center bg-gray-100 text-gray-500 p-2 rounded-lg text-xs">
+                    <div className="flex gap-2 items-center rounded-lg text-xs text-gray-300">
                         <FontAwesomeIcon icon={['fab', 'line']} className="text-2xl" />
                         No Line ID
                     </div>
