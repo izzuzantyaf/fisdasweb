@@ -1,6 +1,6 @@
 {
-  "name": "labfisdas",
-  "version": "0.1.0",
+  "name": "fisdasweb",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@craco/craco": "^6.2.0",
