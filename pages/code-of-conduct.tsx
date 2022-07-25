@@ -1,5 +1,7 @@
+import Head from "next/head"
 import { useEffect, useState } from "react"
 import DocumentFrame from "../components/document-frame.comp"
+import AppLayout from "../layouts/app.layout"
 import ContentLayout from "../layouts/content.layout"
 import { getData } from "../lib/get-data"
 
@@ -16,18 +18,25 @@ export default function CodeOfConduct() {
   }, [])
 
   return (
-    <ContentLayout
-      data={{
-        title: "Tata Tertib Praktikum",
-        Content: (
-          <DocumentFrame
-            data={{
-              title: "Code of Conduct",
-              url: codeOfConduct?.prepared_url,
-            }}
-          />
-        ),
-      }}
-    />
+    <>
+      <Head>
+        <title>Tata tertib</title>
+      </Head>
+      <AppLayout>
+        <ContentLayout
+          data={{
+            title: "Tata tertib praktikum",
+            Content: (
+              <DocumentFrame
+                data={{
+                  title: "Code of Conduct",
+                  url: codeOfConduct?.prepared_url,
+                }}
+              />
+            ),
+          }}
+        />
+      </AppLayout>
+    </>
   )
 }

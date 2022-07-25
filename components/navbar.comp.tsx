@@ -1,18 +1,33 @@
-import fisdasLogo from "../public/img/fisdas-logo-min.png"
+import fisdasLogoPath from "../public/img/fisdas-logo-min.png"
 import { menus } from "../contents/menu"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
+import {
+  Box,
+  Container,
+  Icon,
+  IconButton,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Spacer,
+} from "@chakra-ui/react"
 
-// level 1 component
-function Logo() {
+function FisdasLogo() {
   return (
-    <div className="logo">
+    <Box className="logo" cursor="pointer">
       <Link href="/">
-        <Image src={fisdasLogo} alt="fisdas-logo" height="32px" width="48px" />
+        <Image
+          src={fisdasLogoPath}
+          alt="fisdas-logo"
+          height="24px"
+          width="36px"
+        />
       </Link>
-    </div>
+    </Box>
   )
 }
 
@@ -60,14 +75,36 @@ function DropDownMenu() {
   )
 }
 
-// level 0 component
 export default function Navbar() {
   return (
-    <section className="navbar bg-white">
-      <div className="container flex items-center mx-auto justify-between p-4 max-w-screen-lg">
-        <Logo />
-        <DropDownMenu />
-      </div>
-    </section>
+    <Box className="navbar" paddingTop="16px" paddingX="16px">
+      <Container maxWidth="container.xl" display="flex" alignItems="center">
+        <FisdasLogo />
+        <Spacer />
+        <Menu>
+          <MenuButton
+            as={IconButton}
+            aria-label="Options"
+            icon={<FontAwesomeIcon icon="bars" />}
+            variant="ghost"
+          />
+          <MenuList>
+            {menus.map((menu, index) => (
+              <Link key={index} href={menu.link}>
+                <MenuItem
+                  icon={
+                    <Icon>
+                      <FontAwesomeIcon icon={menu.icon} />
+                    </Icon>
+                  }
+                >
+                  {menu.name}
+                </MenuItem>
+              </Link>
+            ))}
+          </MenuList>
+        </Menu>
+      </Container>
+    </Box>
   )
 }

@@ -1,6 +1,6 @@
 export const menus = [
   {
-    name: "Tata Tertib",
+    name: "Tata tertib",
     icon: "balance-scale",
     link: "/code-of-conduct",
     newFeature: false,
@@ -12,7 +12,7 @@ export const menus = [
     newFeature: false,
   },
   {
-    name: "Tugas Pendahuluan",
+    name: "Tugas pendahuluan",
     icon: "tasks",
     link: "/pretasks",
     newFeature: false,
@@ -30,13 +30,13 @@ export const menus = [
   //   newFeature: false,
   // },
   {
-    name: "Simulator Praktikum",
+    name: "Simulator",
     icon: "cogs",
     link: "/simulators",
     newFeature: false,
   },
   {
-    name: "Cover Jurnal",
+    name: "Cover jurnal",
     icon: "file",
     link: "/journal-covers",
     newFeature: false,
