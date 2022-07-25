@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react"
-import ContentLayout from "../layouts/content.layout"
+import MenuPageLayout from "../layouts/menu-page.layout"
 import ModuleList from "../layouts/module-list.layout"
 import { getData } from "../lib/get-data"
 
-// level 0 component
 export default function PracticumSimulator() {
   const [practicumSimulators, setPracticumSimulators] = useState([])
 
@@ -16,23 +15,18 @@ export default function PracticumSimulator() {
   }, [])
 
   return (
-    <ContentLayout
-      data={{
-        title: "Simulator Praktikum",
-        Content: (
-          <ModuleList
-            list={practicumSimulators.map(
-              ({ name, reactjs_icon, simulator_link }) => {
-                return {
-                  title: name,
-                  iconName: reactjs_icon,
-                  link: simulator_link,
-                }
-              }
-            )}
-          />
-        ),
-      }}
-    />
+    <MenuPageLayout pageTitle="Simulator Praktikum">
+      <ModuleList
+        list={practicumSimulators.map(
+          ({ name, reactjs_icon, simulator_link }) => {
+            return {
+              title: name,
+              iconName: reactjs_icon,
+              link: simulator_link,
+            }
+          }
+        )}
+      />
+    </MenuPageLayout>
   )
 }

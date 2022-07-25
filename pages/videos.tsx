@@ -1,21 +1,28 @@
 import { useEffect, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { getData } from "../lib/get-data"
+import MenuPageLayout from "../layouts/menu-page.layout"
 
 // level 2 components
 function VideoFrame(props: any) {
   const [videoFrameHeight, setVideoFrameHeight] = useState(0)
 
+  const resizeVideoFrame = () => {
+    setVideoFrameHeight(0.5625 * videoFrame.offsetWidth)
+  }
+
   useEffect(() => {
     const videoFrame = document.querySelector(`iframe.practicum-video`)
     setVideoFrameHeight(0.5625 * videoFrame.offsetWidth)
 
-    window.addEventListener("resize", () => {
+    const resizeVideoFrame = () => {
       setVideoFrameHeight(0.5625 * videoFrame.offsetWidth)
-    })
+    }
+
+    window.addEventListener("resize", resizeVideoFrame)
 
     return () => {
-      window.removeEventListener("resize", () => {})
+      window.removeEventListener("resize", resizeVideoFrame)
     }
   }, [props.videoUrl])
 
@@ -163,10 +170,10 @@ function PracticumVideo() {
     const otherVideoList = document.querySelector(".practicum-video .sidebar")
     window.onscroll = () => {
       if (window.pageYOffset >= sticky && window.innerWidth <= 768) {
-        videoFrame.classList.add("fixed", "top-6", "right-6", "left-6")
+        videoFrame.classList.add("fixed", "top-4", "right-4", "left-4")
         otherVideoList.style.marginTop = `${videoFrame.offsetHeight}px`
       } else {
-        videoFrame.classList.remove("fixed", "top-6", "right-6", "left-6")
+        videoFrame.classList.remove("fixed", "top-4", "right-4", "left-4")
         otherVideoList.style.marginTop = "0px"
       }
     }
@@ -178,19 +185,21 @@ function PracticumVideo() {
   }
 
   return (
-    <section className="practicum-video p-6 pb-12">
-      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <VideoPlayer
-          currentPlayingUrl={currentPlayingUrl}
-          currentPlayingTitle={currentPlayingTitle}
-        />
-        <Sidebar
-          onCurrentPlayingChange={changeCurrentPlaying}
-          currentPlayingUrl={currentPlayingUrl}
-          currentPlayingTitle={currentPlayingTitle}
-        />
-      </div>
-    </section>
+    <MenuPageLayout pageTitle="Video Praktikum">
+      <section className="practicum-video">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <VideoPlayer
+            currentPlayingUrl={currentPlayingUrl}
+            currentPlayingTitle={currentPlayingTitle}
+          />
+          <Sidebar
+            onCurrentPlayingChange={changeCurrentPlaying}
+            currentPlayingUrl={currentPlayingUrl}
+            currentPlayingTitle={currentPlayingTitle}
+          />
+        </div>
+      </section>
+    </MenuPageLayout>
   )
 }
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import ContentLayout from "../layouts/content.layout"
+import MenuPageLayout from "../layouts/menu-page.layout"
 import { getData } from "../lib/get-data"
 
 // level 2 component
@@ -43,17 +43,12 @@ export default function Handout() {
   }, [])
 
   return (
-    <ContentLayout
-      data={{
-        title: "Modul Praktikum",
-        Content: (
-          <div className="handouts-list grid grid-cols-1 md:grid-cols-2 gap-6">
-            {handouts.map((handout, index) => (
-              <HandoutCard key={index} data={handout} />
-            ))}
-          </div>
-        ),
-      }}
-    />
+    <MenuPageLayout pageTitle="Modul Praktikum">
+      <div className="handouts-list grid grid-cols-1 md:grid-cols-2 gap-6">
+        {handouts.map((handout, index) => (
+          <HandoutCard key={index} data={handout} />
+        ))}
+      </div>
+    </MenuPageLayout>
   )
 }

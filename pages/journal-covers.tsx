@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react"
-import ContentLayout from "../layouts/content.layout"
+import MenuPageLayout from "../layouts/menu-page.layout"
 import ModuleList from "../layouts/module-list.layout"
 import { getData } from "../lib/get-data"
 
-// level 0 component
 export default function JournalCover() {
   const [journalCovers, setJournalCovers] = useState([])
 
@@ -16,23 +15,18 @@ export default function JournalCover() {
   }, [])
 
   return (
-    <ContentLayout
-      data={{
-        title: "Cover Jurnal",
-        Content: (
-          <ModuleList
-            list={journalCovers.map(
-              ({ name, reactjs_icon, journal_cover_link }) => {
-                return {
-                  title: name,
-                  iconName: reactjs_icon,
-                  link: journal_cover_link,
-                }
-              }
-            )}
-          />
-        ),
-      }}
-    />
+    <MenuPageLayout pageTitle="Cover Jurnal">
+      <ModuleList
+        list={journalCovers.map(
+          ({ name, reactjs_icon, journal_cover_link }) => {
+            return {
+              title: name,
+              iconName: reactjs_icon,
+              link: journal_cover_link,
+            }
+          }
+        )}
+      />
+    </MenuPageLayout>
   )
 }

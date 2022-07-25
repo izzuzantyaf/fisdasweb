@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react"
-import ContentLayout from "../layouts/content.layout"
+import MenuPageLayout from "../layouts/menu-page.layout"
 import { getData } from "../lib/get-data"
 import ModuleList from "../layouts/module-list.layout"
 
-// level 0 component
 export default function PreliminaryTest() {
   const [preliminaryTests, setPreliminaryTests] = useState([])
 
@@ -16,23 +15,18 @@ export default function PreliminaryTest() {
   }, [])
 
   return (
-    <ContentLayout
-      data={{
-        title: "Tugas Pendahuluan",
-        Content: (
-          <ModuleList
-            list={preliminaryTests.map(
-              ({ name, reactjs_icon, preliminary_test_link }) => {
-                return {
-                  title: name,
-                  iconName: reactjs_icon,
-                  link: preliminary_test_link,
-                }
-              }
-            )}
-          />
-        ),
-      }}
-    />
+    <MenuPageLayout pageTitle="Tugas Pendahuluan">
+      <ModuleList
+        list={preliminaryTests.map(
+          ({ name, reactjs_icon, preliminary_test_link }) => {
+            return {
+              title: name,
+              iconName: reactjs_icon,
+              link: preliminary_test_link,
+            }
+          }
+        )}
+      />
+    </MenuPageLayout>
   )
 }

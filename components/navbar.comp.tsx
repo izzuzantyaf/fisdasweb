@@ -77,7 +77,7 @@ function DropDownMenu() {
 
 export default function Navbar() {
   return (
-    <Box className="navbar" paddingTop="16px" paddingX="16px">
+    <Box className="navbar" paddingTop="16px">
       <Container maxWidth="container.xl" display="flex" alignItems="center">
         <FisdasLogo />
         <Spacer />

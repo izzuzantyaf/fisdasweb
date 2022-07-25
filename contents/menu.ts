@@ -50,7 +50,7 @@ export const menus = [
   {
     name: "Jadwal",
     icon: "calendar-minus",
-    link: "/schedule",
+    link: "/schedules",
     newFeature: false,
   },
   {

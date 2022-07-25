@@ -1,11 +1,9 @@
 import Head from "next/head"
 import { useEffect, useState } from "react"
 import DocumentFrame from "../components/document-frame.comp"
-import AppLayout from "../layouts/app.layout"
-import ContentLayout from "../layouts/content.layout"
+import MenuPageLayout from "../layouts/menu-page.layout"
 import { getData } from "../lib/get-data"
 
-// level 0 component
 export default function CodeOfConduct() {
   const [codeOfConduct, setcodeOfConduct] = useState({})
 
@@ -22,21 +20,14 @@ export default function CodeOfConduct() {
       <Head>
         <title>Tata tertib</title>
       </Head>
-      <AppLayout>
-        <ContentLayout
+      <MenuPageLayout pageTitle="Tata Tertib Praktikum">
+        <DocumentFrame
           data={{
-            title: "Tata tertib praktikum",
-            Content: (
-              <DocumentFrame
-                data={{
-                  title: "Code of Conduct",
-                  url: codeOfConduct?.prepared_url,
-                }}
-              />
-            ),
+            title: "Code of Conduct",
+            url: codeOfConduct?.prepared_url,
           }}
         />
-      </AppLayout>
+      </MenuPageLayout>
     </>
   )
 }

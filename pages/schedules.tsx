@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import ContentLayout from "../layouts/content.layout"
+import MenuPageLayout from "../layouts/menu-page.layout"
 import DocumentFrame from "../components/document-frame.comp"
 import { getData } from "../lib/get-data"
 
@@ -23,31 +23,26 @@ export default function PracticumSchedule() {
   }, [])
 
   return (
-    <ContentLayout
-      data={{
-        title: "Jadwal Praktikum",
-        Content: (
-          <div className="grid sm:grid-cols-2 gap-6">
-            <DocumentFrame
-              data={{
-                title: "Jadwal kelas",
-                url: classSchedule?.prepared_url,
-                height: 240,
-              }}
-            />
-            {moduleSchedules.map(({ prepared_url }, index) => (
-              <DocumentFrame
-                key={index}
-                data={{
-                  title: "Jadwal modul",
-                  url: prepared_url,
-                  height: 240,
-                }}
-              />
-            ))}
-          </div>
-        ),
-      }}
-    />
+    <MenuPageLayout pageTitle="Jadwal Praktikum">
+      <div className="grid sm:grid-cols-2 gap-6">
+        <DocumentFrame
+          data={{
+            title: "Jadwal kelas",
+            url: classSchedule?.prepared_url,
+            height: 240,
+          }}
+        />
+        {moduleSchedules.map(({ prepared_url }, index) => (
+          <DocumentFrame
+            key={index}
+            data={{
+              title: "Jadwal modul",
+              url: prepared_url,
+              height: 240,
+            }}
+          />
+        ))}
+      </div>
+    </MenuPageLayout>
   )
 }

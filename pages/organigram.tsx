@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react"
 import { getData } from "../lib/get-data"
-import ContentLayout from "../layouts/content.layout"
+import MenuPageLayout from "../layouts/menu-page.layout"
 import DocumentFrame from "../components/document-frame.comp"
 
-// level 0 component
 export default function Organigram() {
   const [organigram, setOrganigram] = useState({})
 
@@ -16,18 +15,13 @@ export default function Organigram() {
   }, [])
 
   return (
-    <ContentLayout
-      data={{
-        title: "Organigram",
-        Content: (
-          <DocumentFrame
-            data={{
-              title: "Organigram",
-              url: organigram?.prepared_url,
-            }}
-          />
-        ),
-      }}
-    />
+    <MenuPageLayout pageTitle="Organigram">
+      <DocumentFrame
+        data={{
+          title: "Organigram",
+          url: organigram?.prepared_url,
+        }}
+      />
+    </MenuPageLayout>
   )
 }
