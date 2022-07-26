@@ -47,7 +47,7 @@ export default function ModuleCard({ data }: { data: PracticumMaterial }) {
       </Box>
       <Link href={data.preTask.url} isExternal marginTop="16px">
         <Button width="full" size="sm" colorScheme="blue">
-          Lihat
+          Lihat Soal
         </Button>
       </Link>
     </Box>
