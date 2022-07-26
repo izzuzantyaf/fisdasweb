@@ -8,9 +8,8 @@ import { SimpleGrid, Skeleton } from "@chakra-ui/react"
 import { repeatElement } from "../core/lib/helpers/repeat-element.helper"
 
 export default function PreliminaryTest() {
-  const [practicumMaterials, setPracticumMaterials] = useState<
-    PracticumMaterial[]
-  >([])
+  const [practicumMaterials, setPracticumMaterials] =
+    useState<PracticumMaterial[]>()
 
   const getPracticumMaterials = async () => {
     const practicumMaterials = await practicumMaterialService.getAll()
@@ -35,7 +34,7 @@ export default function PreliminaryTest() {
         >
           {practicumMaterials?.map((practicumMaterial, index) => (
             <ModuleCard key={index} data={practicumMaterial} />
-          )) ?? repeatElement(<Skeleton height="128px" />, 4)}
+          )) ?? repeatElement(<Skeleton height="128px" />, 6)}
         </SimpleGrid>
       </MenuPageLayout>
     </>
