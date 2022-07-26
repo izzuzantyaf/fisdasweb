@@ -1,4 +1,4 @@
-import { menus } from "../contents/menu"
+import { menu } from "../core/lib/constants"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Navbar from "../components/navbar.comp"
 import Link from "next/link"
@@ -54,22 +54,26 @@ export default function Home() {
             spacing={["16px", "16px", "24px"]}
             marginTop="16px"
           >
-            {menus.map((menu, index) => (
-              <Link key={index} href={menu.link}>
+            {menu.map((menu, index) => (
+              <Link key={index} href={menu.route}>
                 <Box
-                  className="menu-card bg-white"
+                  className="menu-card"
                   padding="12px"
                   boxShadow="md"
                   rounded="12px"
                   cursor="pointer"
                 >
                   <Box
-                    className="bg-blue-200 text-blue-700 flex justify-center items-center rounded-full"
+                    className="bg-blue-200 text-blue-700"
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
+                    rounded="full"
                     width={["40px", "40px", "48px"]}
                     height={["40px", "40px", "48px"]}
                   >
                     <Icon fontSize={["20px", "20px", "24px"]}>
-                      <FontAwesomeIcon icon={menu.icon} />
+                      <FontAwesomeIcon icon={menu.faIconName} />
                     </Icon>
                   </Box>
                   <Text

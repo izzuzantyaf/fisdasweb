@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { getData } from "../lib/get-data"
-import { menus } from "../contents/menu"
+import { menu } from "../core/lib/constants"
 import Link from "next/link"
 import { Box, Container } from "@chakra-ui/react"
 
@@ -52,10 +52,10 @@ export default function Footer() {
           <div className="explore">
             <p className="title font-bold">Explore</p>
             <div className="footer-menu-list flex flex-wrap mt-4 gap-4">
-              {menus.map((menu, index) => (
+              {menu.map((menu, index) => (
                 <Link
                   key={index}
-                  href={menu.link}
+                  href={menu.route}
                   style={{ textDecoration: "none", cursor: "pointer" }}
                 >
                   {menu.name}
