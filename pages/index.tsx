@@ -78,8 +78,11 @@ export default function Home() {
                   </Box>
                   <Text
                     className="menu-name"
-                    fontSize={["14px", "16px", "18px"]}
+                    fontSize={["16px", "16px", "18px"]}
                     marginTop="8px"
+                    whiteSpace="nowrap"
+                    overflow="hidden"
+                    textOverflow="ellipsis"
                   >
                     {menu.name}
                   </Text>
