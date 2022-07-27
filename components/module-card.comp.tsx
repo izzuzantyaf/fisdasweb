@@ -1,6 +1,6 @@
-import { Box, Icon, Heading, Button, Text, Link } from "@chakra-ui/react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Box, Heading, Button, Text, Link } from "@chakra-ui/react"
 import { PracticumMaterial } from "../core/types/practicum-material.type"
+import MyIcon from "./my-icon.comp"
 
 export default function ModuleCard({ data }: { data: PracticumMaterial }) {
   return (
@@ -11,20 +11,7 @@ export default function ModuleCard({ data }: { data: PracticumMaterial }) {
       padding="16px"
     >
       <Box display="flex" gap="16px" marginBottom="16px" alignItems="center">
-        <Box
-          className="bg-blue-200 text-blue-700"
-          display="flex"
-          flexShrink={0}
-          justifyContent="center"
-          alignItems="center"
-          rounded="full"
-          width={["40px", "40px", "48px"]}
-          height={["40px", "40px", "48px"]}
-        >
-          <Icon fontSize={["20px", "20px", "24px"]}>
-            <FontAwesomeIcon icon={data.faIconName} />
-          </Icon>
-        </Box>
+        <MyIcon faIconName={data.faIconName} />
         <Box className="module-info" overflow="hidden">
           <Heading
             className="module-code"

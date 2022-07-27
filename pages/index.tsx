@@ -12,6 +12,7 @@ import {
   Text,
 } from "@chakra-ui/react"
 import Footer from "../components/footer.comp"
+import MyIcon from "../components/my-icon.comp"
 
 export default function Home() {
   return (
@@ -63,19 +64,7 @@ export default function Home() {
                   rounded="12px"
                   cursor="pointer"
                 >
-                  <Box
-                    className="bg-blue-200 text-blue-700"
-                    display="flex"
-                    justifyContent="center"
-                    alignItems="center"
-                    rounded="full"
-                    width={["40px", "40px", "48px"]}
-                    height={["40px", "40px", "48px"]}
-                  >
-                    <Icon fontSize={["20px", "20px", "24px"]}>
-                      <FontAwesomeIcon icon={menu.faIconName} />
-                    </Icon>
-                  </Box>
+                  <MyIcon faIconName={menu.faIconName} />
                   <Text
                     className="menu-name"
                     fontSize={["16px", "16px", "18px"]}
