@@ -43,7 +43,7 @@ export default function HandoutCard({ data }: { data: Handout }) {
         </Box>
       </Box>
       <Link href={data.url} isExternal marginTop="16px">
-        <Button width="full" size="sm" colorScheme="blue">
+        <Button width="full" colorScheme="blue">
           Lihat
         </Button>
       </Link>
