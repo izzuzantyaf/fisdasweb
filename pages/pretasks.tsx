@@ -3,9 +3,9 @@ import MenuPageLayout from "../layouts/menu-page.layout"
 import Head from "next/head"
 import { PreTaskMaterial } from "../core/types/practicum-material.type"
 import { practicumMaterialService } from "../core/services/practicum-material.service"
-import PreTaskCard from "../components/pretask-card.comp"
 import { SimpleGrid, Skeleton } from "@chakra-ui/react"
 import { repeatElement } from "../core/lib/helpers/repeat-element.helper"
+import PracticumMaterialCardWithLinkButton from "../components/practicum-material-info-with-link.comp"
 
 export default function PreTaskPage() {
   const [preTasks, setPreTasks] = useState<PreTaskMaterial[]>()
@@ -33,12 +33,13 @@ export default function PreTaskPage() {
         >
           {preTasks?.map(
             ({ faIconName, code, name, preTask: { url } }, index) => (
-              <PreTaskCard
+              <PracticumMaterialCardWithLinkButton
                 key={index}
                 iconName={faIconName}
                 title={code}
                 description={name}
                 url={url}
+                buttonLabel="Lihat Soal"
               />
             )
           ) ?? repeatElement(<Skeleton height="128px" />, 6)}

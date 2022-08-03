@@ -1,7 +1,7 @@
 import { SimpleGrid, Skeleton } from "@chakra-ui/react"
 import Head from "next/head"
 import { useEffect, useState } from "react"
-import SimulatorCard from "../components/simulator-card.comp"
+import PracticumMaterialCardWithLinkButton from "../components/practicum-material-info-with-link.comp"
 import { repeatElement } from "../core/lib/helpers/repeat-element.helper"
 import { practicumMaterialService } from "../core/services/practicum-material.service"
 import { SimulatorMaterial } from "../core/types/practicum-material.type"
@@ -33,12 +33,13 @@ export default function PracticumSimulatorPage() {
         >
           {simulators?.map(
             ({ faIconName, code, name, simulator: { url } }, index) => (
-              <SimulatorCard
+              <PracticumMaterialCardWithLinkButton
                 key={index}
                 iconName={faIconName}
                 title={code}
                 description={name}
                 url={url}
+                buttonLabel="Coba"
               />
             )
           ) ?? repeatElement(<Skeleton height="128px" />, 6)}
