@@ -4,6 +4,7 @@ import {
   PracticmMaterialFilter,
   PracticumMaterial,
   PreTaskMaterial,
+  SimulatorMaterial,
 } from "../types/practicum-material.type"
 
 export const practicumMaterialService = {
@@ -16,6 +17,11 @@ export const practicumMaterialService = {
     const response = await getFetch(ApiRoute.PRETASK, "isActive=true")
     console.log("Get pretasks API response :", response)
     return response.data as PreTaskMaterial[]
+  },
+  getSimulators: async () => {
+    const response = await getFetch(ApiRoute.SIMULATOR, "isActive=true")
+    console.log("Get simulators API response :", response)
+    return response.data as SimulatorMaterial[]
   },
   filter: (
     practicumMaterial: PracticumMaterial,

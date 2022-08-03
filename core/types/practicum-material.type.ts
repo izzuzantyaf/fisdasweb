@@ -37,6 +37,11 @@ export type PreTaskMaterial = Pick<
   "_id" | "name" | "code" | "faIconName" | "language" | "preTask"
 >
 
+export type SimulatorMaterial = Pick<
+  PracticumMaterial,
+  "_id" | "name" | "code" | "faIconName" | "language" | "simulator"
+>
+
 export type LanguageFilter = `${Language}` | "all"
 
 export type PracticmMaterialFilter = {
