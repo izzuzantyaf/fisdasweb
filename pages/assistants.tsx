@@ -1,11 +1,22 @@
 import { useEffect, useState } from "react"
 import MenuPageLayout from "../layouts/menu-page.layout"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { getData } from "../lib/get-data"
+import Head from "next/head"
+import { Assistant } from "../core/types/assistant.type"
+import { assistantService } from "../core/services/assistant.service"
 
-function AssistantCard(props: any) {
+function AssistantCard({
+  name,
+  code,
+  lineId,
+  feedbackLink,
+}: {
+  name: string
+  code: string
+  lineId?: string
+  feedbackLink?: string
+}) {
   const [feedbackTime] = useState(false)
-  const { name, code, line_id, feedback_link } = props.data
 
   return (
     <div className="assistant-card flex flex-col gap-1 bg-white p-4 rounded-xl hover:shadow-lg transition-shadow duration-300">
@@ -13,13 +24,13 @@ function AssistantCard(props: any) {
         {code}
       </div>
       <div className="assitants-name flex-grow">{name}</div>
-      {line_id ? (
+      {lineId ? (
         <div className="flex gap-2 items-center text-xs font-bold">
           <FontAwesomeIcon
             icon={["fab", "line"]}
             className="text-2xl text-green-500"
           />
-          {line_id}
+          {lineId}
         </div>
       ) : (
         <div className="flex gap-2 items-center rounded-lg text-xs text-gray-300">
@@ -28,7 +39,7 @@ function AssistantCard(props: any) {
         </div>
       )}
       {feedbackTime ? (
-        <a href={feedback_link} target="_blank" rel="noopener noreferrer">
+        <a href={feedbackLink} target="_blank" rel="noopener noreferrer">
           <div className="feedback-btn">Write me a feedback</div>
         </a>
       ) : (
@@ -38,24 +49,37 @@ function AssistantCard(props: any) {
   )
 }
 
-export default function Assistant() {
-  const [assistants, setAssistants] = useState([])
+export default function AssistantPage() {
+  const [assistants, setAssistants] = useState<Assistant[]>()
+
+  const getAsssitants = async () => {
+    const assistants = await assistantService.getAll()
+    setAssistants(assistants)
+  }
 
   useEffect(() => {
-    ;(async function () {
-      const data = await getData("assistant")
-      setAssistants(data)
-    })()
+    getAsssitants()
     window.scrollTo(0, 0)
   }, [])
 
   return (
-    <MenuPageLayout pageTitle="Asisten Praktikum">
-      <div className="assistants-list grid grid-cols-2 md:grid-cols-3 gap-6">
-        {assistants.map((assistant, index) => (
-          <AssistantCard key={index} data={assistant} />
-        ))}
-      </div>
-    </MenuPageLayout>
+    <>
+      <Head>
+        <title>Asisten Praktikum | Lab Fisika Dasar Universitas Telkom</title>
+      </Head>
+      <MenuPageLayout pageTitle="Asisten Praktikum">
+        <div className="assistants-list grid grid-cols-2 md:grid-cols-3 gap-6">
+          {assistants?.map(({ code, name, lineId, feedbackUrl }, index) => (
+            <AssistantCard
+              key={index}
+              code={code}
+              name={name}
+              lineId={lineId}
+              feedbackLink={feedbackUrl}
+            />
+          ))}
+        </div>
+      </MenuPageLayout>
+    </>
   )
 }
