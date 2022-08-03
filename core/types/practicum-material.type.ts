@@ -1,6 +1,21 @@
 import { Language } from "../lib/constants"
 
-export type PreTask = {
+type PreTask = {
+  url: string
+  isActive: boolean
+}
+
+type Video = {
+  url: string
+  isActive: boolean
+}
+
+type Simulator = {
+  url: string
+  isActive: boolean
+}
+
+type JournalCover = {
   url: string
   isActive: boolean
 }
@@ -12,19 +27,15 @@ export type PracticumMaterial = {
   language: Language
   faIconName: string
   preTask: PreTask
-  video: {
-    url: string
-    isActive: boolean
-  }
-  simulator: {
-    url: string
-    isActive: boolean
-  }
-  journalCover: {
-    url: string
-    isActive: boolean
-  }
+  video: Video
+  simulator: Simulator
+  journalCover: JournalCover
 }
+
+export type PreTaskMaterial = Pick<
+  PracticumMaterial,
+  "_id" | "name" | "code" | "faIconName" | "language" | "preTask"
+>
 
 export type LanguageFilter = `${Language}` | "all"
 

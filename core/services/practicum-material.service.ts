@@ -3,6 +3,7 @@ import { getFetch } from "../lib/helpers/fetcher.helper"
 import {
   PracticmMaterialFilter,
   PracticumMaterial,
+  PreTaskMaterial,
 } from "../types/practicum-material.type"
 
 export const practicumMaterialService = {
@@ -10,6 +11,11 @@ export const practicumMaterialService = {
     const response = await getFetch(ApiRoute.PRACTICUM_MATERIAL)
     console.log("Get practicum material API response :", response)
     return response.data.practicumModules as PracticumMaterial[]
+  },
+  getPreTasks: async () => {
+    const response = await getFetch(ApiRoute.PRETASK, "isActive=true")
+    console.log("Get pretasks API response :", response)
+    return response.data as PreTaskMaterial[]
   },
   filter: (
     practicumMaterial: PracticumMaterial,

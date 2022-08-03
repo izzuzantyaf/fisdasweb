@@ -4,7 +4,7 @@ export enum Route {
   CODE_OF_CONDUCT = "/code-of-conduct",
   HANDOUT = "/handouts",
   PRACTICUM_MATERIAL = "/practicum-material",
-  PRE_TASK = "/pretasks",
+  PRETASK = "/pretasks",
   PRACTICUM_VIDEO = "/videos",
   SIMULATOR = "/simulators",
   JOURNAL_COVER = "/journal-covers",
@@ -20,6 +20,10 @@ export enum ApiRoute {
   ORGANIGRAM = "/api/organigram",
   HANDOUT = "/api/handout",
   PRACTICUM_MATERIAL = "/api/practicum-module",
+  PRETASK = "/api/practicum-module/pretasks",
+  VIDEO = "/api/practicum-module/videos",
+  SIMULATOR = "/api/practicum-module/simulators",
+  JOURNAL_COVER = "/api/practicum-module/journal-covers",
   SCHEDULE = "/api/schedule",
   ASSISTANT = "/api/assistant",
 }
@@ -43,7 +47,7 @@ export const menu = [
   {
     name: "Tugas pendahuluan",
     faIconName: "tasks",
-    route: Route.PRE_TASK,
+    route: Route.PRETASK,
   },
   {
     name: "Video praktikum",
