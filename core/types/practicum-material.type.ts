@@ -42,6 +42,11 @@ export type SimulatorMaterial = Pick<
   "_id" | "name" | "code" | "faIconName" | "language" | "simulator"
 >
 
+export type JournalCoverMaterial = Pick<
+  PracticumMaterial,
+  "_id" | "name" | "code" | "faIconName" | "language" | "journalCover"
+>
+
 export type LanguageFilter = `${Language}` | "all"
 
 export type PracticmMaterialFilter = {

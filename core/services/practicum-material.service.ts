@@ -1,6 +1,7 @@
 import { ApiRoute } from "../lib/constants"
 import { getFetch } from "../lib/helpers/fetcher.helper"
 import {
+  JournalCoverMaterial,
   PracticmMaterialFilter,
   PracticumMaterial,
   PreTaskMaterial,
@@ -22,6 +23,11 @@ export const practicumMaterialService = {
     const response = await getFetch(ApiRoute.SIMULATOR, "isActive=true")
     console.log("Get simulators API response :", response)
     return response.data as SimulatorMaterial[]
+  },
+  getJournalCovers: async () => {
+    const response = await getFetch(ApiRoute.JOURNAL_COVER, "isActive=true")
+    console.log("Get journal covers API response :", response)
+    return response.data as JournalCoverMaterial[]
   },
   filter: (
     practicumMaterial: PracticumMaterial,
