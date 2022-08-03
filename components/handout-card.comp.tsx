@@ -1,5 +1,4 @@
-import { Box, Icon, Heading, Button, Text, Link } from "@chakra-ui/react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Box, Heading, Button, Text, Link } from "@chakra-ui/react"
 import { languageCodeMapper } from "../core/lib/helpers/language-code-mapper.helper"
 import { Handout } from "../core/types/handout.type"
 import MyIcon from "./my-icon.comp"
@@ -32,7 +31,7 @@ export default function HandoutCard({ data }: { data: Handout }) {
       </Box>
       <Link href={data.url} isExternal marginTop="16px">
         <Button width="full" colorScheme="blue">
-          Lihat Modul
+          Akses Modul
         </Button>
       </Link>
     </Box>
