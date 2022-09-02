@@ -1,17 +1,18 @@
-import { Heading, Box, Text } from "@chakra-ui/react"
+import { Heading, Box, Text, BoxProps } from "@chakra-ui/react"
 import MyIcon from "./my-icon.comp"
 
 export default function ModuleInfo({
   iconName = "question",
   title = "Title",
   description = "Description",
+  ...rest
 }: {
   iconName: string
   title: string
   description: string
-}) {
+} & BoxProps) {
   return (
-    <Box display="flex" gap="16px" alignItems="center">
+    <Box display="flex" gap="16px" alignItems="center" {...rest}>
       <MyIcon faIconName={iconName} />
       <Box className="module-info" overflow="hidden">
         <Heading
