@@ -6,7 +6,7 @@ import Link from "next/link"
 import { Box, Container } from "@chakra-ui/react"
 
 export default function Footer() {
-  const [socialMedia, setSocialMedia] = useState([])
+  const [socialMedia, setSocialMedia] = useState()
 
   const getSocialMedia = async () => {
     const data = await getData("social-media")
@@ -26,7 +26,7 @@ export default function Footer() {
               Laboratorium Fisika Dasar<br></br>Universitas Telkom
             </p>
             <div className="socmed text-2xl flex gap-4">
-              {socialMedia.map(({ link, name, reactjs_icon }, index) => (
+              {socialMedia?.map(({ link, name, reactjs_icon }, index) => (
                 <a
                   key={index}
                   className="socmed-icon"
