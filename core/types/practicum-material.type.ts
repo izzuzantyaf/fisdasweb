@@ -7,6 +7,7 @@ type PreTask = {
 
 type Video = {
   url: string
+  embedUrl: string
   isActive: boolean
 }
 
@@ -45,6 +46,11 @@ export type SimulatorMaterial = Pick<
 export type JournalCoverMaterial = Pick<
   PracticumMaterial,
   "_id" | "name" | "code" | "faIconName" | "language" | "journalCover"
+>
+
+export type VideoMaterial = Pick<
+  PracticumMaterial,
+  "_id" | "name" | "code" | "faIconName" | "language" | "video"
 >
 
 export type LanguageFilter = `${Language}` | "all"

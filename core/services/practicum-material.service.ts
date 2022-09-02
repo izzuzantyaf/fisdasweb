@@ -6,6 +6,7 @@ import {
   PracticumMaterial,
   PreTaskMaterial,
   SimulatorMaterial,
+  VideoMaterial,
 } from "../types/practicum-material.type"
 
 export const practicumMaterialService = {
@@ -28,6 +29,14 @@ export const practicumMaterialService = {
     const response = await getFetch(ApiRoute.JOURNAL_COVER, "isActive=true")
     console.log("Get journal covers API response :", response)
     return response.data as JournalCoverMaterial[]
+  },
+  /**
+   * Mengambil data video praktikum dari API
+   */
+  getVideos: async () => {
+    const response = await getFetch(ApiRoute.VIDEO, "isActive=true")
+    console.log("Get practicum videos API response :", response)
+    return response.data as VideoMaterial[]
   },
   filter: (
     practicumMaterial: PracticumMaterial,

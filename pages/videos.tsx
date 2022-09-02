@@ -1,143 +1,138 @@
 import { useEffect, useRef, useState } from "react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { getData } from "../lib/get-data"
 import MenuPageLayout from "../layouts/menu-page.layout"
+import { VideoMaterial } from "../core/types/practicum-material.type"
+import { practicumMaterialService } from "../core/services/practicum-material.service"
+import ModuleInfo from "../components/module-info.comp"
+import { Box } from "@chakra-ui/react"
+import { Language } from "../core/lib/constants"
+import Head from "next/head"
 
 function PracticumVideoPage() {
-  const [currentPlayingUrl, setCurrentPlayingUrl] = useState(null)
-  const [currentPlayingTitle, setcurrentPlayingTitle] = useState(null)
+  const [practicumVideos, setPracticumVideos] = useState<VideoMaterial[]>()
+  const [selectedVideo, setSelectedVideo] = useState<VideoMaterial>()
   const [videoFrameHeight, setVideoFrameHeight] = useState(0)
-  const [practicumVideos, setPracticumVideos] = useState([])
-  const [activeLang, setActiveLang] = useState("id")
+  const [activeLang, setActiveLang] = useState<Language>(Language.ID)
   const videoFrame = useRef()
 
-  function videoFrameStickyOnScroll() {
-    const videoFrame = document.querySelector(".practicum-video .player")
-    const sticky = videoFrame.offsetTop
-    const otherVideoList = document.querySelector(".practicum-video .sidebar")
-    window.onscroll = () => {
-      if (window.pageYOffset >= sticky && window.innerWidth <= 768) {
-        videoFrame.classList.add("fixed", "top-4", "right-4", "left-4")
-        otherVideoList.style.marginTop = `${videoFrame.offsetHeight}px`
-      } else {
-        videoFrame.classList.remove("fixed", "top-4", "right-4", "left-4")
-        otherVideoList.style.marginTop = "0px"
-      }
-    }
+  /**
+   * Memilih satu video berdasarkan id, mengupdate state selectedVideo
+   * @param id
+   * @returns
+   */
+  const selectVideoById = (id: string) => {
+    const selectedVideo = practicumVideos?.find(
+      (practicumVideo) => practicumVideo._id === id
+    )
+    setSelectedVideo(selectedVideo)
+    return selectedVideo
   }
 
-  function changeCurrentPlaying({ videoUrl, videoTitle }) {
-    setCurrentPlayingUrl(videoUrl)
-    setcurrentPlayingTitle(videoTitle)
+  /**
+   * Mengambil data video praktikum dari API, dan memasukkannya ke dalam state practicumVideos
+   */
+  const getPracticumVideos = async () => {
+    setPracticumVideos(await practicumMaterialService.getVideos())
+  }
+
+  const resizeVideoFrame = () => {
+    setVideoFrameHeight(0.5625 * videoFrame.current.offsetWidth)
   }
 
   useEffect(() => {
+    getPracticumVideos()
     setVideoFrameHeight(0.5625 * videoFrame.current.offsetWidth)
-    const resizeVideoFrame = () => {
-      setVideoFrameHeight(0.5625 * videoFrame.current.offsetWidth)
-    }
+    // menambahkan event listener pada saat ukuran window browser di ubah agar aspect ratio frame video tetap 16:9
     window.addEventListener("resize", resizeVideoFrame)
     return () => {
       window.removeEventListener("resize", resizeVideoFrame)
     }
-  }, [currentPlayingUrl])
-
-  useEffect(() => {
-    videoFrameStickyOnScroll()
   }, [])
 
   useEffect(() => {
-    ;(async function () {
-      const data = await getData("practicum-video")
-      setPracticumVideos(data)
-    })()
-  }, [])
-
-  useEffect(() => {
-    console.log(practicumVideos)
-    if (practicumVideos.length > 0)
-      changeCurrentPlaying({
-        videoTitle: practicumVideos[0].name,
-        videoUrl: practicumVideos[0].video_embed_url,
-      })
+    if (practicumVideos) setSelectedVideo(practicumVideos[0])
   }, [practicumVideos])
 
   return (
-    <MenuPageLayout pageTitle="Video Praktikum">
-      <section className="practicum-video">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* video player */}
-          <div className="player lg:col-span-2 flex flex-col gap-6">
-            <iframe
-              ref={videoFrame}
-              className="practicum-video bg-gray-200 rounded-xl"
-              title={currentPlayingUrl}
-              width="100%"
-              height={`${videoFrameHeight}px`}
-              src={currentPlayingUrl}
-              frameBorder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen={true}
-            ></iframe>
-            <div className="video-title hidden lg:block text-2xl font-bold">
-              {currentPlayingTitle}
+    <>
+      <Head>
+        <title>Video Praktikum | Lab Fisika Dasar Universitas Telkom</title>
+      </Head>
+      <MenuPageLayout pageTitle="Video Praktikum">
+        <section className="practicum-video">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {/* video player */}
+            <div className="player md:col-span-2 flex flex-col gap-6">
+              <iframe
+                ref={videoFrame}
+                className="practicum-video bg-gray-200 rounded-xl"
+                title={selectedVideo?.name}
+                width="100%"
+                height={`${videoFrameHeight}px`}
+                src={selectedVideo?.video.embedUrl}
+                frameBorder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen={true}
+              ></iframe>
+              <div className="video-title text-2xl font-bold">
+                {selectedVideo?.name}
+              </div>
             </div>
-          </div>
-          {/* end of video player */}
+            {/* end of video player */}
 
-          {/* Sidebar */}
-          <div className="sidebar flex flex-col gap-6">
-            <div className="video-title lg:hidden text-2xl font-bold">
-              {currentPlayingTitle}
-            </div>
-            {/* Language switch */}
-            <div className="lang-switch flex rounded-full bg-white">
-              <div
-                className={`lang1 rounded-full p-2 cursor-pointer w-1/2 text-center font-medium ${
-                  activeLang === "id" ? "bg-blue-800 text-white" : ""
-                }`}
-                onClick={() => setActiveLang("id")}
-              >
-                Indonesia
-              </div>
-              <div
-                className={`lang2 rounded-full p-2 cursor-pointer w-1/2 text-center font-medium ${
-                  activeLang === "en" ? "bg-blue-800 text-white" : ""
-                }`}
-                onClick={() => setActiveLang("en")}
-              >
-                English
-              </div>
-            </div>
-            {/* end of Language switch */}
-            {practicumVideos
-              .filter((practicumVideo) => practicumVideo.lang === activeLang)
-              .map((video, index) => (
+            {/* Sidebar */}
+            <div className="sidebar flex flex-col gap-6">
+              {/* Language switch */}
+              <div className="lang-switch flex rounded-full bg-gray-50">
                 <div
-                  key={index}
-                  className={`other-video-card p-4 pl-6 text-blue-800 rounded-xl flex items-center hover:shadow-lg transition-shadow duration-300 cursor-pointer ${
-                    video.video_embed_url === currentPlayingUrl
-                      ? "bg-blue-100"
-                      : "bg-white"
+                  className={`lang1 rounded-full p-2 cursor-pointer w-1/2 text-center font-medium ${
+                    activeLang === "id" ? "bg-blue-800 text-white" : ""
                   }`}
-                  onClick={() =>
-                    changeCurrentPlaying({
-                      videoUrl: video.video_embed_url,
-                      videoTitle: video.name,
-                    })
-                  }
+                  onClick={() => setActiveLang(Language.ID)}
                 >
-                  <div className="icon text-3xl w-16 flex-shrink-0">
-                    <FontAwesomeIcon icon={video.reactjs_icon} />
-                  </div>
-                  <div className="video-name font-medium">{video.name}</div>
+                  Indonesia
                 </div>
-              ))}
+                <div
+                  className={`lang2 rounded-full p-2 cursor-pointer w-1/2 text-center font-medium ${
+                    activeLang === "en" ? "bg-blue-800 text-white" : ""
+                  }`}
+                  onClick={() => setActiveLang(Language.EN)}
+                >
+                  English
+                </div>
+              </div>
+              {/* end of Language switch */}
+
+              {/* Video list */}
+              <Box>
+                {practicumVideos
+                  ?.filter(
+                    (practicumMaterial) =>
+                      practicumMaterial.language === activeLang
+                  )
+                  .map(({ _id, name, code, faIconName, video }, index) => (
+                    <>
+                      <ModuleInfo
+                        key={index}
+                        iconName={faIconName}
+                        title={code}
+                        description={name}
+                        className={`video-card p-4 rounded-xl hover:bg-gray-50 transition-colors duration-300 cursor-pointer ${
+                          video.embedUrl === selectedVideo?.video.embedUrl
+                            ? "bg-blue-100"
+                            : "bg-white"
+                        }`}
+                        onClick={() => selectVideoById(_id)}
+                      />
+                    </>
+                  ))}
+              </Box>
+              {/* Video list end */}
+            </div>
+            {/* end of Sidebar */}
           </div>
-          {/* end of Sidebar */}
-        </div>
-      </section>
-    </MenuPageLayout>
+        </section>
+      </MenuPageLayout>
+    </>
   )
 }
 
