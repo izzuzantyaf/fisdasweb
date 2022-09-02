@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Head from "next/head"
 import { Assistant } from "../core/types/assistant.type"
 import { assistantService } from "../core/services/assistant.service"
+import { repeatElement } from "../core/lib/helpers/repeat-element.helper"
+import { Skeleton } from "@chakra-ui/react"
 
 function AssistantCard({
   name,
@@ -77,7 +79,7 @@ export default function AssistantPage() {
               lineId={lineId}
               feedbackLink={feedbackUrl}
             />
-          ))}
+          )) ?? repeatElement(<Skeleton height={150} />, 6)}
         </div>
       </MenuPageLayout>
     </>
