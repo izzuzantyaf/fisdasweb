@@ -6,6 +6,6 @@ export const handoutService = {
   getAll: async () => {
     const response = await getFetch(ApiRoute.HANDOUT)
     console.log("Get handouts API response :", response)
-    return response.data.handouts as Handout[]
+    return response.data as Handout[]
   },
 }

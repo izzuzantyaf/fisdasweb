@@ -6,6 +6,6 @@ export const codeOfConductService = {
   getAll: async () => {
     const response = await getFetch(ApiRoute.CODE_OF_CONDUCT)
     console.log("Get code of conduct API response :", response)
-    return response.data.codeOfConduct as CodeOfConduct
+    return response.data as CodeOfConduct
   },
 }

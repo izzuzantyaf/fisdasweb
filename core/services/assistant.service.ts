@@ -6,12 +6,12 @@ export const assistantService = {
   getAll: async () => {
     const response = await getFetch(ApiRoute.ASSISTANT)
     console.log("Get assistants API response :", response)
-    return response.data.assistants as Assistant[]
+    return response.data as Assistant[]
   },
   search: async (keyword: string) => {
     const response = await getFetch(ApiRoute.ASSISTANT, `keyword=${keyword}`)
     console.log("Search assistants API response :", response)
-    return response.data.assistants as Assistant[]
+    return response.data as Assistant[]
   },
   searchLocal: (assistant: Assistant, keyword: string) => {
     const searchRegex = new RegExp(keyword, "i")
