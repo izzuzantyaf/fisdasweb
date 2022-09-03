@@ -1,27 +1,39 @@
 import { useEffect, useState } from "react"
-import { getData } from "../lib/get-data"
 import MenuPageLayout from "../layouts/menu-page.layout"
-import DocumentFrame from "../components/document-frame.comp"
+import { organigramService } from "../core/services/organigram.service"
+import { Organigram } from "../core/types/organigram.type"
+import Head from "next/head"
 
-export default function Organigram() {
-  const [organigram, setOrganigram] = useState({})
+export default function OrganigramPage() {
+  const [organigram, setOrganigram] = useState<Organigram>()
+
+  const getOrganigram = async () => {
+    const organigram = await organigramService.getAll()
+    setOrganigram(organigram)
+  }
 
   useEffect(() => {
-    ;(async function () {
-      const data = await getData("organigram")
-      setOrganigram(data)
-    })()
+    getOrganigram()
     window.scrollTo(0, 0)
   }, [])
 
   return (
-    <MenuPageLayout pageTitle="Organigram">
-      <DocumentFrame
-        data={{
-          title: "Organigram",
-          url: organigram?.prepared_url,
-        }}
-      />
-    </MenuPageLayout>
+    <>
+      <Head>
+        <title>Organigram | Lab Fisika Dasar Universitas Telkom</title>
+      </Head>
+      <MenuPageLayout pageTitle="Organigram">
+        <iframe
+          className="bg-gray-100 mt-4"
+          title="Organigram"
+          src={organigram?.previewUrl}
+          width="100%"
+          style={{
+            borderRadius: "12px",
+          }}
+          height={720}
+        ></iframe>
+      </MenuPageLayout>
+    </>
   )
 }
