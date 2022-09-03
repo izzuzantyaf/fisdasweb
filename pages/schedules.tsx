@@ -26,7 +26,7 @@ export default function PracticumSchedulePage() {
     <MenuPageLayout pageTitle="Jadwal Praktikum">
       <div className="grid sm:grid-cols-2 gap-6">
         {schedulesState?.map(({ faculty, embedURL }, index) => (
-          <Box>
+          <Box key={index}>
             <Heading fontWeight="medium" fontSize={24}>{`Jadwal ${
               faculty ? faculty.toUpperCase() : "Kelas"
             }`}</Heading>
