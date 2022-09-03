@@ -4,5 +4,6 @@ export type Schedule = {
   _id: string
   faculty?: Faculty
   isActive: boolean
-  url?: string
+  url: string
+  embedURL: string
 }
