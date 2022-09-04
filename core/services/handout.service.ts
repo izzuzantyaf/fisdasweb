@@ -4,7 +4,7 @@ import { Handout } from "../types/handout.type"
 
 export const handoutService = {
   getAll: async () => {
-    const response = await getFetch(ApiRoute.HANDOUT)
+    const response = await getFetch(ApiRoute.HANDOUT, "isActive=true")
     console.log("Get handouts API response :", response)
     return response.data as Handout[]
   },
