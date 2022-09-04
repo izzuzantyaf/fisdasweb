@@ -1,54 +1,45 @@
+import { SimpleGrid, Skeleton } from "@chakra-ui/react"
+import Head from "next/head"
 import { useEffect, useState } from "react"
+import HandoutCard from "../components/handout-card.comp"
+import { repeatElement } from "../core/lib/helpers/repeat-element.helper"
+import { handoutService } from "../core/services/handout.service"
+import { Handout } from "../core/types/handout.type"
 import MenuPageLayout from "../layouts/menu-page.layout"
-import { getData } from "../lib/get-data"
 
-// level 2 component
-function HandoutCard(props: any) {
-  const { lang, faculty, file_url } = props.data
+export default function HandoutPage() {
+  const [handouts, setHandouts] = useState<Handout[]>()
 
-  return (
-    <a
-      href={file_url}
-      target="_blank"
-      rel="noopener noreferrer"
-      style={{ textDecoration: "none", opacity: file_url ? 1 : 0.3 }}
-    >
-      <div className="handout-card bg-white rounded-xl p-4 hover:shadow-lg transition-shadow duration-300">
-        <div className="handout-info text-blue-800">
-          <p className="title font-bold">
-            {lang === "id"
-              ? "Modul Praktikum Fisika Dasar"
-              : "Physics Lab Works Handout"}{" "}
-            ({faculty})
-          </p>
-          <p className="lang">
-            {lang === "id" ? "Bahasa Indonesia" : "English"}
-          </p>
-        </div>
-      </div>
-    </a>
-  )
-}
-
-// level 0 component
-export default function Handout() {
-  const [handouts, setHandouts] = useState([])
+  const getHandouts = async () => {
+    const handouts = await handoutService.getAll()
+    setHandouts(handouts)
+  }
 
   useEffect(() => {
-    ;(async function () {
-      const data = await getData("practicum-handout")
-      setHandouts(data)
-    })()
+    getHandouts()
     window.scrollTo(0, 0)
   }, [])
 
   return (
-    <MenuPageLayout pageTitle="Modul Praktikum">
-      <div className="handouts-list grid grid-cols-1 md:grid-cols-2 gap-6">
-        {handouts.map((handout, index) => (
-          <HandoutCard key={index} data={handout} />
-        ))}
-      </div>
-    </MenuPageLayout>
+    <>
+      <Head>
+        <title>Modul | Lab Fisika Dasar Universitas Telkom</title>
+      </Head>
+      <MenuPageLayout pageTitle="Modul Praktikum">
+        <SimpleGrid
+          className="handouts-list"
+          columns={{
+            sm: 2,
+            md: 2,
+            lg: 4,
+          }}
+          spacing={["16px", "24px"]}
+        >
+          {handouts?.map((handout, index) => (
+            <HandoutCard key={index} data={handout} />
+          )) ?? repeatElement(<Skeleton height="128px" />, 4)}
+        </SimpleGrid>
+      </MenuPageLayout>
+    </>
   )
 }

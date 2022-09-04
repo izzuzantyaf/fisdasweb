@@ -1,5 +1,5 @@
 import fisdasLogoPath from "../public/img/fisdas-logo-min.png"
-import { menus } from "../contents/menu"
+import { menu } from "../core/lib/constants"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useEffect } from "react"
 import Link from "next/link"
@@ -56,10 +56,10 @@ function DropDownMenu() {
       <div className="dropdown-overlay hidden px-6 inset-0 z-10 bg-black bg-opacity-30">
         <div className="container relative mx-auto max-w-screen-lg">
           <div className="dropdown absolute top-14 right-0 flex flex-col bg-white rounded-xl px-2 py-3 border">
-            {menus.map((menu, index) => (
+            {menu.map((menu, index) => (
               <Link
                 key={index}
-                href={menu.link}
+                href={menu.route}
                 className="dropdown-item rounded-lg hover:bg-gray-100 p-2"
               >
                 {menu.name}
@@ -89,12 +89,12 @@ export default function Navbar() {
             variant="ghost"
           />
           <MenuList>
-            {menus.map((menu, index) => (
-              <Link key={index} href={menu.link}>
+            {menu.map((menu, index) => (
+              <Link key={index} href={menu.route}>
                 <MenuItem
                   icon={
                     <Icon>
-                      <FontAwesomeIcon icon={menu.icon} />
+                      <FontAwesomeIcon icon={menu.faIconName} />
                     </Icon>
                   }
                 >

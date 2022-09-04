@@ -1,206 +1,139 @@
-import { useEffect, useState } from "react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { getData } from "../lib/get-data"
+import { useEffect, useRef, useState } from "react"
 import MenuPageLayout from "../layouts/menu-page.layout"
+import { VideoMaterial } from "../core/types/practicum-material.type"
+import { practicumMaterialService } from "../core/services/practicum-material.service"
+import ModuleInfo from "../components/module-info.comp"
+import { Box } from "@chakra-ui/react"
+import { Language } from "../core/lib/constants"
+import Head from "next/head"
 
-// level 2 components
-function VideoFrame(props: any) {
+function PracticumVideoPage() {
+  const [practicumVideos, setPracticumVideos] = useState<VideoMaterial[]>()
+  const [selectedVideo, setSelectedVideo] = useState<VideoMaterial>()
   const [videoFrameHeight, setVideoFrameHeight] = useState(0)
+  const [activeLang, setActiveLang] = useState<Language>(Language.ID)
+  const videoFrame = useRef()
+
+  /**
+   * Memilih satu video berdasarkan id, mengupdate state selectedVideo
+   * @param id
+   * @returns
+   */
+  const selectVideoById = (id: string) => {
+    const selectedVideo = practicumVideos?.find(
+      (practicumVideo) => practicumVideo._id === id
+    )
+    setSelectedVideo(selectedVideo)
+    return selectedVideo
+  }
+
+  /**
+   * Mengambil data video praktikum dari API, dan memasukkannya ke dalam state practicumVideos
+   */
+  const getPracticumVideos = async () => {
+    setPracticumVideos(await practicumMaterialService.getVideos())
+  }
 
   const resizeVideoFrame = () => {
-    setVideoFrameHeight(0.5625 * videoFrame.offsetWidth)
+    setVideoFrameHeight(0.5625 * videoFrame.current.offsetWidth)
   }
 
   useEffect(() => {
-    const videoFrame = document.querySelector(`iframe.practicum-video`)
-    setVideoFrameHeight(0.5625 * videoFrame.offsetWidth)
-
-    const resizeVideoFrame = () => {
-      setVideoFrameHeight(0.5625 * videoFrame.offsetWidth)
-    }
-
+    getPracticumVideos()
+    setVideoFrameHeight(0.5625 * videoFrame.current.offsetWidth)
+    // menambahkan event listener pada saat ukuran window browser di ubah agar aspect ratio frame video tetap 16:9
     window.addEventListener("resize", resizeVideoFrame)
-
     return () => {
       window.removeEventListener("resize", resizeVideoFrame)
     }
-  }, [props.videoUrl])
-
-  return (
-    <iframe
-      className="practicum-video bg-gray-200 rounded-xl"
-      title={props.videoUrl}
-      width="100%"
-      height={`${videoFrameHeight}px`}
-      src={props.videoUrl}
-      frameBorder="0"
-      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen={true}
-    ></iframe>
-  )
-}
-
-function OtherVideoCard(props: any) {
-  function handleChange() {
-    props.onCurrentPlayingChange({
-      videoUrl: props.video.video_embed_url,
-      videoTitle: props.video.name,
-    })
-  }
-
-  return (
-    <div
-      className={`other-video-card p-4 pl-6 text-blue-800 rounded-xl flex items-center hover:shadow-lg transition-shadow duration-300 cursor-pointer ${
-        props.video.video_embed_url === props.currentPlayingVideoUrl
-          ? "bg-blue-100"
-          : "bg-white"
-      }`}
-      onClick={handleChange}
-    >
-      <div className="icon text-3xl w-16 flex-shrink-0">
-        <FontAwesomeIcon icon={props.video.reactjs_icon} />
-      </div>
-      <div className="video-name font-medium">{props.video.name}</div>
-    </div>
-  )
-}
-
-function LangSwitch(props: any) {
-  const [whatActive, setWhatActive] = useState(props.currentLang)
-
-  function switchToId() {
-    setWhatActive("id")
-    props.onCurrentLangChange("id")
-  }
-
-  function switchToEn() {
-    setWhatActive("en")
-    props.onCurrentLangChange("en")
-  }
-
-  return (
-    <div className="lang-switch flex rounded-full bg-white">
-      <div
-        className={`lang1 rounded-full p-2 cursor-pointer w-1/2 text-center font-medium ${
-          whatActive === "id" ? "bg-blue-800 text-white" : ""
-        }`}
-        onClick={switchToId}
-      >
-        Indonesia
-      </div>
-      <div
-        className={`lang2 rounded-full p-2 cursor-pointer w-1/2 text-center font-medium ${
-          whatActive === "en" ? "bg-blue-800 text-white" : ""
-        }`}
-        onClick={switchToEn}
-      >
-        English
-      </div>
-    </div>
-  )
-}
-
-// level 1 components
-function VideoPlayer(props: any) {
-  return (
-    <div className="player lg:col-span-2 flex flex-col gap-6">
-      <VideoFrame videoUrl={props.currentPlayingUrl} />
-      <div className="video-title hidden lg:block text-2xl font-bold">
-        {props.currentPlayingTitle}
-      </div>
-    </div>
-  )
-}
-
-function Sidebar(props: any) {
-  const [practicumVideos, setPracticumVideos] = useState([])
-  const [activeLang, setActiveLang] = useState("id")
-
-  const changeCurrentPlaying = (changedData) => {
-    props.onCurrentPlayingChange(changedData)
-  }
-
-  function changeCurrentLang(lang) {
-    setActiveLang(lang)
-  }
-
-  useEffect(() => {
-    ;(async function () {
-      const data = await getData("practicum-video")
-      setPracticumVideos(data)
-    })()
   }, [])
 
-  return (
-    <div className="sidebar flex flex-col gap-6">
-      <div className="video-title lg:hidden text-2xl font-bold">
-        {props.currentPlayingTitle}
-      </div>
-      <LangSwitch
-        onCurrentLangChange={changeCurrentLang}
-        currentLang={activeLang}
-      />
-      {practicumVideos
-        .filter((practicumVideo) => practicumVideo.lang === activeLang)
-        .map((practicumVideo, index) => (
-          <OtherVideoCard
-            key={index}
-            onCurrentPlayingChange={changeCurrentPlaying}
-            currentPlayingVideoUrl={props.currentPlayingUrl}
-            video={practicumVideo}
-          />
-        ))}
-    </div>
-  )
-}
-
-// level 0 component
-function PracticumVideo() {
-  const [currentPlayingUrl, setCurrentPlayingUrl] = useState(null)
-  const [currentPlayingTitle, setcurrentPlayingTitle] = useState(null)
-
   useEffect(() => {
-    // make video frame sticky top when scrolling
-    videoFrameStickyOnScroll()
-  }, [])
-
-  function videoFrameStickyOnScroll() {
-    const videoFrame = document.querySelector(".practicum-video .player")
-    const sticky = videoFrame.offsetTop
-    const otherVideoList = document.querySelector(".practicum-video .sidebar")
-    window.onscroll = () => {
-      if (window.pageYOffset >= sticky && window.innerWidth <= 768) {
-        videoFrame.classList.add("fixed", "top-4", "right-4", "left-4")
-        otherVideoList.style.marginTop = `${videoFrame.offsetHeight}px`
-      } else {
-        videoFrame.classList.remove("fixed", "top-4", "right-4", "left-4")
-        otherVideoList.style.marginTop = "0px"
-      }
-    }
-  }
-
-  function changeCurrentPlaying({ videoUrl, videoTitle }) {
-    setCurrentPlayingUrl(videoUrl)
-    setcurrentPlayingTitle(videoTitle)
-  }
+    if (practicumVideos) setSelectedVideo(practicumVideos[0])
+  }, [practicumVideos])
 
   return (
-    <MenuPageLayout pageTitle="Video Praktikum">
-      <section className="practicum-video">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <VideoPlayer
-            currentPlayingUrl={currentPlayingUrl}
-            currentPlayingTitle={currentPlayingTitle}
-          />
-          <Sidebar
-            onCurrentPlayingChange={changeCurrentPlaying}
-            currentPlayingUrl={currentPlayingUrl}
-            currentPlayingTitle={currentPlayingTitle}
-          />
-        </div>
-      </section>
-    </MenuPageLayout>
+    <>
+      <Head>
+        <title>Video Praktikum | Lab Fisika Dasar Universitas Telkom</title>
+      </Head>
+      <MenuPageLayout pageTitle="Video Praktikum">
+        <section className="practicum-video">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {/* video player */}
+            <div className="player md:col-span-2 flex flex-col gap-6">
+              <iframe
+                ref={videoFrame}
+                className="practicum-video bg-gray-200 rounded-xl"
+                title={selectedVideo?.name}
+                width="100%"
+                height={`${videoFrameHeight}px`}
+                src={selectedVideo?.video.embedUrl}
+                frameBorder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen={true}
+              ></iframe>
+              <div className="video-title text-2xl font-bold">
+                {selectedVideo?.name}
+              </div>
+            </div>
+            {/* end of video player */}
+
+            {/* Sidebar */}
+            <div className="sidebar flex flex-col gap-6">
+              {/* Language switch */}
+              <div className="lang-switch flex rounded-full bg-gray-50">
+                <div
+                  className={`lang1 rounded-full p-2 cursor-pointer w-1/2 text-center font-medium ${
+                    activeLang === "id" ? "bg-blue-800 text-white" : ""
+                  }`}
+                  onClick={() => setActiveLang(Language.ID)}
+                >
+                  Indonesia
+                </div>
+                <div
+                  className={`lang2 rounded-full p-2 cursor-pointer w-1/2 text-center font-medium ${
+                    activeLang === "en" ? "bg-blue-800 text-white" : ""
+                  }`}
+                  onClick={() => setActiveLang(Language.EN)}
+                >
+                  English
+                </div>
+              </div>
+              {/* end of Language switch */}
+
+              {/* Video list */}
+              <Box>
+                {practicumVideos
+                  ?.filter(
+                    (practicumMaterial) =>
+                      practicumMaterial.language === activeLang
+                  )
+                  .map(({ _id, name, code, faIconName, video }, index) => (
+                    <>
+                      <ModuleInfo
+                        key={index}
+                        iconName={faIconName}
+                        title={code}
+                        description={name}
+                        className={`video-card p-4 rounded-xl hover:bg-gray-50 transition-colors duration-300 cursor-pointer ${
+                          video.embedUrl === selectedVideo?.video.embedUrl
+                            ? "bg-blue-100"
+                            : "bg-white"
+                        }`}
+                        onClick={() => selectVideoById(_id)}
+                      />
+                    </>
+                  ))}
+              </Box>
+              {/* Video list end */}
+            </div>
+            {/* end of Sidebar */}
+          </div>
+        </section>
+      </MenuPageLayout>
+    </>
   )
 }
 
-export default PracticumVideo
+export default PracticumVideoPage

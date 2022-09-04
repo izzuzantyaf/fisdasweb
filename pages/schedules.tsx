@@ -1,48 +1,52 @@
 import { useEffect, useState } from "react"
 import MenuPageLayout from "../layouts/menu-page.layout"
-import DocumentFrame from "../components/document-frame.comp"
-import { getData } from "../lib/get-data"
+import { Schedule } from "../core/types/schedule.type"
+import { scheduleService } from "../core/services/schedule.service"
+import { Box, Heading, Text } from "@chakra-ui/react"
+import Head from "next/head"
 
-// ini adalah halaman jadwal praktikum
-export default function PracticumSchedule() {
-  const [classSchedule, setClassSchedule] = useState({})
-  const [moduleSchedules, setModuleSchedules] = useState([])
+export default function PracticumSchedulePage() {
+  const [schedulesState, setSchedulesState] = useState<Schedule[]>()
+
+  /**
+   * Mengambil data jadwal praktikum dari API dan memasukkannya ke dalam state schedulesState
+   */
+  const getSchedules = async () => {
+    const schedules = await scheduleService.getAll()
+    setSchedulesState(schedules)
+  }
 
   useEffect(() => {
-    // ambil data jadwal kelas dari API
-    ;(async function () {
-      const data = await getData("schedule")
-      setClassSchedule(data?.class_schedule)
-    })()
-    // ambil data jadwal modul dari API
-    ;(async function () {
-      const data = await getData("schedule")
-      setModuleSchedules(data?.module_schedules)
-    })()
+    getSchedules()
     window.scrollTo(0, 0)
   }, [])
 
   return (
-    <MenuPageLayout pageTitle="Jadwal Praktikum">
-      <div className="grid sm:grid-cols-2 gap-6">
-        <DocumentFrame
-          data={{
-            title: "Jadwal kelas",
-            url: classSchedule?.prepared_url,
-            height: 240,
-          }}
-        />
-        {moduleSchedules.map(({ prepared_url }, index) => (
-          <DocumentFrame
-            key={index}
-            data={{
-              title: "Jadwal modul",
-              url: prepared_url,
-              height: 240,
-            }}
-          />
-        ))}
-      </div>
-    </MenuPageLayout>
+    <>
+      <Head>
+        <title>Jadwal Praktikum | Lab Fisika Dasar Universitas Telkom</title>
+      </Head>
+      <MenuPageLayout pageTitle="Jadwal Praktikum">
+        <div className="grid sm:grid-cols-2 gap-6">
+          {schedulesState?.map(({ faculty, embedURL }, index) => (
+            <Box key={index}>
+              <Heading fontWeight="medium" fontSize={24}>{`Jadwal ${
+                faculty ? faculty.toUpperCase() : "Kelas"
+              }`}</Heading>
+              <iframe
+                className="bg-gray-100 mt-4"
+                title={`Jadwal ${faculty ? faculty.toUpperCase() : "Kelas"}`}
+                src={embedURL}
+                width="100%"
+                style={{
+                  borderRadius: "12px",
+                }}
+                height={360}
+              ></iframe>
+            </Box>
+          ))}
+        </div>
+      </MenuPageLayout>
+    </>
   )
 }

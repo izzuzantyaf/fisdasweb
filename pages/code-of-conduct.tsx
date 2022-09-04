@@ -1,32 +1,37 @@
+import { Skeleton } from "@chakra-ui/react"
 import Head from "next/head"
 import { useEffect, useState } from "react"
-import DocumentFrame from "../components/document-frame.comp"
+import { codeOfConductService } from "../core/services/code-of-conduct.service"
+import { CodeOfConduct } from "../core/types/code-of-conduct.type"
 import MenuPageLayout from "../layouts/menu-page.layout"
-import { getData } from "../lib/get-data"
 
-export default function CodeOfConduct() {
-  const [codeOfConduct, setcodeOfConduct] = useState({})
+export default function CodeOfConductPage() {
+  const [codeOfConduct, setcodeOfConduct] = useState<CodeOfConduct>()
+
+  const getCodeOfConduct = async () => {
+    const codeOfConduct = await codeOfConductService.getAll()
+    setcodeOfConduct(codeOfConduct)
+  }
 
   useEffect(() => {
-    ;(async function () {
-      const data = await getData("code-of-conduct")
-      setcodeOfConduct(data)
-    })()
+    getCodeOfConduct()
     window.scrollTo(0, 0)
   }, [])
 
   return (
     <>
       <Head>
-        <title>Tata tertib</title>
+        <title>Tata tertib | Lab Fisika Dasar Universitas Telkom</title>
       </Head>
       <MenuPageLayout pageTitle="Tata Tertib Praktikum">
-        <DocumentFrame
-          data={{
-            title: "Code of Conduct",
-            url: codeOfConduct?.prepared_url,
-          }}
-        />
+        <Skeleton isLoaded={codeOfConduct ? true : false}>
+          <iframe
+            title="Code of Conduct"
+            src={codeOfConduct?.previewUrl}
+            width="100%"
+            style={{ borderRadius: "12px", height: "720px" }}
+          ></iframe>
+        </Skeleton>
       </MenuPageLayout>
     </>
   )

@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { getData } from "../lib/get-data"
-import { menus } from "../contents/menu"
+import { menu } from "../core/lib/constants"
 import Link from "next/link"
 import { Box, Container } from "@chakra-ui/react"
 
 export default function Footer() {
-  const [socialMedia, setSocialMedia] = useState([])
+  const [socialMedia, setSocialMedia] = useState()
 
   const getSocialMedia = async () => {
     const data = await getData("social-media")
@@ -26,7 +26,7 @@ export default function Footer() {
               Laboratorium Fisika Dasar<br></br>Universitas Telkom
             </p>
             <div className="socmed text-2xl flex gap-4">
-              {socialMedia.map(({ link, name, reactjs_icon }, index) => (
+              {socialMedia?.map(({ link, name, reactjs_icon }, index) => (
                 <a
                   key={index}
                   className="socmed-icon"
@@ -52,10 +52,10 @@ export default function Footer() {
           <div className="explore">
             <p className="title font-bold">Explore</p>
             <div className="footer-menu-list flex flex-wrap mt-4 gap-4">
-              {menus.map((menu, index) => (
+              {menu.map((menu, index) => (
                 <Link
                   key={index}
-                  href={menu.link}
+                  href={menu.route}
                   style={{ textDecoration: "none", cursor: "pointer" }}
                 >
                   {menu.name}
