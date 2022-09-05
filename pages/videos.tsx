@@ -82,7 +82,7 @@ function PracticumVideoPage() {
             {/* Sidebar */}
             <div className="sidebar flex flex-col gap-6">
               {/* Language switch */}
-              <div className="lang-switch flex rounded-full bg-gray-50">
+              <div className="lang-switch flex rounded-full bg-gray-100">
                 <div
                   className={`lang1 rounded-full p-2 cursor-pointer w-1/2 text-center font-medium ${
                     activeLang === "id" ? "bg-blue-800 text-white" : ""
@@ -116,7 +116,11 @@ function PracticumVideoPage() {
                         iconName={faIconName}
                         title={code}
                         description={name}
-                        className={`video-card p-4 rounded-xl hover:bg-gray-50 transition-colors duration-300 cursor-pointer ${
+                        className={`video-card p-4 rounded-xl ${
+                          video.embedUrl === selectedVideo?.video.embedUrl
+                            ? ""
+                            : "hover:bg-gray-100"
+                        } transition-colors duration-300 cursor-pointer ${
                           video.embedUrl === selectedVideo?.video.embedUrl
                             ? "bg-blue-100"
                             : "bg-white"
