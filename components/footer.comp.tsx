@@ -44,8 +44,7 @@ export default function Footer() {
           <div className="headquarters">
             <p className="title font-bold">Our headquarters</p>
             <p className="address mt-4">
-              Gedung P (Deli) lantai 3, Telkom University, Jl. Telekomunikasi
-              No.1, Sukapura, Kec. Dayeuhkolot, Bandung, Jawa Barat.
+              TULT 10.103-10.105 JL. Telekomunikasi Trs. Buah Batu, Bandung, 40257
             </p>
           </div>
 
