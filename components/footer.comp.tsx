@@ -25,7 +25,7 @@ export default function Footer() {
             <p className="title text-2xl font-bold">
               Laboratorium Fisika Dasar<br></br>Universitas Telkom
             </p>
-            <div className="socmed text-2xl flex gap-4">
+            {/* <div className="socmed text-2xl flex gap-4">
               {socialMedia?.map(({ link, name, reactjs_icon }, index) => (
                 <a
                   key={index}
@@ -38,7 +38,7 @@ export default function Footer() {
                   <FontAwesomeIcon icon={reactjs_icon.split("-")} />
                 </a>
               ))}
-            </div>
+            </div> */}
           </div>
 
           <div className="headquarters">
