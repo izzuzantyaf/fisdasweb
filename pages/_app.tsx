@@ -21,6 +21,13 @@ const customizedTheme = extendTheme({
     body: "Inter, system-ui, sans-serif",
     heading: "Inter, system-ui, sans-serif",
   },
+  components: {
+    Skeleton: {
+      baseStyle: {
+        borderRadius: "8px",
+      },
+    },
+  },
 })
 
 function MyApp({ Component, pageProps }: AppProps) {
