@@ -1,0 +1,28 @@
+name: Production
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy-to-vercel:
+    name: Deploy to Vercel
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: yarn install
+      - name: Install Vercel CLI
+        run: yarn global add vercel
+      - name: Build project artifacts
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }} --yes
+      - name: Set up environment variables on Vercel
+        run: |
+          vercel env rm NEXT_PUBLIC_SERVER_APP_BASEURL production --token=${{ secrets.VERCEL_TOKEN }} --yes | exit 0
+          echo ${{ secrets.SERVER_APP_BASEURL }} | vercel env add NEXT_PUBLIC_SERVER_APP_BASEURL production --token=${{ secrets.VERCEL_TOKEN }} --yes | exit 0
+      - name: Deploy
+        run: vercel deploy --prod --prebuilt --token=${{ secrets.VERCEL_TOKEN }} --yes
