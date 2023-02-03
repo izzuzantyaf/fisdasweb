@@ -11,6 +11,7 @@ import {
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { config } from "@fortawesome/fontawesome-svg-core" //* untuk mengatasi bug ukuran icon jadi sangat besar di Next.js
 import "@fortawesome/fontawesome-svg-core/styles.css" //* untuk mengatasi bug ukuran icon jadi sangat besar di Next.js
+import Head from "next/head"
 
 // prettier-ignore
 library.add(faFacebook, faTwitter, faInstagram, faLine, faDiscord, faTiktok, faLinkedin, faTelegramPlane, faYoutube, faCoffee, faListOl, faBook, faPlay, faUsers, faCalendarMinus, faSitemap, faGlobe, faEye, faDownload, faTasks, faBalanceScale, faSortNumericUpAlt, faGripLinesVertical, faCircleNotch, faInfinity, faSatelliteDish, faWaveSquare, faMagnet, faBolt, faChevronCircleUp, faFile, faChartLine, faCogs, faBars, faCalculator, faPlug, faDrawPolygon, faParachuteBox, faGamepad, faQuestion)
@@ -33,6 +34,13 @@ const customizedTheme = extendTheme({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
+      <Head>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9676144620857119"
+          crossOrigin="anonymous"
+        ></script>
+      </Head>
       <ChakraProvider theme={customizedTheme}>
         <Component {...pageProps} />
       </ChakraProvider>
