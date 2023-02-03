@@ -35,14 +35,14 @@ const customizedTheme = extendTheme({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      {/* <Head> */}
-      {/* <script
+      <Head>
+        <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9676144620857119"
           crossOrigin="anonymous"
-        ></script> */}
-      {/* </Head> */}
-      <Script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9676144620857119" />
+        ></script>
+      </Head>
+      {/* <Script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9676144620857119" /> */}
       <ChakraProvider theme={customizedTheme}>
         <Component {...pageProps} />
       </ChakraProvider>
