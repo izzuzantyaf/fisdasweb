@@ -12,6 +12,7 @@ export enum Route {
   SCHEDULE = "/schedules",
   ORGANIGRAM = "/organigram",
   SOCIAL_MEDIA = "/social-media",
+  BLOG = "/blog",
 }
 
 export enum ApiRoute {
@@ -26,9 +27,15 @@ export enum ApiRoute {
   JOURNAL_COVER = "/api/practicum-module/journal-covers",
   SCHEDULE = "/api/schedule",
   ASSISTANT = "/api/assistant",
+  ARTICLE = "/api/articles",
 }
 
 export const menu = [
+  {
+    name: "Blog",
+    faIconName: "newspaper",
+    route: Route.BLOG,
+  },
   {
     name: "Tata tertib",
     faIconName: "balance-scale",
