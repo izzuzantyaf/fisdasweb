@@ -31,12 +31,13 @@ export default function BlogPage() {
       <MenuPageLayout pageTitle="Blog">
         <>
           <div className="articles-list grid grid-cols-1 md:grid-cols-3 gap-6">
-            {articles?.map(({ title, created_at }, index) => (
+            {articles?.map(({ title, content, created_at }, index) => (
               <div key={index} className="shadow-lg rounded-lg p-4">
                 <div className="article-title font-bold">{title}</div>
-                <div className="article-date mt-[8px]">
+                <div className="article-date mt-[8px] font-light">
                   {dateFormatter.format(new Date(created_at))}
                 </div>
+                <p className="article-content mt-4">{content}</p>
               </div>
             )) ?? repeatElement(<Skeleton height={150} />, 6)}
           </div>
