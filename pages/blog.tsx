@@ -9,7 +9,6 @@ export default function BlogPage() {
   const dateFormatter = new Intl.DateTimeFormat("id-ID", {
     dateStyle: "full",
   })
-
   const [articles, setArticles] = useState<Record<string, any>>()
 
   const getArticles = async () => {
