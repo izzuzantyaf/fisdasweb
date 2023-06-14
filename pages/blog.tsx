@@ -4,6 +4,7 @@ import { repeatElement } from "../core/lib/helpers/repeat-element.helper"
 import { Skeleton } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
 import { articleService } from "../core/services/article.service"
+import Image from "next/image"
 
 export default function BlogPage() {
   const dateFormatter = new Intl.DateTimeFormat("id-ID", {
@@ -30,15 +31,31 @@ export default function BlogPage() {
       <MenuPageLayout pageTitle="Blog">
         <>
           <div className="articles-list grid grid-cols-1 md:grid-cols-3 gap-6">
-            {articles?.map(({ title, content, created_at }, index) => (
-              <div key={index} className="shadow-lg rounded-lg p-4">
-                <div className="article-title font-bold">{title}</div>
-                <div className="article-date mt-[8px] font-light">
-                  {dateFormatter.format(new Date(created_at))}
+            {articles?.map(
+              ({ title, content, created_at, cover_image_url }, index) => (
+                <div key={index} className="shadow-lg rounded-xl p-4">
+                  {cover_image_url ? (
+                    <>
+                      <Image
+                        src={cover_image_url}
+                        height={540}
+                        width={960}
+                        alt={cover_image_url}
+                        className="rounded-xl"
+                      />
+                      <div className="spacer mb-4"></div>
+                    </>
+                  ) : null}
+                  <div className="article-title font-bold text-2xl">
+                    {title}
+                  </div>
+                  <div className="article-date mt-[8px] font-extralight">
+                    {dateFormatter.format(new Date(created_at))}
+                  </div>
+                  <p className="article-content mt-4">{content}</p>
                 </div>
-                <p className="article-content mt-4">{content}</p>
-              </div>
-            )) ?? repeatElement(<Skeleton height={150} />, 6)}
+              )
+            ) ?? repeatElement(<Skeleton height={150} />, 6)}
           </div>
         </>
       </MenuPageLayout>
