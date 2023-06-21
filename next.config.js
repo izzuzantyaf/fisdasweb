@@ -11,7 +11,7 @@ const nextConfig = {
     ignoreBuildErrors: true
   },
   images: {
-    domains: ['images.unsplash.com'],
+    domains: ['images.unsplash.com', 'oaidalleapiprodscus.blob.core.windows.net'],
     // remotePatterns: [
     //   {
     //     protocol: 'https',
