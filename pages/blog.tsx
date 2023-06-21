@@ -38,7 +38,7 @@ export default function BlogPage() {
                     <>
                       <Image
                         src={cover_image_url}
-                        height={540}
+                        height={720}
                         width={960}
                         alt={cover_image_url}
                         className="rounded-xl"
