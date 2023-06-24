@@ -1,3 +1,5 @@
+import { IconProp } from "@fortawesome/fontawesome-svg-core"
+
 export enum Route {
   HOME = "/",
   SIGN_IN = "/signin",
@@ -30,7 +32,7 @@ export enum ApiRoute {
   ARTICLE = "/api/articles",
 }
 
-export const menu = [
+export const menu: { name: string; faIconName: IconProp; route: Route }[] = [
   {
     name: "Blog",
     faIconName: "newspaper",
