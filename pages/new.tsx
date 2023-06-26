@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Layout, Menu, Button, theme, Typography } from "antd"
+import { Layout, Menu, Button, theme, Typography, Drawer } from "antd"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { menu } from "../core/lib/constants"
 import Image from "next/image"
@@ -11,28 +11,50 @@ const { Title, Text } = Typography
 export default function AppPage() {
   const [collapsed, setCollapsed] = useState(false)
   const {
-    token: { colorBgContainer, colorPrimary },
+    token: { colorBgContainer },
   } = theme.useToken()
+
+  const [open, setOpen] = useState(false)
+
+  const showDrawer = () => {
+    setOpen(true)
+  }
+
+  const onClose = () => {
+    setOpen(false)
+  }
 
   return (
     <Layout hasSider>
+      <Drawer
+        title="Basic Drawer"
+        placement="right"
+        onClose={onClose}
+        open={open}
+      >
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+      </Drawer>
       <Sider
         theme="light"
         trigger={null}
         collapsible
         collapsed={collapsed}
-        collapsedWidth={0}
+        collapsedWidth={64}
         style={{
-          paddingRight: collapsed ? 0 : "8px",
-          paddingLeft: collapsed ? 0 : "8px",
+          paddingRight: collapsed ? "8px" : "8px",
+          paddingLeft: collapsed ? "8px" : "8px",
           paddingTop: "16px",
           paddingBottom: "8px",
-          overflow: "auto",
-          height: "100vh",
+          overflow: "hidden",
+          // height: "100vh",
           // position: "fixed",
           // left: 0,
           // top: 0,
           // bottom: 0,
+          borderTopRightRadius: "16px",
+          borderBottomRightRadius: "16px",
         }}
         width={256}
       >
@@ -41,7 +63,7 @@ export default function AppPage() {
             display: "flex",
             gap: "16px",
             alignItems: "center",
-            paddingLeft: "24px",
+            paddingLeft: collapsed ? "8px" : "24px",
           }}
         >
           <Image
@@ -53,9 +75,11 @@ export default function AppPage() {
               flexShrink: 0,
             }}
           />
-          <Title level={4} style={{ marginBottom: 0 }}>
-            Fisdas Lab
-          </Title>
+          {collapsed ? null : (
+            <Title level={4} style={{ marginBottom: 0, whiteSpace: "nowrap" }}>
+              Fisdas Lab
+            </Title>
+          )}
         </div>
         <Menu
           mode="inline"
@@ -68,20 +92,28 @@ export default function AppPage() {
           style={{
             borderInlineEnd: "none",
             marginTop: "8px",
+            backgroundColor: "inherit",
           }}
         />
       </Sider>
-      <Layout>
+
+      <Layout
+        style={
+          {
+            // marginLeft: collapsed ? undefined : 256,
+          }
+        }
+      >
         <Header
           style={{
             paddingLeft: "16px",
             paddingRight: "16px",
-            // background: colorBgContainer,
+            background: colorBgContainer,
             position: "sticky",
             top: 0,
             zIndex: 1,
-            backgroundColor: "rgba(255, 255, 255, 0)",
-            backdropFilter: "blur(4px)",
+            // backgroundColor: "rgba(255, 255, 255, 0)",
+            // backdropFilter: "blur(4px)",
           }}
         >
           <Button
@@ -98,6 +130,9 @@ export default function AppPage() {
               height: 36,
             }}
           />
+          <Button type="primary" onClick={showDrawer}>
+            Open
+          </Button>
         </Header>
         <Content
           style={{
