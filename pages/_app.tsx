@@ -13,6 +13,7 @@ import { config } from "@fortawesome/fontawesome-svg-core" //* untuk mengatasi b
 import "@fortawesome/fontawesome-svg-core/styles.css" //* untuk mengatasi bug ukuran icon jadi sangat besar di Next.js
 import Head from "next/head"
 import Script from "next/script"
+import { Analytics } from "@vercel/analytics/react"
 
 // prettier-ignore
 library.add(faFacebook, faTwitter, faInstagram, faLine, faDiscord, faTiktok, faLinkedin, faTelegramPlane, faYoutube, faCoffee, faListOl, faBook, faPlay, faUsers, faCalendarMinus, faSitemap, faGlobe, faEye, faDownload, faTasks, faBalanceScale, faSortNumericUpAlt, faGripLinesVertical, faCircleNotch, faInfinity, faSatelliteDish, faWaveSquare, faMagnet, faBolt, faChevronCircleUp, faFile, faChartLine, faCogs, faBars, faCalculator, faPlug, faDrawPolygon, faParachuteBox, faGamepad, faQuestion)
@@ -46,6 +47,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ChakraProvider theme={customizedTheme}>
         <Component {...pageProps} />
       </ChakraProvider>
+      <Analytics />
     </>
   )
 }
