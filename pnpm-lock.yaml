@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   '@chakra-ui/react':
     specifier: ^2.2.4
@@ -10,6 +14,9 @@ dependencies:
   '@emotion/styled':
     specifier: ^11.9.3
     version: 11.9.3(@emotion/react@11.9.3)(@types/react@18.0.15)(react@18.2.0)
+  '@formbricks/js':
+    specifier: ^1.5.0
+    version: 1.5.0
   '@vercel/analytics':
     specifier: ^1.0.1
     version: 1.0.1
@@ -958,6 +965,7 @@ packages:
 
   /@emotion/memoize@0.7.4:
     resolution: {integrity: sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw==}
+    requiresBuild: true
     dev: false
     optional: true
 
@@ -1057,6 +1065,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@formbricks/js@1.5.0:
+    resolution: {integrity: sha512-Q8kwqwlWk4FAuVnOGeQBD7v160fg1bVgxXSIWy6q7oqb7o9xIxTrG7+tFBln6Os0G7ko9iPKKqcCWXQAoDE+Vg==}
+    dev: false
 
   /@fortawesome/fontawesome-common-types@6.1.2:
     resolution: {integrity: sha512-wBaAPGz1Awxg05e0PBRkDRuTsy4B3dpBm+zreTTyd9TH4uUM27cAL4xWyWR0rLJCrRwzVsQ4hF3FvM6rqydKPA==}

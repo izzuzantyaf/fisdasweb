@@ -14,6 +14,9 @@ import "@fortawesome/fontawesome-svg-core/styles.css" //* untuk mengatasi bug uk
 import Head from "next/head"
 import Script from "next/script"
 import { Analytics } from "@vercel/analytics/react"
+import formbricks from "@formbricks/js"
+import { useEffect } from "react"
+import { useRouter } from "next/router"
 
 // prettier-ignore
 library.add(faFacebook, faTwitter, faInstagram, faLine, faDiscord, faTiktok, faLinkedin, faTelegramPlane, faYoutube, faCoffee, faListOl, faBook, faPlay, faUsers, faCalendarMinus, faSitemap, faGlobe, faEye, faDownload, faTasks, faBalanceScale, faSortNumericUpAlt, faGripLinesVertical, faCircleNotch, faInfinity, faSatelliteDish, faWaveSquare, faMagnet, faBolt, faChevronCircleUp, faFile, faChartLine, faCogs, faBars, faCalculator, faPlug, faDrawPolygon, faParachuteBox, faGamepad, faQuestion, faBowlingBall, faHurricane)
@@ -33,7 +36,27 @@ const customizedTheme = extendTheme({
   },
 })
 
+if (typeof window !== "undefined") {
+  formbricks.init({
+    environmentId: process.env.NEXT_PUBLIC_FORMBRICKS_ENVIRONMENT_ID as string,
+    apiHost: process.env.NEXT_PUBLIC_FORMBRICKS_API_HOST as string,
+    debug: process.env.NEXT_PUBLIC_FORMBRICKS_DEBUG_MODE === "true", // remove when in production
+  })
+}
+
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter()
+
+  useEffect(() => {
+    // Connect next.js router to Formbricks
+    const handleRouteChange = formbricks?.registerRouteChange
+    router.events.on("routeChangeComplete", handleRouteChange)
+
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange)
+    }
+  }, [])
+
   return (
     <>
       <Head>
