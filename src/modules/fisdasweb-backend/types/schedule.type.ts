@@ -1,4 +1,4 @@
-import { Faculty } from "../lib/constants"
+import { Faculty } from "../../../core/lib/constants"
 
 export type Schedule = {
   _id: string

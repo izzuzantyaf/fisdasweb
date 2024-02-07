@@ -1,6 +1,6 @@
 import { Box, Heading, Button, Text, Link } from "@chakra-ui/react"
 import { languageCodeMapper } from "../core/lib/helpers/language-code-mapper.helper"
-import { Handout } from "../core/types/handout.type"
+import { Handout } from "../modules/fisdasweb-backend/types/handout.type"
 import MyIcon from "./my-icon.comp"
 
 export default function HandoutCard({ data }: { data: Handout }) {

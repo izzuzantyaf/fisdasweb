@@ -1,16 +1,17 @@
 import { ApiRoute } from "../lib/constants"
 import { getFetch } from "../lib/helpers/fetcher.helper"
-import { Assistant, AssistantFilter } from "../types/assistant.type"
+import {
+  Assistant,
+  AssistantFilter,
+} from "../../modules/fisdasweb-backend/types/assistant.type"
 
 export const assistantService = {
   getAll: async () => {
     const response = await getFetch(ApiRoute.ASSISTANT)
-    console.log("Get assistants API response :", response)
     return response.data as Assistant[]
   },
   search: async (keyword: string) => {
     const response = await getFetch(ApiRoute.ASSISTANT, `keyword=${keyword}`)
-    console.log("Search assistants API response :", response)
     return response.data as Assistant[]
   },
   searchLocal: (assistant: Assistant, keyword: string) => {

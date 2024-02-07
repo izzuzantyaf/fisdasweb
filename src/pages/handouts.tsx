@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import HandoutCard from "../components/handout-card.comp"
 import { repeatElement } from "../core/lib/helpers/repeat-element.helper"
 import { handoutService } from "../core/services/handout.service"
-import { Handout } from "../core/types/handout.type"
+import { Handout } from "../modules/fisdasweb-backend/types/handout.type"
 import MenuPageLayout from "../layouts/menu-page.layout"
 
 export default function HandoutPage() {

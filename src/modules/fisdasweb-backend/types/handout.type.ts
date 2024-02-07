@@ -1,4 +1,4 @@
-import { Faculty, Language } from "../lib/constants"
+import { Faculty, Language } from "../../../core/lib/constants"
 
 export type Handout = {
   _id: string

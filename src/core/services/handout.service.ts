@@ -1,6 +1,6 @@
 import { ApiRoute } from "../lib/constants"
 import { getFetch } from "../lib/helpers/fetcher.helper"
-import { Handout } from "../types/handout.type"
+import { Handout } from "../../modules/fisdasweb-backend/types/handout.type"
 
 export const handoutService = {
   getAll: async () => {

@@ -1,4 +1,4 @@
-import { MyResponse } from "../../types/my-response.type"
+import { MyResponse } from "../../../modules/fisdasweb-backend/types/my-response.type"
 
 export const getFetch = async (path: string, query?: string) => {
   const url =

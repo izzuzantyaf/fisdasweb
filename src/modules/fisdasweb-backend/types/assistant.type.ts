@@ -1,4 +1,4 @@
-import { AssistantLevel, Gender } from "../lib/constants"
+import { AssistantLevel, Gender } from "../../../core/lib/constants"
 
 export type Assistant = {
   _id: string

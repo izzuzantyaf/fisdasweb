@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import MenuPageLayout from "../layouts/menu-page.layout"
-import { Schedule } from "../core/types/schedule.type"
+import { Schedule } from "../modules/fisdasweb-backend/types/schedule.type"
 import { scheduleService } from "../core/services/schedule.service"
 import { Box, Heading, Text } from "@chakra-ui/react"
 import Head from "next/head"

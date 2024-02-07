@@ -7,7 +7,7 @@ import {
   PreTaskMaterial,
   SimulatorMaterial,
   VideoMaterial,
-} from "../types/practicum-material.type"
+} from "../../modules/fisdasweb-backend/types/practicum-material.type"
 
 export const practicumMaterialService = {
   getAll: async () => {

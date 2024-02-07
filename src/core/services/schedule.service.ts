@@ -1,6 +1,6 @@
 import { ApiRoute } from "../lib/constants"
 import { getFetch } from "../lib/helpers/fetcher.helper"
-import { Schedule } from "../types/schedule.type"
+import { Schedule } from "../../modules/fisdasweb-backend/types/schedule.type"
 
 export const scheduleService = {
   getAll: async () => {

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import MenuPageLayout from "../layouts/menu-page.layout"
-import { VideoMaterial } from "../core/types/practicum-material.type"
+import { VideoMaterial } from "../modules/fisdasweb-backend/types/practicum-material.type"
 import { practicumMaterialService } from "../core/services/practicum-material.service"
 import ModuleInfo from "../components/module-info.comp"
 import { Box } from "@chakra-ui/react"

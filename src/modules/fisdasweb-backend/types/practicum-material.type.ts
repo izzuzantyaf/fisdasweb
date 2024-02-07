@@ -1,4 +1,4 @@
-import { Language } from "../lib/constants"
+import { Language } from "../../../core/lib/constants"
 
 type PreTask = {
   url: string

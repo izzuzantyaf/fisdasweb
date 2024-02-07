@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import MenuPageLayout from "../layouts/menu-page.layout"
 import { organigramService } from "../core/services/organigram.service"
-import { Organigram } from "../core/types/organigram.type"
+import { Organigram } from "../modules/fisdasweb-backend/types/organigram.type"
 import Head from "next/head"
 
 export default function OrganigramPage() {

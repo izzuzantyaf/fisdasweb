@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import PracticumMaterialCardWithLinkButton from "../components/practicum-material-info-with-link.comp"
 import { repeatElement } from "../core/lib/helpers/repeat-element.helper"
 import { practicumMaterialService } from "../core/services/practicum-material.service"
-import { SimulatorMaterial } from "../core/types/practicum-material.type"
+import { SimulatorMaterial } from "../modules/fisdasweb-backend/types/practicum-material.type"
 import MenuPageLayout from "../layouts/menu-page.layout"
 
 export default function PracticumSimulatorPage() {

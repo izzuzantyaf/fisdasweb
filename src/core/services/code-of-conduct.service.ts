@@ -1,6 +1,6 @@
 import { ApiRoute } from "../lib/constants"
 import { getFetch } from "../lib/helpers/fetcher.helper"
-import { CodeOfConduct } from "../types/code-of-conduct.type"
+import { CodeOfConduct } from "../../modules/fisdasweb-backend/types/code-of-conduct.type"
 
 export const codeOfConductService = {
   getAll: async () => {

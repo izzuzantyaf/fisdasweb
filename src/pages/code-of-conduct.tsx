@@ -2,7 +2,7 @@ import { Skeleton } from "@chakra-ui/react"
 import Head from "next/head"
 import { useEffect, useState } from "react"
 import { codeOfConductService } from "../core/services/code-of-conduct.service"
-import { CodeOfConduct } from "../core/types/code-of-conduct.type"
+import { CodeOfConduct } from "../modules/fisdasweb-backend/types/code-of-conduct.type"
 import MenuPageLayout from "../layouts/menu-page.layout"
 
 export default function CodeOfConductPage() {

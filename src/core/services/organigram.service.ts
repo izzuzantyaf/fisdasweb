@@ -1,6 +1,6 @@
 import { ApiRoute } from "../lib/constants"
 import { getFetch } from "../lib/helpers/fetcher.helper"
-import { Organigram } from "../types/organigram.type"
+import { Organigram } from "../../modules/fisdasweb-backend/types/organigram.type"
 
 export const organigramService = {
   getAll: async () => {

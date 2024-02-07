@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import MenuPageLayout from "../layouts/menu-page.layout"
 import Head from "next/head"
-import { PreTaskMaterial } from "../core/types/practicum-material.type"
+import { PreTaskMaterial } from "../modules/fisdasweb-backend/types/practicum-material.type"
 import { practicumMaterialService } from "../core/services/practicum-material.service"
 import { SimpleGrid, Skeleton } from "@chakra-ui/react"
 import { repeatElement } from "../core/lib/helpers/repeat-element.helper"
