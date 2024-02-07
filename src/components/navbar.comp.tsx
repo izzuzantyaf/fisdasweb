@@ -1,4 +1,4 @@
-import fisdasLogoPath from "../public/img/fisdas-logo-min.png"
+import fisdasLogoPath from "/img/fisdas-logo-min.png"
 import { menu } from "../core/lib/constants"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useEffect } from "react"
@@ -21,10 +21,10 @@ function FisdasLogo() {
     <Box className="logo" cursor="pointer">
       <Link href="/">
         <Image
-          src={fisdasLogoPath}
+          src="/img/fisdas-logo-min.png"
           alt="fisdas-logo"
-          height="24px"
-          width="36px"
+          height={24}
+          width={36}
         />
       </Link>
     </Box>
@@ -32,24 +32,24 @@ function FisdasLogo() {
 }
 
 function DropDownMenu() {
-  useEffect(() => {
-    const hamburgerIcon = document.querySelector(".hamburger-icon")
-    const dropdownMenu = document.querySelector(".dropdown")
-    const dropDownOverlay = document.querySelector(".dropdown-overlay")
-    hamburgerIcon.addEventListener("click", () => {
-      if (dropDownOverlay.classList.contains("hidden")) {
-        dropDownOverlay.classList.replace("hidden", "fixed")
-      } else {
-        dropDownOverlay.classList.replace("fixed", "hidden")
-      }
-    })
-    dropDownOverlay.addEventListener("click", (e) => {
-      if (e.target !== dropdownMenu) {
-        dropDownOverlay.classList.replace("fixed", "hidden")
-      }
-    })
-    return () => {}
-  }, [])
+  //   useEffect(() => {
+  //     const hamburgerIcon = document.querySelector(".hamburger-icon")
+  //     const dropdownMenu = document.querySelector(".dropdown")
+  //     const dropDownOverlay = document.querySelector(".dropdown-overlay")
+  //     hamburgerIcon.addEventListener("click", () => {
+  //       if (dropDownOverlay.classList.contains("hidden")) {
+  //         dropDownOverlay.classList.replace("hidden", "fixed")
+  //       } else {
+  //         dropDownOverlay.classList.replace("fixed", "hidden")
+  //       }
+  //     })
+  //     dropDownOverlay.addEventListener("click", (e) => {
+  //       if (e.target !== dropdownMenu) {
+  //         dropDownOverlay.classList.replace("fixed", "hidden")
+  //       }
+  //     })
+  //     return () => {}
+  //   }, [])
 
   return (
     <div className="navigation">
@@ -94,6 +94,7 @@ export default function Navbar() {
                 <MenuItem
                   icon={
                     <Icon>
+                      {/* @ts-ignore */}
                       <FontAwesomeIcon icon={menu.faIconName} />
                     </Icon>
                   }

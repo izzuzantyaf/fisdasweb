@@ -4,6 +4,7 @@ export default function ModuleList(props: any) {
   const modules = props.list
   return (
     <div className="module-list grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* @ts-ignore */}
       {modules.map(({ link, iconName, title }, index) => (
         <a key={index} href={link} target="_blank" rel="noopener noreferrer">
           <div

@@ -35,11 +35,13 @@ function PracticumVideoPage() {
   }
 
   const resizeVideoFrame = () => {
+    // @ts-ignore
     setVideoFrameHeight(0.5625 * videoFrame.current.offsetWidth)
   }
 
   useEffect(() => {
     getPracticumVideos()
+    // @ts-ignore
     setVideoFrameHeight(0.5625 * videoFrame.current.offsetWidth)
     // menambahkan event listener pada saat ukuran window browser di ubah agar aspect ratio frame video tetap 16:9
     window.addEventListener("resize", resizeVideoFrame)
@@ -63,6 +65,7 @@ function PracticumVideoPage() {
             {/* video player */}
             <div className="player md:col-span-2 flex flex-col gap-6">
               <iframe
+                // @ts-ignore
                 ref={videoFrame}
                 className="practicum-video bg-gray-200 rounded-xl"
                 title={selectedVideo?.name}

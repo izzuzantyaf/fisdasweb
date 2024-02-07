@@ -1,3 +1,5 @@
+"use client"
+
 import { menu } from "../core/lib/constants"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Navbar from "../components/navbar.comp"

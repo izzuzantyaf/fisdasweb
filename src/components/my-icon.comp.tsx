@@ -20,6 +20,7 @@ export default function MyIcon({
       {...rest}
     >
       <Icon fontSize={fontSize}>
+        {/* @ts-ignore */}
         <FontAwesomeIcon icon={faIconName ?? "question"} />
       </Icon>
     </Box>
