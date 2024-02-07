@@ -36,18 +36,28 @@ const customizedTheme = extendTheme({
   },
 })
 
+const shouldInitFormbricks =
+  process.env.NEXT_PUBLIC_FORMBRICKS_ENVIRONMENT_ID &&
+  process.env.NEXT_PUBLIC_FORMBRICKS_API_HOST
+    ? true
+    : false
+
 if (typeof window !== "undefined") {
-  formbricks.init({
-    environmentId: process.env.NEXT_PUBLIC_FORMBRICKS_ENVIRONMENT_ID as string,
-    apiHost: process.env.NEXT_PUBLIC_FORMBRICKS_API_HOST as string,
-    debug: process.env.NEXT_PUBLIC_FORMBRICKS_DEBUG_MODE === "true", // remove when in production
-  })
+  if (shouldInitFormbricks)
+    formbricks.init({
+      environmentId: process.env
+        .NEXT_PUBLIC_FORMBRICKS_ENVIRONMENT_ID as string,
+      apiHost: process.env.NEXT_PUBLIC_FORMBRICKS_API_HOST as string,
+      debug: process.env.NEXT_PUBLIC_FORMBRICKS_DEBUG_MODE === "true", // remove when in production
+    })
 }
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
 
   useEffect(() => {
+    if (!shouldInitFormbricks) return
+
     // Connect next.js router to Formbricks
     const handleRouteChange = formbricks?.registerRouteChange
     router.events.on("routeChangeComplete", handleRouteChange)
